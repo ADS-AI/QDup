@@ -2,4 +2,4 @@
 
 ### Pipeline of the model
 
-[Workflow](./)
+[Workflow](./Project-8-workflow.drawio.svg)
