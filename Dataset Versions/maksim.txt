@@ -1,6 +1,0 @@
-hi 
-<<<<<<< HEAD
-mkasdmaso
-=======
-bh ht h h jy j 
->>>>>>> 6f57d602292ee81a0ad6a30d9ba950f46d7c27b7
