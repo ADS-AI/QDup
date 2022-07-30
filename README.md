@@ -1,3 +1,5 @@
+# Project 8. Question similarity.
 
-Repo to find similarity between questions to surface or retrieve duplicate questions.
+### Pipeline of the model
 
+[Workflow](./)
