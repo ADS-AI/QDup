@@ -1,4 +1,5 @@
+# Project 8. Question similarity.
 
-Repo to find similarity between questions to surface or retrieve duplicate questions.
+### Pipeline of the model
 
-Sample data for data augmentation training. - https://drive.google.com/file/d/1YEANzVGlJr8oYhb7bqtuUGgkkWAJ4-Ag/view?usp=sharing
+<img src="./Project-8-workflow.drawio.svg">
