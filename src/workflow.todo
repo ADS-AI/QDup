@@ -21,3 +21,5 @@ question_id will be used as primary key in all three files
 4) question_ners.json : [ questionId, questionNERs ]
 
 5) Keywords.json : [ questionId, questionKeywords ]
+
+Preprocessing - Correction spellings, elements name Cu -> copper, can't -> cannot, pi symbol to pi , combinations - combination ?

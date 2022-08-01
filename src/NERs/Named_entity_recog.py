@@ -1,9 +1,17 @@
 import json
 import nltk
 import os
-from nltk import word_tokenize
-nltk.download('punkt')
 import spacy
+import re
+from nltk.stem import WordNetLemmatizer 
+nltk.download('omw-1.4')
+nltk.download('wordnet')
+
+# spacy download en 
+
+articles = set(['a', 'the', 'an', 's'])
+nlp = spacy.load("en_core_web_sm")
+lemmatizer = WordNetLemmatizer()
 
 def load_data():
 
@@ -20,51 +28,71 @@ def load_data():
         return None
     
 
+
 def generate_NER(ques):
+
+    words = nltk.word_tokenize(ques)
+    words = [word if word not in articles else '' for word in words]
+
+    lemmatized_words = ' '.join([lemmatizer.lemmatize(w) for w in words])
+    lemmatized_words = re.sub(' +', ' ', lemmatized_words)
+    lemmatized_words = re.sub("'s", '',lemmatized_words )
+
+    NERs_tokens = nlp(lemmatized_words)
+
     ques_NERs = []
 
+    for token in NERs_tokens.ents:
+        ques_NERs.append(str(token.text))
+    
+    return ques_NERs
 
+def Evaluate_NERs(query_NERs, question_NERs):    # Can add word embeddings, synonyms, etc checks here
 
-def jaccard_score(query_tokens, question_tokens):
+    print(query_NERs)
+    print(question_NERs)
 
-    query_tokens = set(query_tokens)
-    question_tokens = set(question_tokens)
+    if len(query_NERs) == 0 or len(question_NERs) == 0:
+        return True
 
-    common = len(query_tokens & question_tokens)
-    union = len(query_tokens | question_tokens)
+    for NERs in question_NERs:
+        if NERs not in query_NERs:           
+            return False
 
-    return common/union
+    for NERs in query_NERs:
+        if NERs not in question_NERs:
+            return False
 
-def main_jaccard_search(candidates, query_question, threshold, duplicate_threshold = 0.99):
+    return True
+
+def check_NERs(candidates, query_question):
 
     data = load_data()
 
-    query_tokens = generate_tokens(query_question)
-    # print(query_tokens)
-
+    query_NERs = generate_NER(query_question)
+    
     passed_candidates = []
-    duplicate_candidates = []
 
     for ques_id in candidates:
 
         try :
 
-            score = jaccard_score(query_tokens, data[ques_id])
+            result = Evaluate_NERs(query_NERs, data[ques_id])
 
-            if score >= duplicate_threshold :
-                duplicate_candidates.append(ques_id)
-
-            elif score >= threshold :
+            if result == True :
                 passed_candidates.append(ques_id)
 
         except:
 
-            # print("Key not found : " + ques_id)
+            print("Key not found : " + ques_id)
             continue 
 
-    return duplicate_candidates, passed_candidates
+    return passed_candidates
 
-load_data()
+# data = load_data()
+# print(data['2016891'])
+
+# print(generate_NER("in a triple column cash book"))
 
 
 
