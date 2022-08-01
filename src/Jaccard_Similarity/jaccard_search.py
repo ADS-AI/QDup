@@ -1,5 +1,6 @@
 import json
 import nltk
+import os
 from nltk import bigrams, trigrams, word_tokenize
 nltk.download('punkt')
 
@@ -7,12 +8,15 @@ nltk.download('punkt')
 def load_data():
 
     try :
-        data = json.load(open('Source Code/Jaccard_Similarity/tokenised_question.json', encoding='utf-8'))
+        path_file_tkn = os.getcwd()+ './tokenised_question.json';
+        data = json.load(open(path_file_tkn, encoding='utf-8'))
+        print(data['421709'])
         return data
 
     except:
         print("Error loading data")
         return None
+    
 
 def generate_tokens(ques):
     tokens = nltk.word_tokenize(ques)
@@ -49,15 +53,9 @@ def main_jaccard_search(candidates, query_question, threshold):
 
         except:
 
-            print("Key not founnd : " + ques_id)
+            print("Key not found : " + ques_id)
             continue 
 
     return passed_candidates
 
-
-
-
-
-
-
-
+load_data()

@@ -1,5 +1,5 @@
-from ctypes import pointer
 import json
+import os
 from Preprocessing import main_preprocessing as pre
 from Jaccard_Similarity import jaccard_search as jaccard
 
@@ -8,7 +8,9 @@ query_question = input()
 
 query_question = pre.preprocess(query_question)
 
-question_texts = json.load(open('Source Code/Datasets/questiontext.json', encoding='utf-8'))
+path_file_qtxt = os.getcwd()+ '/Datasets/questiontext.json'
+
+question_texts = json.load(open(path_file_qtxt, encoding='utf-8'))
 
 potential_candidates = list(question_texts.keys())
 
@@ -20,7 +22,7 @@ potential_candidates = list(question_texts.keys())
     Reduce the search space using jaccard similarity
 '''
 
-potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, 0.7)
+potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, 0.1)
 
 print("Potential_candidates : ")
 
