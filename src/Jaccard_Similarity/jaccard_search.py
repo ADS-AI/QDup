@@ -8,9 +8,9 @@ nltk.download('punkt')
 def load_data():
 
     try :
-        path_file_tkn = os.getcwd()+ './tokenised_question.json';
+        path_file_tkn = os.path.join(os.getcwd(), 'Jaccard_Similarity')
+        path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
-        print(data['421709'])
         return data
 
     except:
@@ -53,7 +53,7 @@ def main_jaccard_search(candidates, query_question, threshold):
 
         except:
 
-            print("Key not found : " + ques_id)
+            # print("Key not found : " + ques_id)
             continue 
 
     return passed_candidates
