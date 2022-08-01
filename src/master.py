@@ -1,5 +1,4 @@
 import json
-from multiprocessing.reduction import duplicate
 import os
 from Preprocessing import main_preprocessing as pre
 from Jaccard_Similarity import jaccard_search as jaccard

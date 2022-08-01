@@ -1,23 +1,23 @@
 import json
 import nltk
 import os
-from nltk import bigrams, trigrams, word_tokenize
+from nltk import  word_tokenize
 nltk.download('punkt')
 
 
 def load_data():
 
-    # try :
+    try :
         path_file_qtxt = os.getcwd()
         path_file_qtxt = os.path.join(path_file_qtxt, 'src')
-        path_file_tkn = os.path.join(path_file_qtxt, 'Jaccard_Similarity')
+        path_file_tkn = os.path.join(path_file_qtxt, 'Datasets')
         path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data
 
-    # except:
-    #     print("Error loading data")
-    #     return None
+    except:
+        print("Error loading data")
+        return None
     
 
 def generate_tokens(ques):
