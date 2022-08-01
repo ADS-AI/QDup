@@ -3,7 +3,7 @@ import json
 from Preprocessing import main_preprocessing as pre
 from Jaccard_Similarity import jaccard_search as jaccard
 
-print("Enter the question : ")
+print("Enter the question : ", end = '')
 query_question = input()
 
 query_question = pre.preprocess(query_question)
@@ -22,14 +22,14 @@ potential_candidates = list(question_texts.keys())
 
 potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, 0.7)
 
-print("Potential_candidates")
+print("Potential_candidates : ")
 
 for id in potential_candidates: 
-    print(question_texts[id])
+    print(id + " : " + question_texts[id])
 
 
 
-# 2072381
+# 2072381 the π acid ligand which uses its d orbital during synergic bonding in its complex compound
 
 
 
