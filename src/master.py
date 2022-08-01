@@ -9,8 +9,8 @@ query_question = input()
 query_question = pre.preprocess(query_question)
 
 path_file_qtxt = os.getcwd()
-path_file_qtxt = os.join(path_file_qtxt, 'Datasets')
-path_file_qtxt = os.join(path_file_qtxt, 'questiontext.json')
+path_file_qtxt = os.path.join(path_file_qtxt, 'Datasets')
+path_file_qtxt = os.path.join(path_file_qtxt, 'questiontext.json')
 question_texts = json.load(open(path_file_qtxt, encoding='utf-8'))
 
 potential_candidates = list(question_texts.keys())
