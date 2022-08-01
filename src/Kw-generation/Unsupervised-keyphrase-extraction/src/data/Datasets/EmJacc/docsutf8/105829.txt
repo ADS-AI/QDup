@@ -1,0 +1,1 @@
+in an ac generator a coil with n turns all of the same area a and total resistance r rotates with frequency w in a magnetic field b find the maximum value of emf in the coil 

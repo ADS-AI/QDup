@@ -1,0 +1,1 @@
+define autonumber data type in base 

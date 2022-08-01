@@ -1,0 +1,1 @@
+differentiate between bar chart and column chart 

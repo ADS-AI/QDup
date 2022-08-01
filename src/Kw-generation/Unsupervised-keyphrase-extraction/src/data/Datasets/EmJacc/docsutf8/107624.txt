@@ -1,0 +1,1 @@
+the type of data that can be entered in a worksheet is 

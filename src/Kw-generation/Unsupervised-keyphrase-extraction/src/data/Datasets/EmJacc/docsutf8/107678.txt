@@ -1,0 +1,1 @@
+explain in brief the automatic recalculation feature of a spreadsheet with the help of an example 

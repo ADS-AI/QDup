@@ -1,0 +1,1 @@
+a sphere of mass m and radius r rolls without slipping on inclined plane of inclination θ find the linear acceleration of the system and force of friction acting on it what should be the minimum coefficient of static friction to support pure rolling 

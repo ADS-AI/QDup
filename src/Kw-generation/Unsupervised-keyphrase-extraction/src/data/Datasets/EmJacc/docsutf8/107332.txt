@@ -1,0 +1,1 @@
+a teacher has to send a letter with same content to all parents of students with similar complaints the addresses of all such parents are stored in a separate document name the feature which will help the manager to achieve the same 

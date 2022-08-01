@@ -1,0 +1,1 @@
+priya is a programmer in an institution and is asked to handle the records containing personal information of the teachers in this institution suggest five fieldnames that you think must be present in the table called teacherinfo 

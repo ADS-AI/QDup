@@ -1,0 +1,1 @@
+how can you convert an object to a symbol 

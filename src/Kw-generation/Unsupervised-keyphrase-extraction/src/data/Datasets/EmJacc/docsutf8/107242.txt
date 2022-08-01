@@ -1,0 +1,1 @@
+a program that appears harmless but actually performs malicious functions is known as 

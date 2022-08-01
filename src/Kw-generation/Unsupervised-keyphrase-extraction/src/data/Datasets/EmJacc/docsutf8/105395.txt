@@ -1,0 +1,1 @@
+calculate the number of atoms present in face centered cubic unit cell 

@@ -1,0 +1,1 @@
+small boxes around a part of a chart that indicates that it is selected are called 

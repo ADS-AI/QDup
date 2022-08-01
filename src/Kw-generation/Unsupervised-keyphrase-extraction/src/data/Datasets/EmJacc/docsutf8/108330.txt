@@ -1,0 +1,1 @@
+to animate a text we use the option called 

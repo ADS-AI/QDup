@@ -1,0 +1,1 @@
+how can you drag an instance of a symbol from the library 

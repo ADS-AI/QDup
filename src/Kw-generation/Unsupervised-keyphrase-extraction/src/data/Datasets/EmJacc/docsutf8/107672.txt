@@ -1,0 +1,1 @@
+from the following techniques which one is suitable for maintaining data integrity and which one is suitable for ensuring security of information data encryption and password protection backing up data regularly 

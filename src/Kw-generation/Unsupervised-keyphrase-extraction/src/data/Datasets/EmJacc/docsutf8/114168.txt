@@ -1,0 +1,1 @@
+define the following devices a keyboard b mouse c monitor 

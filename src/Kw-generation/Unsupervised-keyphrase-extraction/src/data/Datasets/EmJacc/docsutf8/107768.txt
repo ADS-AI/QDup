@@ -1,0 +1,1 @@
+name the three pseudo attributes of xml declaration 

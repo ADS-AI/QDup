@@ -1,0 +1,1 @@
+name the different types of custom effects that can be applied to an object 

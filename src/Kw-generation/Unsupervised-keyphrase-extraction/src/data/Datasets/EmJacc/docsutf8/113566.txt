@@ -1,0 +1,1 @@
+name the view that provides detailed information about files 

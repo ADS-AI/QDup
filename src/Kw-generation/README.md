@@ -1,0 +1,1 @@
+Need to unzip the file from [here](http://nlp.stanford.edu/software/stanford-corenlp-full-2018-02-27.zip)

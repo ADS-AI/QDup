@@ -1,0 +1,1 @@
+shubha has written a code for inserting an image in her html document but she has not mentioned the alignment of that image the default alignment of images which are inserted in the web page is 

@@ -1,0 +1,1 @@
+an artificial satellite is moving in a circular orbit around the earth with a speed equal to half of the escape speed from the surface of the earth determine a the height of the satellite above the earth's surface b if the satellite is stopped suddenly in its orbit and allowed to fall freely towards the earth find the speed with which it hits the surface of the earth 

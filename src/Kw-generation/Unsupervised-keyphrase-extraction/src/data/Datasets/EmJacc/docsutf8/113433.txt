@@ -1,0 +1,1 @@
+name the query used for grouping records 

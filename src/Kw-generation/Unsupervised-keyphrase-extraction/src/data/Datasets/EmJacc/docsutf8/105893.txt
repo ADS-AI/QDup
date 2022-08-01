@@ -1,0 +1,1 @@
+a lens of refractive index μ becomes a lens of focal length f ' when immersed in a liquid of refractive index μ' if the focal length of lens in air is f the focal length in liquids will be 

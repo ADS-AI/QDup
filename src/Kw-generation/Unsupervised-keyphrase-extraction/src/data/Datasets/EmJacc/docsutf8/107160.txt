@@ -1,0 +1,1 @@
+write one example of each field for which you would use i text data type and ii memo 

@@ -1,0 +1,1 @@
+for objects outside a sphere of uniform density the sphere behaves as if 

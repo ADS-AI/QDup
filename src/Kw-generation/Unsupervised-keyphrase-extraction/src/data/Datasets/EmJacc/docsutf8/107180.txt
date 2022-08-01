@@ -1,0 +1,1 @@
+write one example for which memo data type is used 

@@ -1,0 +1,1 @@
+the mid element is compared repeatedly with the value to search in 

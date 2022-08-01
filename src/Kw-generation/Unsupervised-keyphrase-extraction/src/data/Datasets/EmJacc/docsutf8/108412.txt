@@ -1,0 +1,1 @@
+mrs mehta is creating a worksheet with the details such as ename eid phnno etc for all the employees who joined in the month of august she wants to select the entire row containing headings ename eid phnno etc for another worksheet for sept month to select the current row completely press 

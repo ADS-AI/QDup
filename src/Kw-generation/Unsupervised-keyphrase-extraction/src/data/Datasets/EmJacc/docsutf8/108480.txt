@@ -1,0 +1,1 @@
+create an html code using any two types of ordered lists it should include three list items namely cricket tennis and soccer 

@@ -1,0 +1,1 @@
+enlist the common properties of the text box control 

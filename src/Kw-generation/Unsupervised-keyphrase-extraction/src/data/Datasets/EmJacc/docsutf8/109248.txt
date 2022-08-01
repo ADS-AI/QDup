@@ -1,0 +1,1 @@
+a body a moves with a uniform acceleration a and zero initial velocity another body b starting from the same point moves in the same direction with a constant velocity v the two bodies will meet after a time 

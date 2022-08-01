@@ -1,0 +1,1 @@
+a particle covers half of the circle of radius r then the displacement and distance of the particle are respectively 

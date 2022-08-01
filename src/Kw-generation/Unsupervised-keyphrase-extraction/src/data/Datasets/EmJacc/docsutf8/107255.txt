@@ -1,0 +1,1 @@
+ajay inserted his atm card into the automatic teller machine atm in a bank the machine read his id number printed on the card and then asked him to enter his pin code password in dbms you can call it as 

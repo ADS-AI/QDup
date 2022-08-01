@@ -1,0 +1,1 @@
+state true and false a a true virus can infect another system without human intervention b micro viruses are created through application programs c logic bomb is a malware d worm is a self replicated virus e spying means that people should be updated regularly about emails which they haven't actually asked for f melissa a is a boot sector virus 

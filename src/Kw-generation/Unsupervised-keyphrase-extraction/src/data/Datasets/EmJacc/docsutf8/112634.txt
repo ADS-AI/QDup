@@ -1,0 +1,1 @@
+a particle reaches its highest point when it has covered exactly one half of its horizontal range after reaching the highest point the velocity of the particle 

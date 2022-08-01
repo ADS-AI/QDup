@@ -1,0 +1,1 @@
+if the heat content of y is greater than x then the reaction x y is 

@@ -1,0 +1,1 @@
+the database file of base is stored with extension 

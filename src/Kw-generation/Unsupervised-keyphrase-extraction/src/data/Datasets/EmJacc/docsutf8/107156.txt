@@ -1,0 +1,1 @@
+a programmer at the state bank of india has been asked to create a table account with accno and accname in ooo base the data type for accname field is 

@@ -1,0 +1,1 @@
+a body is moving unidirectionally under the influence of a source of constant power its displacement in time t is proportional to 

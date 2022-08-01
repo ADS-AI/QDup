@@ -1,0 +1,1 @@
+raghav singhal has to store data of his monthly expenditure for a period of one year and perform some calculations and analysis which office application will you suggest raghav to use for this purpose 

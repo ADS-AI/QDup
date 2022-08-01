@@ -1,0 +1,1 @@
+a missile is launched with a velocity less than zero escape velocity the sum of its kinetic energy and potential energy is 

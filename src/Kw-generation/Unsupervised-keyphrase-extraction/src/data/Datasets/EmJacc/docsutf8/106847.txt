@@ -1,0 +1,1 @@
+a slide component that shows only title and main text is known as 

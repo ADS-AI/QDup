@@ -1,0 +1,1 @@
+state true and false a xml is a subset of sgml b xml is a meta language c the empty element contains a combination of child elements and character data d in xml white spaces refer to spaces tabs carriage returns and blank lines e xml supports four types of elements 

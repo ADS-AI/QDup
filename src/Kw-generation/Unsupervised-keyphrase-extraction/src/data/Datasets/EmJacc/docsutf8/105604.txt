@@ -1,0 +1,1 @@
+derive an expression for magnetic potential energy when a small compass needle of magnetic moment m is placed in magnetic field b 

@@ -1,0 +1,1 @@
+name the tool that is used to select stroke fill 

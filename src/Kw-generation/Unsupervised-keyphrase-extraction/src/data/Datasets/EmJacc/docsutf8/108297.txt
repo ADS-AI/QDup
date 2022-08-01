@@ -1,0 +1,1 @@
+assuming earth to be a sphere of mass m and radius r the acceleration due to gravity g is proportional to 

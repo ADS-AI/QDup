@@ -1,0 +1,1 @@
+which extra hardware is required for adding and testing narration in a presentation tool 

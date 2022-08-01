@@ -1,0 +1,1 @@
+in order to connect to another computer by ftp computer must 

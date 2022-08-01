@@ -1,0 +1,1 @@
+how can cells of a table be merged 

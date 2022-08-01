@@ -1,0 +1,1 @@
+name the memory which is directly accessible to the cpu 

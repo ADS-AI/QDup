@@ -1,0 +1,1 @@
+there is one method in ftp which is used to allow general public to access files 

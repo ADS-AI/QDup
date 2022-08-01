@@ -1,0 +1,1 @@
+for uploading single file on an ftp site we use the command 

@@ -1,0 +1,1 @@
+which option is used to insert pictures in a worksheet without taking pictures from any other file 

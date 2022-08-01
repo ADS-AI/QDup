@@ -1,0 +1,1 @@
+a solid sphere contains a uniformly distributed charge of density ρ what is the electric field inside the sphere at a distance r from the centre 

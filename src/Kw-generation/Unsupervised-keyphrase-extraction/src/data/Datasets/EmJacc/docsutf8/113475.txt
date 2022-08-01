@@ -1,0 +1,1 @@
+write the steps to delete a row from a table 

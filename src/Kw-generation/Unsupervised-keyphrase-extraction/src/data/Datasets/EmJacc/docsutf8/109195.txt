@@ -1,0 +1,1 @@
+a constant torque is acting on a roller if starts from rest the roller makes n rotations in t seconds the angular acceleration will be 

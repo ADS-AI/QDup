@@ -1,0 +1,1 @@
+the default size of horizontal rule is 

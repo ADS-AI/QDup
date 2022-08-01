@@ -1,0 +1,1 @@
+to automatically merge common text with a set of data coming from a database to produce unique letters is known as 

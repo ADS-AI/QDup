@@ -1,0 +1,1 @@
+moment of inertia of a uniform circular disc about a diameter is i its moment of inertia about an axis to its plane and passing through a point on its rim will be 

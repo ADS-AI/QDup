@@ -1,0 +1,1 @@
+which field property specifies that the field can be left empty when entering data into a record 

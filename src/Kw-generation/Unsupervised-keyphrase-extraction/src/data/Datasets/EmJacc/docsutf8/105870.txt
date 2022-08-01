@@ -1,0 +1,1 @@
+which header file do the functions strcpy and strncat belong to 

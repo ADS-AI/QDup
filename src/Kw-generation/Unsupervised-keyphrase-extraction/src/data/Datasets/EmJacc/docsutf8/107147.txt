@@ -1,0 +1,1 @@
+akshita is working as a trainee in info systems noida she is asked to create a table employee with empno and empname in ooo base the data type for empname field is 

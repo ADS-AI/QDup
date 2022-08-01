@@ -1,0 +1,1 @@
+what precaution do we need to take before copying a file from an external storage device 

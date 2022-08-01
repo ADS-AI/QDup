@@ -1,0 +1,1 @@
+which component contains tools for creating and editing images 

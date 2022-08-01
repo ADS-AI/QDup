@@ -1,0 +1,1 @@
+explain the concept of differential backup with an example 

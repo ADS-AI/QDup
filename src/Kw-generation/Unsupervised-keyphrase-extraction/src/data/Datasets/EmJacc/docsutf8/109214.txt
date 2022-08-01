@@ -1,0 +1,1 @@
+a body performs uniform circular motion with an angular momentum l if the frequency of the motion in body is doubled and kinetic energy is reduced to half then its angular momentum will be 

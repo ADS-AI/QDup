@@ -1,0 +1,1 @@
+in which order are vb statements executed by default 

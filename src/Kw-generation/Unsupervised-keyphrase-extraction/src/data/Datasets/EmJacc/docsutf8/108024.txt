@@ -1,0 +1,1 @@
+priti is using calc to enter the name of all the employees who have joined the company in the months aug and sept in a cell text is by default 

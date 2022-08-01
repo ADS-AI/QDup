@@ -1,0 +1,1 @@
+a table named school containing data of students of the whole school is created where each record consists of several fields including admission no admission number rollno roll number name which field out of these three should be set as a primary key and why 

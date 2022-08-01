@@ -1,0 +1,1 @@
+madhur has created several drawing objects with the help of drawing toolbar now he wants to make a group of all the objects to group multiple drawing objects select the multiple drawing objects and then 

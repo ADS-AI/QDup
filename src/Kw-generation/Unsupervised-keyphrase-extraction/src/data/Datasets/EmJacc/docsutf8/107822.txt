@@ -1,0 +1,1 @@
+the maximum characters that a title can have is 
