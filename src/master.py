@@ -22,7 +22,7 @@ potential_candidates = list(question_texts.keys())
     Reduce the search space using jaccard similarity
 '''
 
-potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, 0.1)
+potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, 0.2)
 
 print("Potential_candidates : ")
 
