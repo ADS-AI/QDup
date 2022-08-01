@@ -1,0 +1,1 @@
+the bat file which is automatically loaded once dos is booted is 

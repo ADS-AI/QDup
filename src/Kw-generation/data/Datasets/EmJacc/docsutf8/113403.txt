@@ -1,0 +1,1 @@
+which component contains options for the currently selected tool 

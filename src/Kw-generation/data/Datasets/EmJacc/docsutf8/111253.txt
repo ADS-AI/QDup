@@ -1,0 +1,1 @@
+define the gibb 's free energy give an expression for the gibb's helmholtz equation 

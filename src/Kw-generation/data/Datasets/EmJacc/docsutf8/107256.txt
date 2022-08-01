@@ -1,0 +1,1 @@
+a health provider company has multiple offices in many different states many doctors work for the company and each doctor takes care of multiple patients some doctors just work in one office and others work in different offices on different days to keep information about each doctor such as name address contact phones area of specialization etc the company needs a an 

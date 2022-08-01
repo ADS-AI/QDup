@@ -1,0 +1,1 @@
+the gravitational potential at any point distant r from a point mass m is the work done in moving a unit mass from 

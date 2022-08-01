@@ -1,0 +1,1 @@
+the default length for text fix char is 

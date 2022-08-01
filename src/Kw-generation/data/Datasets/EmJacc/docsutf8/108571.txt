@@ -1,0 +1,1 @@
+write the steps to insert blank columns in a worksheet 

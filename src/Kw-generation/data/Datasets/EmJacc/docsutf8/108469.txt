@@ -1,0 +1,1 @@
+for copying selected text into a clipboard we use 

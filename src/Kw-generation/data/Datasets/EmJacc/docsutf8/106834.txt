@@ -1,0 +1,1 @@
+slide transition and custom animation are two options available in the presentation tools which option helps you include special effects on various textboxes and images during designing a slide 

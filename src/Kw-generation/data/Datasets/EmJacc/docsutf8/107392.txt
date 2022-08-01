@@ -1,0 +1,1 @@
+the correct syntax of the declaration that defines the xml version is 

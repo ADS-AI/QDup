@@ -1,0 +1,1 @@
+the elements that require a starting as well as ending tags is known as 

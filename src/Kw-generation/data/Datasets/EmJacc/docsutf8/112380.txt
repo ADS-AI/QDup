@@ -1,0 +1,1 @@
+explain sonar method to find the distance of submarines in sea 

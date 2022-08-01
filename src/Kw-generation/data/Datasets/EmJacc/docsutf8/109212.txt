@@ -1,0 +1,1 @@
+a ring of radius r and mass m rotates about an axis passing through its center and perpendicular to its plane with angular momentum ω its kinetic energy is 

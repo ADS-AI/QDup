@@ -1,0 +1,1 @@
+use nor gate to represent the boolean expression x y y z x z 

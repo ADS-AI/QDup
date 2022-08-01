@@ -1,0 +1,1 @@
+the distance travelled by a body is directly proportional to the square of the time taken its acceleration 

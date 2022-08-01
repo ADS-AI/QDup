@@ -1,0 +1,1 @@
+make an unordered list for shopping list with list items as bread maggi cereal and milk show the output in browser 

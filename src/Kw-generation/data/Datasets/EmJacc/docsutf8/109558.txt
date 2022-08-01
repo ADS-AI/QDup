@@ -1,0 +1,1 @@
+the condition where a constant internal environment is maintained is called 

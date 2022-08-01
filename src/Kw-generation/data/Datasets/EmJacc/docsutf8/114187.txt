@@ -1,0 +1,1 @@
+name the options used to manipulate the drawing in different ways 

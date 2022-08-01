@@ -1,0 +1,1 @@
+name the different types of mouse events that can be selected while we hyperlink an action button 

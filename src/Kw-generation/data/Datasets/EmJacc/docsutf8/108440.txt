@@ -1,0 +1,1 @@
+satya works as an accountant for a firm he is doing the calculations using calc to perform various operations he needs to enter data in a particular cell thus the cell that is active at a particular moment is known as 

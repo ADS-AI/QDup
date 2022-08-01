@@ -1,0 +1,1 @@
+which chart should be used to indicate daily fluctuation in temperatures 

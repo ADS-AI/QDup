@@ -1,0 +1,1 @@
+differentiate between copying and moving a block of text 

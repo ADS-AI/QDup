@@ -1,0 +1,1 @@
+list some points regarding frame by frame animation technique 

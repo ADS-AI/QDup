@@ -1,0 +1,1 @@
+the correct html tag for inserting an horizontal line is 

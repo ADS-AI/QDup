@@ -1,0 +1,1 @@
+the lowest value of n that allows g orbitals to exist is 

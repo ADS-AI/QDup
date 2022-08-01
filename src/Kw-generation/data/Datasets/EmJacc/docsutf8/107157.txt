@@ -1,0 +1,1 @@
+the max hospital has multiple branches in different states many doctors work for the company and each doctor takes care of multiple patients some doctors just work in one branch and others work in different branches on different days to keep information about each doctor such as name address contact phones area of specialisation and so on the hospital needs a an 

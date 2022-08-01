@@ -1,0 +1,1 @@
+which tab has to be clicked in the page setup dialog box to apply a new background to all the slides in the presentation tool 

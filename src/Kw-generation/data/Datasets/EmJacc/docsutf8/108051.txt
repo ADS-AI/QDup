@@ -1,0 +1,1 @@
+if we have created the table in the project we can also change the border of the table for this we have to select 

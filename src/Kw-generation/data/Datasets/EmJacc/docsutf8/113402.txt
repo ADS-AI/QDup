@@ -1,0 +1,1 @@
+which component displays the active image file 

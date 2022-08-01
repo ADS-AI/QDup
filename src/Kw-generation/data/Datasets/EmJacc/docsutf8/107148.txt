@@ -1,0 +1,1 @@
+akash works as a programmer with a marketing firm he has to create a table containing information about all the employees he desires to use a field type which lets him put an image as an entry in a field to store an object like image you need to create a field in table having field type as 

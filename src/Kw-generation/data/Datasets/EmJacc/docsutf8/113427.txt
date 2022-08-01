@@ -1,0 +1,1 @@
+write the html code to create two hyperlinks the first hyperlink refers to yahoo home page and the other hyperlink links your web page to a picture lying in the d drive show the output in browser 

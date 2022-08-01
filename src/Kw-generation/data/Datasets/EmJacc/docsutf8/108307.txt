@@ -1,0 +1,1 @@
+a person throws balls into air after every second the next ball is thrown when the velocity of the first ball is zero the height that the ball attains above his hand is 

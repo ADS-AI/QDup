@@ -1,0 +1,1 @@
+write the html code line to make the picture say picture gif show up on your page using the image source tag 

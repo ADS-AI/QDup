@@ -1,0 +1,1 @@
+find the moment of inertia of a solid sphere about a tangent to the sphere 

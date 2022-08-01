@@ -1,0 +1,1 @@
+convert the given expression into canonical sop form y z x' y 

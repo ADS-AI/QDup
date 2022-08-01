@@ -1,0 +1,1 @@
+the dispalcement of a particle is proportional to the cube of time then magnitude of its acceleration 

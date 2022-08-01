@@ -1,0 +1,1 @@
+the tool which is used for creating a blend of the foreground color and background color when you click and drag it is 

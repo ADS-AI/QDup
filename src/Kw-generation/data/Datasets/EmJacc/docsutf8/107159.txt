@@ -1,0 +1,1 @@
+distinguish between number and autonumber data type fields give example of each 

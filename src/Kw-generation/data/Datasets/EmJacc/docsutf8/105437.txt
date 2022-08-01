@@ -1,0 +1,1 @@
+each element is compared sequentially with the value to search in 

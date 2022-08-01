@@ -1,0 +1,1 @@
+if the text is printed either length wise or width wise it is known as 

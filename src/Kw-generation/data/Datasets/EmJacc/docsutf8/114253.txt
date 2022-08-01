@@ -1,0 +1,1 @@
+how can we increase or decrease the height and width of a table cell 

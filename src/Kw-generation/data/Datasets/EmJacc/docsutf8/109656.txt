@@ -1,0 +1,1 @@
+which sign is used to start a formula in ooo calc 

@@ -1,0 +1,1 @@
+which format should be given to the data that represents money 

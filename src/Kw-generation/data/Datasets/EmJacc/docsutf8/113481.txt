@@ -1,0 +1,1 @@
+which action button should be used to open the first slide of a presentation 

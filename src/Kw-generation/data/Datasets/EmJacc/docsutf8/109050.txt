@@ -1,0 +1,1 @@
+there are different types or format of file available over the network while using ftp service discuss these formats by distinguishing it in terms of ascii and binary file 

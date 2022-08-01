@@ -1,0 +1,1 @@
+a class that inherits features of another class is known as 

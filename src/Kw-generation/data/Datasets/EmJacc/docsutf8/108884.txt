@@ -1,0 +1,1 @@
+the html tag used to display the text in the browser s window is 

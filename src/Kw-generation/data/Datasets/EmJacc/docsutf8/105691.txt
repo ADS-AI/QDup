@@ -1,0 +1,1 @@
+count is a global integer declared outside class x its declaration would be 

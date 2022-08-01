@@ -1,0 +1,1 @@
+define neucleoside give the name of the nucleoside present in dna and rna 

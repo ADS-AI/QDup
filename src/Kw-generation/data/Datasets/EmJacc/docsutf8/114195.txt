@@ -1,0 +1,1 @@
+name the basic windows application used for editing 

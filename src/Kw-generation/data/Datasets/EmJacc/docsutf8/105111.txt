@@ -1,0 +1,1 @@
+convert the given into canonical sop form a c c d 

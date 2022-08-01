@@ -1,0 +1,1 @@
+the escape velocity of an object projected from the surface of a given planet doesn't depend on 

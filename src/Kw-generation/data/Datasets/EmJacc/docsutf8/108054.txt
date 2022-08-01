@@ -1,0 +1,1 @@
+akash has grouped the drawing object and moved it in other file now he wants to ungroup all the objects to ungroup multiple drawing objects we need to select the grouped object and then click at 

@@ -1,0 +1,1 @@
+the mode that needs to be on to add a new word or character in a document without losing the previous information is known as 

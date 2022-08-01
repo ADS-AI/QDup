@@ -1,0 +1,1 @@
+find the moment of inertia of a rod of length l about an axis passing through its mid point and perpendicular to it 

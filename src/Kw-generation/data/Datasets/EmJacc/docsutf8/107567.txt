@@ -1,0 +1,1 @@
+akash has been asked to fetch data of his supervisor in order to bring the data from multiple tables that are linked via common fields he should use 

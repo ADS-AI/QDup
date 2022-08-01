@@ -1,0 +1,1 @@
+calculate the frequency of first line in balmer series in spectrum of hydrogen atoms 

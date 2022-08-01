@@ -1,0 +1,1 @@
+what type of graph will you get when pv is plotted against p at constant temperature 

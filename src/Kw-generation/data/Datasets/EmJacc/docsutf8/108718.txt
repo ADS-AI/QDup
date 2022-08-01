@@ -1,0 +1,1 @@
+if we are running an ftp session on a web browser then by default we are logged in as anonymous user if we want to login as a different user then what will you do 

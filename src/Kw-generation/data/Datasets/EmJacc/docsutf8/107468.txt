@@ -1,0 +1,1 @@
+to count all function that just counts the number of entries we use 

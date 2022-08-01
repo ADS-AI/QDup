@@ -1,0 +1,1 @@
+when you create a field in ooo base what is the default data type 

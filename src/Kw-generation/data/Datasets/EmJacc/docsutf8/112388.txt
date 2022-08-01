@@ -1,0 +1,1 @@
+define angular acceleration of an object moving on a circular path deduce its relation with linear acceleration 

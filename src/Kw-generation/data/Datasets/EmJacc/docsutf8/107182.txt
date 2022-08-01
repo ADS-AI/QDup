@@ -1,0 +1,1 @@
+name two possible primary key fields for an employee table 

@@ -1,0 +1,1 @@
+name the view in which you can see one slide at a time and do any editing work on it 

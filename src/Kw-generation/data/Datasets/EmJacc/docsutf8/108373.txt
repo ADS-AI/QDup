@@ -1,0 +1,1 @@
+this view displays three panes i e the slides pane the slide and a task pane therefore this window is known as 

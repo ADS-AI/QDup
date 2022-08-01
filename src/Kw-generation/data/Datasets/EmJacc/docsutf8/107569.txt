@@ -1,0 +1,1 @@
+in a school student records are maintained the hostel also maintains records of all those school students who live in the hostel even though the records for hostel students are already maintained by the school the hostel keeps a separate copy of it which results in the duplication of the data this duplication of data is called 

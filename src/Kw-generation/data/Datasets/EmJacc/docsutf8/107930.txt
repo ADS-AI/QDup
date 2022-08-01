@@ -1,0 +1,1 @@
+to break a text flow and insert the horizontal rule the tag used is 

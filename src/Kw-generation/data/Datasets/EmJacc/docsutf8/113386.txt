@@ -1,0 +1,1 @@
+how can an animation effect be removed from an object 

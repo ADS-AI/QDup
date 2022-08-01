@@ -1,0 +1,1 @@
+the attribute that specifies a horizontal line to be rendered in one solid color noshaded instead of a shaded color is known as 

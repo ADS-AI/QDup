@@ -1,0 +1,1 @@
+name the attribute that is used to specify alternate text 

@@ -1,0 +1,1 @@
+explain the various steps to insert a table using the insert menu 

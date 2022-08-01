@@ -1,0 +1,1 @@
+if the image we are loading in the web page is not available then we want a text to appear in the image place holder the attribute that lets us define this text is 

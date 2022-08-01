@@ -1,0 +1,1 @@
+satya works as an accountant for a firm to perform various operations he needs to enter data in a particular cell when the cell is active at a particular moment it is known as 

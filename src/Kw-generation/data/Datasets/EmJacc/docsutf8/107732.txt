@@ -1,0 +1,1 @@
+akansha has used an image in her html code but she did not include the alt attribute now when she tried to run the code it did not display the image therefore we should add alternative text to our images 

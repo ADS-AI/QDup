@@ -1,0 +1,1 @@
+the type of backup in which only the data that changed since last backup is saved is known as 

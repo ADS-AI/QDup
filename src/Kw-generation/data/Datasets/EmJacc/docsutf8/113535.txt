@@ -1,0 +1,1 @@
+write down the steps to create an animation using frame by frame technique 

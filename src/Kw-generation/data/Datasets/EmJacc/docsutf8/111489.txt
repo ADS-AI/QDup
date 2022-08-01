@@ -1,0 +1,1 @@
+escape velocity of a planet is ve if the radius of the planet remains same and mass becomes four times then find the new escape velocity 

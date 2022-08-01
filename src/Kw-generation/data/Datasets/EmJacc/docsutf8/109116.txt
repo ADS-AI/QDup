@@ -1,0 +1,1 @@
+which attribute is used to set the background color of your web page with body tag 

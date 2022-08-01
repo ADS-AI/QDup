@@ -1,0 +1,1 @@
+assume that the orbit of an electron around the nucleus is a circle of diameter 'd' if the electron velocity is 'v' the centripetal acceleration of the electron is 

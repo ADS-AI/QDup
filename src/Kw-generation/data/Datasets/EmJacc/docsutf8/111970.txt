@@ -1,0 +1,1 @@
+two trains a and b are running in the same direction on parallel tracks such that a is faster than b if packets of equal weights are exchanged between the two then 

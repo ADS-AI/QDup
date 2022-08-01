@@ -1,0 +1,1 @@
+the fixed length for smallint is 

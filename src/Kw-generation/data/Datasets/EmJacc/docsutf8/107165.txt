@@ -1,0 +1,1 @@
+what is the importance of varchar field format type 

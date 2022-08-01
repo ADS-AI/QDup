@@ -1,0 +1,1 @@
+is it possible to print more than one variable using the print statement 

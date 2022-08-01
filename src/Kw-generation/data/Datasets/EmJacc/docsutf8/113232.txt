@@ -1,0 +1,1 @@
+what should be done if you want to select two objects at the same time 

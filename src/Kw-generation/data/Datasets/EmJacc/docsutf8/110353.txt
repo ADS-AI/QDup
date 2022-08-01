@@ -1,0 +1,1 @@
+the angular acceleration of a particle moving along a circular path of radius r with a constant angular speed ω is 

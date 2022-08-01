@@ -1,0 +1,1 @@
+we can increase the thickness of the line by typing a value in 

@@ -1,0 +1,1 @@
+sanjeev is creating a website with the help of html codes he wants the text that appears on the website to be either in georgia or bookman old style font the attribute which he should use is 

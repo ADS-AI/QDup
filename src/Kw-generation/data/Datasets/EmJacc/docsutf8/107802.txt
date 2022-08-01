@@ -1,0 +1,1 @@
+ashish has created an xml document for a book store he wants to see how it appears in the browser the step steps involved to view an xml document are 

@@ -1,0 +1,1 @@
+name the machine developed to reduce repetitive calculations to perform multiplication and division with the help of numbering rods 

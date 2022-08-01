@@ -1,0 +1,1 @@
+give suitable data types for the following teacher table columns tno tname taddress salary dept_name and doj 

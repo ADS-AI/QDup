@@ -1,0 +1,1 @@
+if the temperature of two objects are same then the heat transfer will 

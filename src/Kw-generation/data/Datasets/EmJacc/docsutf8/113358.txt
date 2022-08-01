@@ -1,0 +1,1 @@
+can we define more than one variable with the same name in a code event 

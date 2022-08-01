@@ -1,0 +1,1 @@
+the angle of projection for a projectile motion whose range r is n times the maximum height h is 

@@ -1,0 +1,1 @@
+we can send email to more than one recipient at the same time by 
