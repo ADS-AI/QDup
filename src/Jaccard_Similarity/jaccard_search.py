@@ -7,15 +7,17 @@ nltk.download('punkt')
 
 def load_data():
 
-    try :
-        path_file_tkn = os.path.join(os.getcwd(), 'Jaccard_Similarity')
+    # try :
+        path_file_qtxt = os.getcwd()
+        path_file_qtxt = os.path.join(path_file_qtxt, 'src')
+        path_file_tkn = os.path.join(path_file_qtxt, 'Jaccard_Similarity')
         path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data
 
-    except:
-        print("Error loading data")
-        return None
+    # except:
+    #     print("Error loading data")
+    #     return None
     
 
 def generate_tokens(ques):
@@ -33,22 +35,26 @@ def jaccard_score(query_tokens, question_tokens):
 
     return common/union
 
-def main_jaccard_search(candidates, query_question, threshold):
+def main_jaccard_search(candidates, query_question, threshold, duplicate_threshold = 0.99):
 
     data = load_data()
 
     query_tokens = generate_tokens(query_question)
-    print(query_tokens)
+    # print(query_tokens)
 
     passed_candidates = []
+    duplicate_candidates = []
 
     for ques_id in candidates:
 
         try :
 
             score = jaccard_score(query_tokens, data[ques_id])
-            
-            if score >= threshold :
+
+            if score >= duplicate_threshold :
+                duplicate_candidates.append(ques_id)
+
+            elif score >= threshold :
                 passed_candidates.append(ques_id)
 
         except:
@@ -56,6 +62,6 @@ def main_jaccard_search(candidates, query_question, threshold):
             # print("Key not found : " + ques_id)
             continue 
 
-    return passed_candidates
+    return duplicate_candidates, passed_candidates
 
 load_data()
