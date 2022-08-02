@@ -1,1 +1,0 @@
-which symbol is used with digits to treat these digits as a text 

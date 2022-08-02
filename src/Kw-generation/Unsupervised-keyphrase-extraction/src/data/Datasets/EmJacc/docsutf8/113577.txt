@@ -1,1 +1,0 @@
-write down the steps for converting a decimal number into a binary number 

@@ -1,1 +1,0 @@
-jaya has to write a code for the employee details using xml before typing the various details of an employee she needs to write the xml declaration an xml declaration begins with a 

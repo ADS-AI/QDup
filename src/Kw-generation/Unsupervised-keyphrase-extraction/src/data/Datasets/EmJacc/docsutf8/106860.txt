@@ -1,1 +1,0 @@
-state true or false a to check the spellings automatically we need to click on spelling and grammar b text attribute controls the appearance of the fonts c space bar is a non printing character d the line spacing is measured in meter e to move around in a document is known as navigation 

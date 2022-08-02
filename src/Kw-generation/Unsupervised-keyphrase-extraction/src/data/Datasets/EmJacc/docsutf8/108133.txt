@@ -1,1 +1,0 @@
-a software that validates xml document is known as 

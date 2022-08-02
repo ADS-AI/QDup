@@ -1,1 +1,0 @@
-the syntax that defines the xml declaration version is 

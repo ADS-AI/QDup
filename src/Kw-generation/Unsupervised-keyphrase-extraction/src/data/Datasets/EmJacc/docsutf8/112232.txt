@@ -1,1 +1,0 @@
-derive the formulae for velocity v of water waves that may depend upon their wavelength λ density of water and acceleration due to gravity g 

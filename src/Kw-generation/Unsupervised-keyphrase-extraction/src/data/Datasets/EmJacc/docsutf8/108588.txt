@@ -1,1 +1,0 @@
-delete all in the delete contents dialog 

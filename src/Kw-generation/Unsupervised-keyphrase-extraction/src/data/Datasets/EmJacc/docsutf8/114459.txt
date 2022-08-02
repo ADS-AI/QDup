@@ -1,1 +1,0 @@
-illustrate the difference between input unit and output unit 

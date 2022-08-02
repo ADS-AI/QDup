@@ -1,1 +1,0 @@
-if an object covers one complete circular track of radius 'r' then displacement is 

@@ -1,1 +1,0 @@
-what is the consequence of changing field size attributes in a table 

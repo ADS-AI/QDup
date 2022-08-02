@@ -1,1 +1,0 @@
-enlist the steps to delete the existing fonts from the control panel 

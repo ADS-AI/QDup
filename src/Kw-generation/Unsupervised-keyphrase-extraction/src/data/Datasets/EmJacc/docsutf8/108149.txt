@@ -1,1 +1,0 @@
-sanjeevni has created an xml document but she does not know what all is required to view the output in web browser to process an xml document on web we need 

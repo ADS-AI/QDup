@@ -1,1 +1,0 @@
-differentiate between the role of database administrator and database analyst 

@@ -1,1 +1,0 @@
-rohit is developing a website for the music store he wants to insert the comment in xml document the comments in xml are used to 

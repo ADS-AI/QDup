@@ -1,1 +1,0 @@
-the storage area where the cut operation places the selected text is known as 

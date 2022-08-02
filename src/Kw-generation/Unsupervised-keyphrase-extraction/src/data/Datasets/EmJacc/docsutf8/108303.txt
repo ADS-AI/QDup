@@ -1,1 +1,0 @@
-a particle moves in the x y plane under the influence of a force such that its linear momentum is where a and k are constants the angle between the force and the momentum is 

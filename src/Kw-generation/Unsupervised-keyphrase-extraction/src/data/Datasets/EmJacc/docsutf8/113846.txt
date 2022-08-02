@@ -1,1 +1,0 @@
-name the area where all programs that are currently opened on the windows are shown 

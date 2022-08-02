@@ -1,1 +1,0 @@
-members of 'nibbles bytes' the computer club of a school wants to prepare and print participation certificate for all the participants in their annual interschool symposium using a spreadsheet where the details of the participating students along with the events and schools are entered the office technique that is most appropriate to get the desired results is 

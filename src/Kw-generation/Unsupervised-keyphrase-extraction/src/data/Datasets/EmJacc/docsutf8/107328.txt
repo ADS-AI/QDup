@@ -1,1 +1,0 @@
-from the following list identify the features that are available in both presentation tool and spreadsheet software a spell check facility b headers and footers c adding watermarks backgrounds d macros 

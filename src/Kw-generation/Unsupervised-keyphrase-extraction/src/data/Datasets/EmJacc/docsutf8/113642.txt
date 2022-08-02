@@ -1,1 +1,0 @@
-name the number system that a computer understands 

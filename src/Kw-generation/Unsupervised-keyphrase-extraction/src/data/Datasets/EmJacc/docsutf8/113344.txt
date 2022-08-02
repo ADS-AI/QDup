@@ -1,1 +1,0 @@
-name the shortcut key used to enter the default date or time format 

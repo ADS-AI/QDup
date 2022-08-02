@@ -1,1 +1,0 @@
-to easily view enter and change data directly in a table we can create 

@@ -1,1 +1,0 @@
-define the structure of the light harvesting complex 

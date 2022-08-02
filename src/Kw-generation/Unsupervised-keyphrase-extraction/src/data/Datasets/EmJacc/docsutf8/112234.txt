@@ -1,1 +1,0 @@
-a body moves through distance x from a point a to a point b and returns back to a by same path what will be the distance and the displacement covered by the body 

@@ -1,1 +1,0 @@
-a class in c is known as empty class if it 

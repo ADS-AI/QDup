@@ -1,1 +1,0 @@
-give suitable data types for the following customer table columns cust_id cust_name cust_add pin_code cust_phone and bill_no 

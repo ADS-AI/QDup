@@ -1,1 +1,0 @@
-two particles each of mass 'm' are revolving around a circle of radius 'r' if at any instant they are diametrically opposite to each other under the action of their mutual gravitational attraction find the speed of each particle 

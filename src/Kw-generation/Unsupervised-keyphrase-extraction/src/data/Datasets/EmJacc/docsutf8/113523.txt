@@ -1,1 +1,0 @@
-write down the steps to apply a gradient on the selected area 

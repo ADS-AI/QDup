@@ -1,1 +1,0 @@
-a bullet of mass 'a' and velocity 'b' is fired into a large block of wood of mass 'c' kept at rest the bullet gets stuck into the block of wood the final velocity of the system is 

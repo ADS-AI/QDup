@@ -1,1 +1,0 @@
-write a program to print your name class and marks of maths hindi and english 

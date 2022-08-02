@@ -1,1 +1,0 @@
-a ball falling vertically downwards under gravity breaks into two parts of unequal masses the center of mass of the two parts taken together shifts horizontally towards 

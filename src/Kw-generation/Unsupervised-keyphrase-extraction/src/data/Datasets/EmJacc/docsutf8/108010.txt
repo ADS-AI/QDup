@@ -1,1 +1,0 @@
-the configuration and administration of rdbms is the responsibility of 

@@ -1,1 +1,0 @@
-shikha has to create a list of items in html she wants the list items to be displayed in different kinds of bullet styles the various options that we have in bullet styles are 

@@ -1,1 +1,0 @@
-write down a program code to check whether the entered number in a text box is even or odd on the click event of a button 

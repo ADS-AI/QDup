@@ -1,1 +1,0 @@
-disha wants to change the background color of her webpage the html tag that needs to be applied to the bgcolor attributes so as to change the background color of her webpage is 

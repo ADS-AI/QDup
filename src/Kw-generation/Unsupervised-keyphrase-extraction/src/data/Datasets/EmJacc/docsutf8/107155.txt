@@ -1,1 +1,0 @@
-bhavya is a sales manager she wants to maintain a database containing the information of all the sales persons in his company the data that she wants to store is as follows salesman id first name last name sales made and target to fulfill her requirements she should use 

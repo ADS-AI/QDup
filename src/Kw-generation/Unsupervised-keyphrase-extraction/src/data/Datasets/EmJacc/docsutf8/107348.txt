@@ -1,1 +1,0 @@
-software packages that are a part of bigger applications that provide xml support are known as 

@@ -1,1 +1,0 @@
-manisha is a housewife it is the beginning of the month and she wants to create a list to buy household items some items are to be listed under kitchen heading while others under daily items she wants the list items under kitchen category to start from next level thus to start the list items from next level she should create 

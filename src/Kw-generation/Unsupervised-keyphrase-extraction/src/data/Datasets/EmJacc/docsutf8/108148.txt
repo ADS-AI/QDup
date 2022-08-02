@@ -1,1 +1,0 @@
-ana 's sir has asked her to write xml code containing student details she was told to write a code with the tags of her own choice but before that she needs to add a parent element also the parent element of all other elements in data instance is known as 

@@ -1,1 +1,0 @@
-in terms of physical structure of an xml document an entity is a an 

@@ -1,1 +1,0 @@
-a dead cell differs from a living cell with respect to its 

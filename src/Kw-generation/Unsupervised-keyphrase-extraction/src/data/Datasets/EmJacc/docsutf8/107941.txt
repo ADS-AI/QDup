@@ -1,1 +1,0 @@
-rita is preparing a question in mathematics which includes a greater than symbol but since this symbol has a special meaning in html the correct way to include greater than symbol is 

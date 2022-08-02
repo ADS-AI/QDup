@@ -1,1 +1,0 @@
-gas constant r has dimensions 

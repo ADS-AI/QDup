@@ -1,1 +1,0 @@
-kavita has grouped the drawing objects which she created using the drawing toolbar now she wants to ungroup all the objects to ungroup multiple drawing objects we need to select the grouped object and then click at 

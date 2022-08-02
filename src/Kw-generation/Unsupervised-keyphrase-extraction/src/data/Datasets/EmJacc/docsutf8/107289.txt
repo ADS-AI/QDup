@@ -1,1 +1,0 @@
-write the file extension which is commonly affected by a worm 

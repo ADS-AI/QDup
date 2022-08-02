@@ -1,1 +1,0 @@
-is it compulsory to use line number in qbasic statement 

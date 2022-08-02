@@ -1,1 +1,0 @@
-if a particle moves in a circle describing equal angles in equal intervals of time its velocity vector 

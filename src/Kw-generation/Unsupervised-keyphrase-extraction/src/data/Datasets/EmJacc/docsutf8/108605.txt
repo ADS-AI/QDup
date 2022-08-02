@@ -1,1 +1,0 @@
-to horizontally center an image we use 

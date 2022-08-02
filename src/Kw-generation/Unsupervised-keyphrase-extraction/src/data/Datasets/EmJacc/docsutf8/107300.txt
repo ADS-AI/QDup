@@ -1,1 +1,0 @@
-what is the difference between 'rows' and 'columns' in a table 

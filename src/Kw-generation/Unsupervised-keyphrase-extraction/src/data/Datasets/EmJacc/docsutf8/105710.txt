@@ -1,1 +1,0 @@
-if the class does not have a constructor 

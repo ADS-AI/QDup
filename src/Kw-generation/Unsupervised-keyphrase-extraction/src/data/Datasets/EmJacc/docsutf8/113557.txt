@@ -1,1 +1,0 @@
-write the steps to change the font face of a group of characters in a document 

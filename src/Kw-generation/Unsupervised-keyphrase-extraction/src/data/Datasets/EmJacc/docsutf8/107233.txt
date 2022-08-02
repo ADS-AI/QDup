@@ -1,1 +1,0 @@
-an attribute in a table which is the key attribute in some other table is known as 

@@ -1,1 +1,0 @@
-the statement which is valid or legal in c is 

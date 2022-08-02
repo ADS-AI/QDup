@@ -1,1 +1,0 @@
-which option is used to search for text in the specific page of a document 

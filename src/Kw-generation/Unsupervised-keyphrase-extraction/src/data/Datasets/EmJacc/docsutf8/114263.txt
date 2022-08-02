@@ -1,1 +1,0 @@
-write down the steps to divide the cell of a table into multiple cells 

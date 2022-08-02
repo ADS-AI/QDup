@@ -1,1 +1,0 @@
-a sheet in a workbook that contains only a chart is known as 

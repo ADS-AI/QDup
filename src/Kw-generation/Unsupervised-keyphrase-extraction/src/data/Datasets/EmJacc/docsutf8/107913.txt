@@ -1,1 +1,0 @@
-if you are working in a normal view then the left side pane is known as 

@@ -1,1 +1,0 @@
-name the component that the options section of the tools panel displays 

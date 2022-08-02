@@ -1,1 +1,0 @@
-which statement is used to assign values to the variables 

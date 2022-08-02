@@ -1,1 +1,0 @@
-write a method to remove the background of a photograph in photoshop 

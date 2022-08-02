@@ -1,1 +1,0 @@
-the alignment that makes sure that none of the edges of text appear ragged is 

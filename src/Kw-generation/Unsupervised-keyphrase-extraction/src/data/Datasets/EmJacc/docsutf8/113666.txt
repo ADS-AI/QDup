@@ -1,1 +1,0 @@
-which button is used to cancel the current command 

@@ -1,1 +1,0 @@
-if displacement is constant between two points but distance keeps on changing then 

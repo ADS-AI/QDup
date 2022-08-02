@@ -1,1 +1,0 @@
-if an element belongs to p block then the group number of the element would be equal to 

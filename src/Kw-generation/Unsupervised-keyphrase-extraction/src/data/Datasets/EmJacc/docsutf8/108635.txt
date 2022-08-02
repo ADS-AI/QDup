@@ -1,1 +1,0 @@
-two kinds of servers handle incoming e mail messages 

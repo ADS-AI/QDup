@@ -1,1 +1,0 @@
-when an arrow gets stuck in a target and the two move together the collision is 

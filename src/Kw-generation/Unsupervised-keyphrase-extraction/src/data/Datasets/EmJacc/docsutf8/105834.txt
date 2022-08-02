@@ -1,1 +1,0 @@
-an electron moves in a circle with uniform speed in a stationary magnetic field normal to the plane of the circle if the field magnitude is made to increase with time will the electron speed up or speed down will it continue to revolve in the same circle 

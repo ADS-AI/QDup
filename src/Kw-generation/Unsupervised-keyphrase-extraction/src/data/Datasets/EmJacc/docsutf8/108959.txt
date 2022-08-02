@@ -1,1 +1,0 @@
-to connect to an ftp site using a browser use a url in the form of 

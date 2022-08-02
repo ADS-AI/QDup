@@ -1,1 +1,0 @@
-the number of main components that a mail merge contains in ooo writer is 

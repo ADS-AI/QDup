@@ -1,1 +1,0 @@
-state the copied object and the original object in symbols and instances 

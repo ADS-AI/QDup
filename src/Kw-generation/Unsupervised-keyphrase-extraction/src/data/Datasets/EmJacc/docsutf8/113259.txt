@@ -1,1 +1,0 @@
-which button is used to erase the field names that are not required 

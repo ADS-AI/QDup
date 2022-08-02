@@ -1,1 +1,0 @@
-define active site of an enzyme 

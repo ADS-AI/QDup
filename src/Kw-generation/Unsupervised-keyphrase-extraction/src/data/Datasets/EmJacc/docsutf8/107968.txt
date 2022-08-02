@@ -1,1 +1,0 @@
-differentiate between gateway and backbone 

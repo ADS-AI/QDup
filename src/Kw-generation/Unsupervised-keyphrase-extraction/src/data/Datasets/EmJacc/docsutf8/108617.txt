@@ -1,1 +1,0 @@
-ashita wants to create a list that contains the various kinds of drinks but she wants the list items should have bullets rather than numbers or letters to achieve this she needs 

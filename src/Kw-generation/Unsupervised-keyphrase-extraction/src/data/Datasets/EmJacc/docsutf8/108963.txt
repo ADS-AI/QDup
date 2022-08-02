@@ -1,1 +1,0 @@
-a special word used inside tag to specify additional information to tag such as color alignment etc is known as 

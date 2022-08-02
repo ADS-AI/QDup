@@ -1,1 +1,0 @@
-if p is pressure and r is density of a gas then p and r are related as 

@@ -1,1 +1,0 @@
-write down the steps to set a primary key for a table 

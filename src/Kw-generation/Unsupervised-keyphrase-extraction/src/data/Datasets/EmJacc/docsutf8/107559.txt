@@ -1,1 +1,0 @@
-establishing an encrypted link between the web server and browser is known as 

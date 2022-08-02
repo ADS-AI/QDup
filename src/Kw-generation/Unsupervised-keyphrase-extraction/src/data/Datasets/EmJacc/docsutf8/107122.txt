@@ -1,1 +1,0 @@
-a memo field in base table can store characters up to 

@@ -1,1 +1,0 @@
-the protocol used for the web client to talk to the server is 

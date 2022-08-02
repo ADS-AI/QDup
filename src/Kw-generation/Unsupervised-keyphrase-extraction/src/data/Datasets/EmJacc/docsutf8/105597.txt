@@ -1,1 +1,0 @@
-if temperature is decreased then relaxation time of electrons in metals will 

@@ -1,1 +1,0 @@
-the resultant of two vectors is perpendicular to one of the vectors and its magnitude is equal to half of the magnitude of the other the angle between the two vectors is 

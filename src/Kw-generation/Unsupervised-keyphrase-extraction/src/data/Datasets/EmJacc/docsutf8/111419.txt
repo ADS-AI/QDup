@@ -1,1 +1,0 @@
-derive an expression for the work done in an isothermal reversible process 

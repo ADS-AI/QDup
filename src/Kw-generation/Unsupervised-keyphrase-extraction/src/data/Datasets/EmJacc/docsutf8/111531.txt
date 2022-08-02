@@ -1,1 +1,0 @@
-prove that the torque experienced by a particle is equal to the product of its moment of inertia and angular acceleration 

@@ -1,1 +1,0 @@
-number of attribute values that image alignment has is 

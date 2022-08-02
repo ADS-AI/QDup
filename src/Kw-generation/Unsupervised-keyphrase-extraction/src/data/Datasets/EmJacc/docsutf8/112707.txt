@@ -1,1 +1,0 @@
-define real gases write the deviation of real gases from ideal gas behaviour with respect to pressure 

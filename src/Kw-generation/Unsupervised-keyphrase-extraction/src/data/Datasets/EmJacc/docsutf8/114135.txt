@@ -1,1 +1,0 @@
-how many colour options can be used with the color statement for background and foreground colours 

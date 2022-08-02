@@ -1,1 +1,0 @@
-write down the code to change the colour of a shape on the click event of two command buttons 

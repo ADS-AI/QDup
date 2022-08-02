@@ -1,1 +1,0 @@
-one of the vertical alignments that we can apply from alignment tab of format cells dialog is 

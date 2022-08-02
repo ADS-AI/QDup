@@ -1,1 +1,0 @@
-cell doubles in size and then stops growing in 

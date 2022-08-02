@@ -1,1 +1,0 @@
-how can we change the fill style fill colour in a drawing object 

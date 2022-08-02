@@ -1,1 +1,0 @@
-enlist the steps to write the code for an event of a control 

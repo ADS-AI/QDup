@@ -1,1 +1,0 @@
-the text layout within a paragraph with respect to document margins is known as 

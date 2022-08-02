@@ -1,1 +1,0 @@
-while designing a database the first thing we should keep in mind is 

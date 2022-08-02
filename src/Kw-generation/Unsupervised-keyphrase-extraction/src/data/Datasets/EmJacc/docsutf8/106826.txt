@@ -1,1 +1,0 @@
-in which view do we apply animation on the text or objects 

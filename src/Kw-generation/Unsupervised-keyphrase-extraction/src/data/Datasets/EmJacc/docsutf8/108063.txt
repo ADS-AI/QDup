@@ -1,1 +1,0 @@
-to apply a different style to the hierarchical list one should select the 

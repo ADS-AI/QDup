@@ -1,1 +1,0 @@
-try uploading a file from your computer on to the ftp server using command line write down the steps 

@@ -1,1 +1,0 @@
-name the attribute that defines a field s appearance or behaviour within a database 

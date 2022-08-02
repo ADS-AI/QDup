@@ -1,1 +1,0 @@
-the default setting of the header and footer option is that 

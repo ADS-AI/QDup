@@ -1,1 +1,0 @@
-name the tool that is used to draw a star with five sides 

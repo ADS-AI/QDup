@@ -1,1 +1,0 @@
-browsers interact with the server using a set of instructions called 

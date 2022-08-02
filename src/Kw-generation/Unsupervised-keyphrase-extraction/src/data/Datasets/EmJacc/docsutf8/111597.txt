@@ -1,1 +1,0 @@
-name the type of movable joint present in the shoulder and in knee 

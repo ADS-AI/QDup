@@ -1,1 +1,0 @@
-from the given list of elements pick out the transition and inner transition elements and write them under the separate headings seaborgium sg berkelium bk ce cerium rhenium re 

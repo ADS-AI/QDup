@@ -1,1 +1,0 @@
-differentiate between well formed documents and valid documents 

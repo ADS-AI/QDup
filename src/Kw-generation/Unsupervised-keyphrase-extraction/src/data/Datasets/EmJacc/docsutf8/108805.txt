@@ -1,1 +1,0 @@
-identify the error s in the following html code also write the correct code ol type 'a' start 'd' 

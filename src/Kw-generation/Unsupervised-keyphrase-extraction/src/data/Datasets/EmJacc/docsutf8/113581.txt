@@ -1,1 +1,0 @@
-list the arithmetic operations that are performed on binary numbers 

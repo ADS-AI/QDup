@@ -1,1 +1,0 @@
-in ol and ul the style of bullet or number is defined by 

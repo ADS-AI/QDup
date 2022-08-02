@@ -1,1 +1,0 @@
-define uniform velocity variable velocity and instantaneous velocity 

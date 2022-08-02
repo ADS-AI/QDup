@@ -1,1 +1,0 @@
-the tags that require a starting as well as ending tag are called 

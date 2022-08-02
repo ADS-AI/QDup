@@ -1,1 +1,0 @@
-explain a do loop statement and give one example 

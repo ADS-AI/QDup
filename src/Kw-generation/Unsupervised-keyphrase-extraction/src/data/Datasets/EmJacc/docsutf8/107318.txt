@@ -1,1 +1,0 @@
-kaustabh works as a production manager in maruti he is creating a spreadsheet containing various models no of cars sold etc now he wants to use certain columns of this spreadsheet in the new worksheet that has to be sent to the ceo how can he perform the operation by making use of certain columns 

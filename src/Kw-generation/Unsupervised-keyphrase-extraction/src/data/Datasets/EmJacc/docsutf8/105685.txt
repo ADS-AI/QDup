@@ -1,1 +1,0 @@
-a matrix with one row or column may be viewed as a 

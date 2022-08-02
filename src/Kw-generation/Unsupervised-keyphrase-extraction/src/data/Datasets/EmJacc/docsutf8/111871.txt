@@ -1,1 +1,0 @@
-give an example where particle has zero velocity but finite acceleration 

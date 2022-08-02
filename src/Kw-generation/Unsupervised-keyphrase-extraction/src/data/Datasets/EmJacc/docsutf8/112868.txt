@@ -1,1 +1,0 @@
-if a body has constant speed is it true that it can have acceleration 

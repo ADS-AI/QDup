@@ -1,1 +1,0 @@
-which sign is used before the parts of a formula to create an absolute cell reference 

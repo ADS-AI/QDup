@@ -1,1 +1,0 @@
-explain the role of edit data control write the steps to change the data of a chart 

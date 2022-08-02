@@ -1,1 +1,0 @@
-if a user wants to know the current value of a private data member he can get it through 

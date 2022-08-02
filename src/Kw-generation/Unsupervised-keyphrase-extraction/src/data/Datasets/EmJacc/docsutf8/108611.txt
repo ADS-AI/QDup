@@ -1,1 +1,0 @@
-akash has inserted in image in his document however he wants to change the size of the image used in his html document he should use 

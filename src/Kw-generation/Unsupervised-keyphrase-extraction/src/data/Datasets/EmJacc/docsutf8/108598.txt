@@ -1,1 +1,0 @@
-writer is a wysiwyg program the screen shows exactly how the document will look when we print it out wysiwyg stands for 

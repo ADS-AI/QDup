@@ -1,1 +1,0 @@
-the unit that directs other components of the computer to perform the tasks specified in the program instructions is called 

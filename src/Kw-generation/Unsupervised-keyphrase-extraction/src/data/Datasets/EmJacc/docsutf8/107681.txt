@@ -1,1 +1,0 @@
-if a formula is referring to a cell whose value has been deleted then the result of formula is shown as 

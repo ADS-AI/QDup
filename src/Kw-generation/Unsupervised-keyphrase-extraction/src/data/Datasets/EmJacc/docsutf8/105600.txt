@@ -1,1 +1,0 @@
-under what condition will the strength of current in a wire of resistance r be the same for connection in series and in parallel of n identical cells each of the internal resistance r when 

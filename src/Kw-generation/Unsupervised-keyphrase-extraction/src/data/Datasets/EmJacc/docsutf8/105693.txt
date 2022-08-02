@@ -1,1 +1,0 @@
-members that can be used only by member functions and friends of class in which it is declared are 

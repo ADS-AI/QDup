@@ -1,1 +1,0 @@
-which property would you set if you want to be sure that a firstname field has a value for each record 

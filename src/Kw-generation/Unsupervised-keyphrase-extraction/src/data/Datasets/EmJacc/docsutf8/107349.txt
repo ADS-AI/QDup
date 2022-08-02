@@ -1,1 +1,0 @@
-software packages that check xml document as per the specified dtd and give feedback are known as 

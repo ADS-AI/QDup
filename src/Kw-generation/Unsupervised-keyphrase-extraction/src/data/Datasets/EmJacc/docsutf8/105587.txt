@@ -1,1 +1,0 @@
-the amount of storage required to hold an array is 

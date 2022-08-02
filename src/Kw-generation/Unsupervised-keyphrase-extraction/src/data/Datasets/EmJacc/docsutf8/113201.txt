@@ -1,1 +1,0 @@
-explain align attribute of the table tag what values can it have 

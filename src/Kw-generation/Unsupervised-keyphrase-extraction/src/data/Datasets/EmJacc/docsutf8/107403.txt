@@ -1,1 +1,0 @@
-an independent computer program that copies itself from one computer to other in a network is called a worm b trojan c bug d anti virus 

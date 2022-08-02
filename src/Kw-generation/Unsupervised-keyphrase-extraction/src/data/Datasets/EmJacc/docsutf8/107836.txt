@@ -1,1 +1,0 @@
-the web browser program sends a request to 

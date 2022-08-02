@@ -1,1 +1,0 @@
-the attribute to change the font type of the text we want to display is 

@@ -1,1 +1,0 @@
-what is the default increment of a counter variable 

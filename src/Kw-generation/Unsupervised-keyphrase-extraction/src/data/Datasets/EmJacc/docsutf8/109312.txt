@@ -1,1 +1,0 @@
-when a bullet is fired from a gun the gun gains a recoil velocity which can be determined by using 

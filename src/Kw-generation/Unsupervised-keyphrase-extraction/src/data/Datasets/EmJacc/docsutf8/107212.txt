@@ -1,1 +1,0 @@
-a self replicating program that eats up the entire disk space or memory is known as 

@@ -1,1 +1,0 @@
-sudisha is working for a nationalised bank and is in the process of creating a table to store the details of customers of the bank find out what fields of table bank can be selected as primary key accountno customername dateofbirth openingbalance 

@@ -1,1 +1,0 @@
-write down the steps to draw a rectangle and change its line colour 

@@ -1,1 +1,0 @@
-to select graphic style bullets we use the 

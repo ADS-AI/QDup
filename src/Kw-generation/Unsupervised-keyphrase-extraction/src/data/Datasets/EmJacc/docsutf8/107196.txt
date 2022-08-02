@@ -1,1 +1,0 @@
-why is memo data type referred over text data type for a field 

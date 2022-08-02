@@ -1,1 +1,0 @@
-draw the position time graphs for two objects initially occupying different positions but having zero relative velocity 

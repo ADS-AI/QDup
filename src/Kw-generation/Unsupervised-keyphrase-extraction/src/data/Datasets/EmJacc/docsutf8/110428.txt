@@ -1,1 +1,0 @@
-the van der waal's equation reduces itself to the ideal gas equation at 

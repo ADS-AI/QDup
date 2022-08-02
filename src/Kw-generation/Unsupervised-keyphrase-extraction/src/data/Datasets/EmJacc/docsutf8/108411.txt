@@ -1,1 +1,0 @@
-raj has to use the entire worksheet 's data to create another worksheet thus to select the entire worksheet press 

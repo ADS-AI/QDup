@@ -1,1 +1,0 @@
-in a spreadsheet the reference that changes rows and columns automatically when it is copied to a new cell is 

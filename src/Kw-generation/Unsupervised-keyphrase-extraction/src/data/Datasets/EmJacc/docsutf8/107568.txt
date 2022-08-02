@@ -1,1 +1,0 @@
-abhay is a database administrator he wants to retrieve his team member s details by fetching name and employeeid from employee table and department from departments table to achieve this he should use 

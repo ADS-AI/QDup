@@ -1,1 +1,0 @@
-the value of constant 'a' in van der waal's equation is maximum in 

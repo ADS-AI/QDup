@@ -1,1 +1,0 @@
-explain the working of a web server with the help of a diagram 

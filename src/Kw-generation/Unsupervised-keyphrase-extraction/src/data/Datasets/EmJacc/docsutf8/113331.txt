@@ -1,1 +1,0 @@
-which type of operation is performed over character and string data types 

@@ -1,1 +1,0 @@
-a body is moved from rest along a straight line by a machine delivering constant power the distance moved by the body in time t is proportional to 

@@ -1,1 +1,0 @@
-the text styles that are handled in its own way by the browsers are known as 

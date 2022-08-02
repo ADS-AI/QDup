@@ -1,1 +1,0 @@
-nihar is a chef at hotel taj he wants to write the code for preparing pakoras using a markup language wherein he can choose the tags according to his choice we can create tags of our own choice in 

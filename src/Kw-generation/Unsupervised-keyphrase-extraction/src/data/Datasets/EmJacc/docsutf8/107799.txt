@@ -1,1 +1,0 @@
-mehak wants to use a markup language where the tags parts parts and parts are treated as different cases tags are case sensitive in 

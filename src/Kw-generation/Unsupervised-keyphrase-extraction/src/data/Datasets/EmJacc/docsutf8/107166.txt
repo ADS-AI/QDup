@@ -1,1 +1,0 @@
-neha is a programmer in a public school and is asked to handle the records containing information about students suggest five field names that you think must be present in the table called student 

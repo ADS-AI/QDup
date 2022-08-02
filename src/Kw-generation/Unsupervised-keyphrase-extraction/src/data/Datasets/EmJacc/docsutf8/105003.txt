@@ -1,1 +1,0 @@
-if distance of a surface from a source is made twice the change in illuminance of the surface will become 

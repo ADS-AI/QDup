@@ -1,1 +1,0 @@
-write the function for the following components a ruler bar b status toolbar 

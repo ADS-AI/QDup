@@ -3,6 +3,7 @@ import nltk
 import os
 import spacy
 import re
+from formatting import output_color
 from nltk.stem import WordNetLemmatizer 
 nltk.download('omw-1.4')
 nltk.download('wordnet')
@@ -14,10 +15,8 @@ nlp = spacy.load("en_core_web_sm")
 lemmatizer = WordNetLemmatizer()
 
 def load_data():
-
     try :
-        path_file_ner = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-        path_file_ner = os.path.join(path_file_ner, 'src')
+        path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
         path_file_ner = os.path.join(path_file_ner, 'Datasets')
         path_file_ner = os.path.join(path_file_ner, 'questions_ners.json')
         data = json.load(open(path_file_ner, encoding='utf-8'))
@@ -27,6 +26,16 @@ def load_data():
         print("Error loading data")
         return None
     
+def load_txt_data():
+    try :
+        path_file_txt = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
+        path_file_txt = os.path.join(path_file_txt, 'Datasets')
+        path_file_txt = os.path.join(path_file_txt, 'questiontext.json')
+        data = json.load(open(path_file_txt, encoding='utf-8'))
+        return data
+    except:
+        print("Error loading jaccard data")
+        return None
 
 
 def generate_NER(ques):
@@ -49,8 +58,8 @@ def generate_NER(ques):
 
 def Evaluate_NERs(query_NERs, question_NERs):    # Can add word embeddings, synonyms, etc checks here
 
-    print(query_NERs)
-    print(question_NERs)
+    # print(query_NERs)
+    # print(question_NERs)
 
     if len(query_NERs) == 0 or len(question_NERs) == 0:
         return True
@@ -65,27 +74,28 @@ def Evaluate_NERs(query_NERs, question_NERs):    # Can add word embeddings, syno
 
     return True
 
-def check_NERs(candidates, query_question):
+def check_NERs(candidates, query_question, verbose = 0):
 
     data = load_data()
 
     query_NERs = generate_NER(query_question)
-    
+    question_texts = load_txt_data()
     passed_candidates = []
 
     for ques_id in candidates:
-
         try :
-
             result = Evaluate_NERs(query_NERs, data[ques_id])
-
             if result == True :
                 passed_candidates.append(ques_id)
-
         except:
-
             print("Key not found : " + ques_id)
             continue 
+
+    if(verbose == 1):
+        print(output_color.PURPLE + "(NER) Potential_candidates : ")
+        for id in passed_candidates: 
+            print(id + " : " + question_texts[id])
+        print(output_color.END)
 
     return passed_candidates
 

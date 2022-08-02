@@ -1,1 +1,0 @@
-to count number of cells that contain numbers and numbers within list of arguments we use 

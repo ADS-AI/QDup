@@ -1,1 +1,0 @@
-explain primary key with the help of an example 

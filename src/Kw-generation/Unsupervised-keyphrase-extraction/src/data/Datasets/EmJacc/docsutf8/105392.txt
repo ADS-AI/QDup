@@ -1,1 +1,0 @@
-define i schottky defect ii frenkel defect iii point defect iv interstitials v vacancy 

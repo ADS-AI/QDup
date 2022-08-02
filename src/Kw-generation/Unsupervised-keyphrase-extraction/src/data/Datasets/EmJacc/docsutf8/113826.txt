@@ -1,1 +1,0 @@
-what is the used of data type string 

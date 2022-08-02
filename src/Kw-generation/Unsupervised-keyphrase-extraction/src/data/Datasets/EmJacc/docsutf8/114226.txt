@@ -1,1 +1,0 @@
-what type of variable is used to store alphanumeric value 

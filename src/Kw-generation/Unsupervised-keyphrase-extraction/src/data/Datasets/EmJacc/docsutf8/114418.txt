@@ -1,1 +1,0 @@
-the shortcut keys which are used to set the foreground color as white and background color as black are 

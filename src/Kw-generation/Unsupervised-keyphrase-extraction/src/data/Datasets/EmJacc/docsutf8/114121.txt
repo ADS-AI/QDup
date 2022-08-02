@@ -1,1 +1,0 @@
-name the area that displays the location of the cell pointer 

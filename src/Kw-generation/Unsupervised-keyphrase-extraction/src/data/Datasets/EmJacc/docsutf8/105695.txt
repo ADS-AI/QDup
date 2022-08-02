@@ -1,1 +1,0 @@
-when a class uses dynamic memory the member function invoked by the class is 

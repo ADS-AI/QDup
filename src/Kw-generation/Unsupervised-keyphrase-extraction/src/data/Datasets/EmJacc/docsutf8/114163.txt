@@ -1,1 +1,0 @@
-what types of variables are taken to input the name and age by a user 

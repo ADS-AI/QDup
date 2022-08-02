@@ -1,1 +1,0 @@
-when the members are accessible from outside the class they are under 

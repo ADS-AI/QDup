@@ -1,1 +1,0 @@
-the case that converts every character of every word of selected sentence to capital is 

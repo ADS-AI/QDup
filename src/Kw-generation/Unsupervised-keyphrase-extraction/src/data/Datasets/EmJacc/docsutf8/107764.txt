@@ -1,1 +1,0 @@
-differentiate between i internal entity and external entity ii parsed entity and unparsed entity 

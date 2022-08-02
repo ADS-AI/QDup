@@ -1,1 +1,0 @@
-a sphere of mass m moving with a velocity u hits another stationary sphere of same mass if 'e' is the coefficient of restitution what is the ratio of the velocities of two spheres after collision 

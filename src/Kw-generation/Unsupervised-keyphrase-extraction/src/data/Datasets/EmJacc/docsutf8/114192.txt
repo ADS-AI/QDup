@@ -1,1 +1,0 @@
-name the windows application that is used for drawing and painting 

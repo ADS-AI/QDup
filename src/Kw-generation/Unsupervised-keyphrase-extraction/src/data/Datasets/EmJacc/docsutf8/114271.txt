@@ -1,1 +1,0 @@
-name the control that is used to erase the border of a table 

@@ -1,1 +1,0 @@
-firewall protects a server and individual pc from 

@@ -1,1 +1,0 @@
-name the database that is used in openoffice org 

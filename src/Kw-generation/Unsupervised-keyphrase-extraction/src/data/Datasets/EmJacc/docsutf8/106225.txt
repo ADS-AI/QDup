@@ -1,1 +1,0 @@
-we assume that earth is at zero potential because capacitance of the earth is 

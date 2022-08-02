@@ -1,1 +1,0 @@
-name the attribute that we use to specify the image source 

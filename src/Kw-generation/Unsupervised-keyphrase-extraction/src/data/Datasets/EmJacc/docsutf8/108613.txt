@@ -1,1 +1,0 @@
-sushma wants to create a link in the document such that when the link is clicked it goes to the specified position within a current page to accomplish this she should use 

@@ -1,1 +1,0 @@
-from the top of a tower at p a ball is thrown vertically upwards when the ball reaches a distance h below p its speed is double of what it was at height h above p what is the highest height attained by the ball 

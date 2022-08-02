@@ -1,1 +1,0 @@
-the default length of char data type is 

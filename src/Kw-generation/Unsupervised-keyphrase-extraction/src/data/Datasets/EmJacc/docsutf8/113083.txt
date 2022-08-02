@@ -1,1 +1,0 @@
-define i covalent radius ii van der waals radius iii metallic radius 

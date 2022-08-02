@@ -1,1 +1,0 @@
-if n e t and m denote the density charge time of relaxation and mass of electrons in a conductor the resistivity is given by 

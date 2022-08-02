@@ -1,1 +1,0 @@
-the text that we type between p and p tags is by default 

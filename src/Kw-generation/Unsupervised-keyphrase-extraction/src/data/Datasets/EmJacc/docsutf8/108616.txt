@@ -1,1 +1,0 @@
-amit wants to create a list that contains different cars but he wants the list items should have letters starting with a to achieve this he should use 

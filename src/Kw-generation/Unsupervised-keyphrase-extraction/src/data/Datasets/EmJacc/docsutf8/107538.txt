@@ -1,1 +1,0 @@
-a set of attributes that can uniquely identify tuples within the relation is known as 

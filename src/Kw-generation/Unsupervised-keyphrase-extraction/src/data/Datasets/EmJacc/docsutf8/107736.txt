@@ -1,1 +1,0 @@
-akriti has learnt about hyperlinks she wants to create a hyperlink by the name 'my page' on her web page write the html code for her 

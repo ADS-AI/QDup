@@ -1,1 +1,0 @@
-a particle is moving along a circular track of radius r the distance traversed by particle in half revolution is 

@@ -1,1 +1,0 @@
-state true or false a cell address contains two parts i e column number and row letter b the cell that is active at a particular moment is known as current cell c the small black corner in the corner of the selection is known as fill handle d the general arrangement of data is known as layout e average function returns the arithmetic mean 

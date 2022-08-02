@@ -1,1 +1,0 @@
-prakash is using calc to enter the age of all the employees who have joined the company in the months of aug and sept in a cell numbers are by default 

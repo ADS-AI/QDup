@@ -1,1 +1,0 @@
-amit is developing a website for hp wherein the customers can get information on all the hp products each product has a link that will help the user to get relevant information he has used a vlink which will change the color of the link when a user clicks on it the vlink refers to 

@@ -1,1 +1,0 @@
-sidhi is creating a web site using html she wants the text that appears on the website to be either in times new roman or georgia style font the correct syntax is 

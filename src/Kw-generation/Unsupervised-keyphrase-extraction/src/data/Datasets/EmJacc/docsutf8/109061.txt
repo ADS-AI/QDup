@@ -1,1 +1,0 @@
-write the html codes to set the bgcolor as blue and a text i like to play football as yellow 

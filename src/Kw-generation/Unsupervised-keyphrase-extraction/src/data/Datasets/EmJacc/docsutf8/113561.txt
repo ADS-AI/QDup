@@ -1,1 +1,0 @@
-name the option that is used to enable hibernation of the computer 

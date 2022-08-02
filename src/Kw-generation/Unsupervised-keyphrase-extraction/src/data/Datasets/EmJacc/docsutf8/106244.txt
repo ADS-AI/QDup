@@ -1,1 +1,0 @@
-a charged particle of mass 'm' and charge 'q' is placed in an electric field of intensity 'e' the velocity of the charge at time 't' will be 

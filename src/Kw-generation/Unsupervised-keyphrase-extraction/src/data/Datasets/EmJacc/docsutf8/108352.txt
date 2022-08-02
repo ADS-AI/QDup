@@ -1,1 +1,0 @@
-ananya has created a worksheet for the students who are participating in painting competition the sheet consists of the student names and their respective classes now she wants to take a print out for a selected range in the worksheet the option that she should select is 

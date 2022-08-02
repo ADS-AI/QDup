@@ -1,1 +1,0 @@
-which control is used to fill colour in the background of a chart 

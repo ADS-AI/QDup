@@ -1,1 +1,0 @@
-the attribute that sets the background graphics of body tag is known as 

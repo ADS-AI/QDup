@@ -1,1 +1,0 @@
-how can we store a new record between the rows of a table 

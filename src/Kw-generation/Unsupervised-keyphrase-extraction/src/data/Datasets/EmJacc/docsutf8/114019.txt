@@ -1,1 +1,0 @@
-name the tool for the following a discard unwanted areas of the image b fills an area of an image based on color similarity c selects consistently coloured areas on the image 

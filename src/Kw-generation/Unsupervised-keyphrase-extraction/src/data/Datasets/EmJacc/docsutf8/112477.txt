@@ -1,1 +1,0 @@
-if p v m r and t are pressure volume molar mass gas constant and absolute temperature respectively then density of ideal gas is expressed as 

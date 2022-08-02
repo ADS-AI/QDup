@@ -1,1 +1,0 @@
-the fixed length for bigint is 

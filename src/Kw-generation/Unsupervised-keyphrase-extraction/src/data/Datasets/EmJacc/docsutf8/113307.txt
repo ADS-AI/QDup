@@ -1,1 +1,0 @@
-what will happen if you enter a text in a field having number data type 

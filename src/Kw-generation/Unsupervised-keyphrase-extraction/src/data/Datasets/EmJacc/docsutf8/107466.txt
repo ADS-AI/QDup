@@ -1,1 +1,0 @@
-the function that returns the arithmetic mean is known as 

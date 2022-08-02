@@ -1,1 +1,0 @@
-state the gauss law and derive the formula for electric field intensity of an infinite thin plane sheet of uniform surface charge density ρ 

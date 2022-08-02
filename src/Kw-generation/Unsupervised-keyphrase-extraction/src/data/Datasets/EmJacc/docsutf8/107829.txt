@@ -1,1 +1,0 @@
-in the hr tag the default rule is 

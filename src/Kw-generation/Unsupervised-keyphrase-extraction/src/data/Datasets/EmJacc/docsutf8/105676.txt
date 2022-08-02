@@ -1,1 +1,0 @@
-write a function to show the addition of two numbers 

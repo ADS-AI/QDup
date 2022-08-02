@@ -1,1 +1,0 @@
-image links can show a text label if we add the property 

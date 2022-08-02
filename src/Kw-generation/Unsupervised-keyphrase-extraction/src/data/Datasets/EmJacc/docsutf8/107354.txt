@@ -1,1 +1,0 @@
-to avoid repetition of statements in stylesheets we should use 
