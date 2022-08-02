@@ -16,11 +16,11 @@ lemmatizer = WordNetLemmatizer()
 def load_data():
 
     try :
-        path_file_qtxt = os.getcwd()
-        path_file_qtxt = os.path.join(path_file_qtxt, 'src')
-        path_file_tkn = os.path.join(path_file_qtxt, 'Datasets')
-        path_file_tkn = os.path.join(path_file_tkn, 'questions_ners.json')
-        data = json.load(open(path_file_tkn, encoding='utf-8'))
+        path_file_ner = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        path_file_ner = os.path.join(path_file_ner, 'src')
+        path_file_ner = os.path.join(path_file_ner, 'Datasets')
+        path_file_ner = os.path.join(path_file_ner, 'questions_ners.json')
+        data = json.load(open(path_file_ner, encoding='utf-8'))
         return data
 
     except:

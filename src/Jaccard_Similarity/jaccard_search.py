@@ -6,17 +6,15 @@ nltk.download('punkt')
 
 
 def load_data():
-
     try :
-        path_file_qtxt = os.getcwd()
-        path_file_qtxt = os.path.join(path_file_qtxt, 'src')
-        path_file_tkn = os.path.join(path_file_qtxt, 'Datasets')
+        path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        path_file_tkn = os.path.join(path_file_tkn, 'src')
+        path_file_tkn = os.path.join(path_file_tkn, 'Datasets')
         path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data
-
     except:
-        print("Error loading data")
+        print("Error loading jaccard data")
         return None
     
 

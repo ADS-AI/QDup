@@ -23,8 +23,7 @@ query_question = pre.preprocess(query_question)
 
 print(query_question)
 
-path_file_qtxt = os.getcwd()
-path_file_qtxt = os.path.join(path_file_qtxt, 'src')
+path_file_qtxt = os.path.dirname(__file__)
 path_file_qtxt = os.path.join(path_file_qtxt, 'Datasets')
 path_file_qtxt = os.path.join(path_file_qtxt, 'questiontext.json')
 question_texts = json.load(open(path_file_qtxt, encoding='utf-8'))
