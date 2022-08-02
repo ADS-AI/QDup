@@ -11,9 +11,12 @@ import os
 from Preprocessing import main_preprocessing as pre
 from Jaccard_Similarity import jaccard_search as jaccard
 from NERs import Named_entity_recog as ner
+from formatting import output_color
+from formatting import EM_LOGO
 
+print(EM_LOGO)
 print('-------------------------------------------------------------------------------------------------------------')
-print('Modules installed successfully! Lets fuckin go !!!')
+print('Modules installed successfully!')
 print()
 
 print("Enter the question : ", end = '')
@@ -44,10 +47,10 @@ high_jaccard, potential_candidates = jaccard.main_jaccard_search(potential_candi
 
 duplicate_questions = duplicate_questions + high_jaccard
 
-print("Duplicate questions : ")
-
+print(output_color.GREEN + "Duplicate questions : ")
 for id in duplicate_questions: 
     print(id + " : " + question_texts[id])
+print(output_color.END)
 
 print("Potential_candidates : ")
 
