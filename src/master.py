@@ -15,7 +15,7 @@ from Preprocessing import main_preprocessing as pre
 from Jaccard_Similarity import jaccard_search as jaccard
 from NERs import Named_entity_recog as ner
 from formatting import output_color
-from Kw_generation.kw_runner import extract_kw_ques, get_potential_candidates
+from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
 
 print('-------------------------------------------------------------------------------------------------------------')
 print('Modules installed successfully!')
@@ -78,5 +78,5 @@ potential_candidates = ner.check_NERs(potential_candidates, query_question, verb
 # Getting extracted keywords
 #
 
-potential_candidates = get_potential_candidates(potential_candidates, query_question, KW_THRESHOLD, verbose = GLOB_VERBOSE)
+potential_candidates = kw_potential_candidates(potential_candidates, query_question, KW_THRESHOLD, verbose = GLOB_VERBOSE)
 

@@ -45,7 +45,7 @@ def extract_kw_ques(question):
 
     
 
-def get_potential_candidates(curr_candid_ls, orig_ques, threshold_sc, verbose = 0):
+def kw_potential_candidates(curr_candid_ls, orig_ques, threshold_sc, verbose = 0):
     VERBOSE= verbose
     kw_1 = get_extracted_kw()
     kw_dict = load_kw_data()
