@@ -28,7 +28,7 @@ query_question = input()
 #   GLOBAL VARIABLES
 #
 GLOB_VERBOSE = 1
-KW_THRESHOLD = 0.6
+KW_THRESHOLD = 0.95
 JACC_THRESHOLD = 0.5
 #
 #   Model
