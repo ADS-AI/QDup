@@ -3,7 +3,11 @@ from formatting import output_color
 import nltk
 import os
 from nltk import  word_tokenize
+import nltk
+from nltk.stem import WordNetLemmatizer 
+nltk.download('wordnet')
 nltk.download('punkt')
+
 
 
 def load_data():
@@ -32,8 +36,9 @@ def load_txt_data():
 
     
 
-def generate_tokens(ques):
+def generate_tokens(ques, lemmatizer):
     tokens = nltk.word_tokenize(ques)
+    tokens = [str(lemmatizer.lemmatize(tok)) for tok in tokens]
     return tokens
 
 
@@ -49,8 +54,8 @@ def jaccard_score(query_tokens, question_tokens):
 
 def main_jaccard_search(candidates, query_question, threshold, duplicate_threshold = 0.99, verbose = 1):
     data = load_data()
-    query_tokens = generate_tokens(query_question)
-
+    lemmatizer = WordNetLemmatizer()
+    query_tokens = generate_tokens(query_question, lemmatizer)
     passed_candidates = []
     duplicate_candidates = []
 
