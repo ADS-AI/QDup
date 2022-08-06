@@ -2,11 +2,17 @@
 import csv
 import re
 from nltk.stem import WordNetLemmatizer
+import os
   
 lemmatizer = WordNetLemmatizer()
 
 elements={} 
-filename = "src\Preprocessing\Elementlist.csv" 
+
+filename = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
+filename = os.path.join(filename, 'Preprocessing')
+filename = os.path.join(filename, 'Elementlist.csv')
+
+# filename = "src\Preprocessing\Elementlist.csv" 
 
 with open(filename, newline='') as csvfile: 
     elementreader = csv.reader(csvfile, delimiter=',') 
