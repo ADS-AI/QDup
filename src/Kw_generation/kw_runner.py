@@ -8,35 +8,35 @@ import os
 VERBOSE  = 0
 
 def load_kw_data():
-    try :
+    # try :
         path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
         path_file_ner = os.path.join(path_file_ner, 'Data-cache')
         path_file_ner = os.path.join(path_file_ner, 'question_keywords.json')
         data = json.load(open(path_file_ner, encoding='utf-8'))
         return data
 
-    except:
-        print("Error loading data")
-        return None
+    # except:
+    #     print("Error loading data")
+    #     return None
     
 def load_txt_data():
-    try :
+    # try :
         path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
         path_file_ner = os.path.join(path_file_ner, 'Data-cache')
         path_file_ner = os.path.join(path_file_ner, 'questiontext.json')
         data = json.load(open(path_file_ner, encoding='utf-8'))
         return data
 
-    except:
-        print("Error loading data")
-        return None
+    # except:
+    #     print("Error keyword loading data")
+    #     return None
 
 
 def extract_kw_ques(question):
     curr_dir = os.path.dirname(__file__)
     target_dir = os.path.join(curr_dir, 'Unsupervised-keyphrase-extraction', 'src')
     # save the question in a text file
-    save_txt_file = os.path.join(target_dir, 'data', 'Data-cache','EmJacc','docsutf8', '1.txt')
+    save_txt_file = os.path.join(target_dir, 'data', 'Datasets','EmJacc','docsutf8', '1.txt')
     text_file = open(save_txt_file, "w")
     text_file.write(question)
     text_file.close()
@@ -212,11 +212,11 @@ def keyword_score(keyword1, keyword2, question1, question2):
   if(union_keyword == []):      # suggestive model
     return 1
 
-  return max(
-    len(common_keyword)/len(union_keyword),
-    len(common_keyword)/len(keyword1),
-    len(common_keyword)/len(keyword2)
-  )
+  return len(common_keyword)/len(union_keyword)
+  # max(
+    # len(common_keyword)/len(keyword1),
+    # len(common_keyword)/len(keyword2)
+  # )
 
 
 # keyword_score("many π bond ferrocene", "many π ferrocene", "how many π bonds are present in ferrocene", "how many π are present in ferrocene"pip)

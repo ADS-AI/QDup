@@ -29,7 +29,7 @@ query_question = input()
 #
 GLOB_VERBOSE = 1
 KW_THRESHOLD = 0.8
-JACC_THRESHOLD = 0.5
+JACC_THRESHOLD = 0.4
 #
 #   Model
 #

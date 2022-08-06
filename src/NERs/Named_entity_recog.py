@@ -15,27 +15,27 @@ nlp = spacy.load("en_core_web_sm")
 lemmatizer = WordNetLemmatizer()
 
 def load_data():
-    try :
+    # try :
         path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
         path_file_ner = os.path.join(path_file_ner, 'Data-cache')
         path_file_ner = os.path.join(path_file_ner, 'questions_ners.json')
         data = json.load(open(path_file_ner, encoding='utf-8'))
         return data
 
-    except:
-        print("Error loading data")
-        return None
+    # except:
+    #     print("Error loading data")
+    #     return None
     
 def load_txt_data():
-    try :
+    # try :
         path_file_txt = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
         path_file_txt = os.path.join(path_file_txt, 'Data-cache')
         path_file_txt = os.path.join(path_file_txt, 'questiontext.json')
         data = json.load(open(path_file_txt, encoding='utf-8'))
         return data
-    except:
-        print("Error loading jaccard data")
-        return None
+    # except:
+    #     print("Error loading jaccard data")
+    #     return None
 
 
 def generate_NER(ques):

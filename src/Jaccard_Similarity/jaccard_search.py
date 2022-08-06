@@ -11,28 +11,30 @@ nltk.download('punkt')
 
 
 def load_data():
-    try :
+    # try :
         path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        path_file_tkn = os.path.join(path_file_tkn, 'QUESTION_DUPLICATE_DETECTION')
         path_file_tkn = os.path.join(path_file_tkn, 'src')
         path_file_tkn = os.path.join(path_file_tkn, 'Data-cache')
         path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data
-    except:
-        print("Error loading jaccard data")
-        return None
+    # except:
+    #     print("Error loading jaccard data")
+    #     return None
 
 def load_txt_data():
-    try :
+    # try :
         path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+        path_file_tkn = os.path.join(path_file_tkn, 'QUESTION_DUPLICATE_DETECTION')
         path_file_tkn = os.path.join(path_file_tkn, 'src')
         path_file_tkn = os.path.join(path_file_tkn, 'Data-cache')
         path_file_tkn = os.path.join(path_file_tkn, 'questiontext.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data
-    except:
-        print("Error loading jaccard data")
-        return None
+    # except:
+    #     print("Error loading jaccard data")
+    #     return None
 
     
 
@@ -76,6 +78,9 @@ def main_jaccard_search(candidates, query_question, threshold, duplicate_thresho
             print(id + " : " + question_texts[id])
         print(output_color.END)
 
-    return duplicate_candidates, passed_candidates
+        print(output_color.DARKCYAN + "(JACC)Potential Candidates: ")
+        for id in passed_candidates: 
+            print(id + " : " + question_texts[id])
+        print(output_color.END)
 
-load_data()
+    return duplicate_candidates, passed_candidates
