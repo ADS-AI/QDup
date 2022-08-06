@@ -111,7 +111,7 @@ def replace_elements_in_string(A):
     return A
 
 
-print(replace_elements_in_string("How many 'dear' can't wouldn't pi bonds in CL molecules"))
+print(replace_elements_in_string("How many 'dear' can't wouldn't pi bonds in zn molecules"))
 
 # // Dependency parsing
 # // Presentation
