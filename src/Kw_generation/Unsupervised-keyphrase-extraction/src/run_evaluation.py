@@ -218,7 +218,7 @@ if __name__ == '__main__':
     dataPath = (dir_path + '/data')
     pathData = dataPath
     pathOutput = pathData + "/conversor/output/"
-    pathDataset = pathData + "/Datasets/"
+    pathDataset = pathData + "/Data-cache/"
     pathKeyphrases = pathData + "/Keywords/"
 
     EvaluationStemming = True  # performs stemming when comparing the results obtained from the algorithm with the ground-truth

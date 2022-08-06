@@ -14,7 +14,7 @@ def load_data():
     try :
         path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
         path_file_tkn = os.path.join(path_file_tkn, 'src')
-        path_file_tkn = os.path.join(path_file_tkn, 'Datasets')
+        path_file_tkn = os.path.join(path_file_tkn, 'Data-cache')
         path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data
@@ -26,7 +26,7 @@ def load_txt_data():
     try :
         path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
         path_file_tkn = os.path.join(path_file_tkn, 'src')
-        path_file_tkn = os.path.join(path_file_tkn, 'Datasets')
+        path_file_tkn = os.path.join(path_file_tkn, 'Data-cache')
         path_file_tkn = os.path.join(path_file_tkn, 'questiontext.json')
         data = json.load(open(path_file_tkn, encoding='utf-8'))
         return data

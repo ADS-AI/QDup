@@ -10,7 +10,7 @@ VERBOSE  = 0
 def load_kw_data():
     try :
         path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
-        path_file_ner = os.path.join(path_file_ner, 'Datasets')
+        path_file_ner = os.path.join(path_file_ner, 'Data-cache')
         path_file_ner = os.path.join(path_file_ner, 'question_keywords.json')
         data = json.load(open(path_file_ner, encoding='utf-8'))
         return data
@@ -22,7 +22,7 @@ def load_kw_data():
 def load_txt_data():
     try :
         path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
-        path_file_ner = os.path.join(path_file_ner, 'Datasets')
+        path_file_ner = os.path.join(path_file_ner, 'Data-cache')
         path_file_ner = os.path.join(path_file_ner, 'questiontext.json')
         data = json.load(open(path_file_ner, encoding='utf-8'))
         return data
@@ -36,7 +36,7 @@ def extract_kw_ques(question):
     curr_dir = os.path.dirname(__file__)
     target_dir = os.path.join(curr_dir, 'Unsupervised-keyphrase-extraction', 'src')
     # save the question in a text file
-    save_txt_file = os.path.join(target_dir, 'data', 'Datasets','EmJacc','docsutf8', '1.txt')
+    save_txt_file = os.path.join(target_dir, 'data', 'Data-cache','EmJacc','docsutf8', '1.txt')
     text_file = open(save_txt_file, "w")
     text_file.write(question)
     text_file.close()

@@ -37,7 +37,7 @@ query_question = pre.preprocess(query_question)
 extract_kw_ques(query_question) # this step is being called here to run simultaneously with next commands
 
 path_file_qtxt = os.path.dirname(__file__)
-path_file_qtxt = os.path.join(path_file_qtxt, 'Datasets')
+path_file_qtxt = os.path.join(path_file_qtxt, 'Data-cache')
 path_file_qtxt = os.path.join(path_file_qtxt, 'questiontext.json')
 question_texts = json.load(open(path_file_qtxt, encoding='utf-8'))
 
