@@ -64,20 +64,24 @@ def replace_apostrophe_words_custom(A):
     
         return A
 
-def replace_apostrophe_words_general(phrase):
+def replace_apostrophe_words_general(A):
 
-    phrase = re.sub(r"ain\'t", "am not", phrase)
-    phrase = re.sub(r"y\'all", "you all", phrase)
-    phrase = re.sub(r"can\'t", "can not", phrase)
-    phrase = re.sub(r"n\'t", " not", phrase)
-    phrase = re.sub(r"\'re", " are", phrase)
-    phrase = re.sub(r"\'s", " is", phrase)
-    phrase = re.sub(r"\'d", " would", phrase)
-    phrase = re.sub(r"\'ll", " will", phrase)
-    phrase = re.sub(r"\'t", " not", phrase)
-    phrase = re.sub(r"\'ve", " have", phrase)
-    phrase = re.sub(r"\'m", " am", phrase)
-    return phrase
+    for i in range(len(A)):
+        phrase = A[i]
+        phrase = re.sub(r"ain\'t", "am not", phrase)
+        phrase = re.sub(r"y\'all", "you all", phrase)
+        phrase = re.sub(r"can\'t", "can not", phrase)
+        phrase = re.sub(r"n\'t", " not", phrase)
+        phrase = re.sub(r"\'re", " are", phrase)
+        phrase = re.sub(r"\'s", " is", phrase)
+        phrase = re.sub(r"\'d", " would", phrase)
+        phrase = re.sub(r"\'ll", " will", phrase)
+        phrase = re.sub(r"\'t", " not", phrase)
+        phrase = re.sub(r"\'ve", " have", phrase)
+        phrase = re.sub(r"\'m", " am", phrase)
+        A[i] = phrase
+
+    return A
 
 def lemmatize_words(A):
 
@@ -95,10 +99,9 @@ def replace_elements_in_string(A):
     A = replace_elements(A)
     A = replace_greek_letters(A)
     A = lemmatize_words(A)
+    A = replace_apostrophe_words_general(A)
 
     A = " ".join(A)
-
-    A = replace_apostrophe_words_general(A)
     
     return A
 
