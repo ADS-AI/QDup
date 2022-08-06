@@ -54,7 +54,7 @@ def kw_potential_candidates(curr_candid_ls, orig_ques, threshold_sc, verbose = 0
 
     for candidate in curr_candid_ls:
         score = keyword_score(kw_1.split(), kw_dict[candidate][0].split(), orig_ques, txt_dict[candidate])
-        if (VERBOSE == 1):
+        if (VERBOSE == 2):
             print("orig_ques -> ", orig_ques)
             print("kw_1 : ", kw_1)
             print()
@@ -71,7 +71,7 @@ def kw_potential_candidates(curr_candid_ls, orig_ques, threshold_sc, verbose = 0
         if(curr_candid_scores[ind] > threshold_sc):
             final_candidates.append(candidate)
 
-    if(VERBOSE == 1):
+    if(VERBOSE > 0):
       print(output_color.BLUE + "(KW) Potential_candidates : ")
       for id in final_candidates: 
           print(id + " : " + txt_dict[id])

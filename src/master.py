@@ -16,6 +16,7 @@ from Jaccard_Similarity import jaccard_search as jaccard
 from NERs import Named_entity_recog as ner
 from formatting import output_color
 from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
+from Sentence_embeddings.compare_embeds import embed_search
 
 print('-------------------------------------------------------------------------------------------------------------')
 print('Modules installed successfully!')
@@ -29,7 +30,8 @@ query_question = input()
 #
 GLOB_VERBOSE = 1
 KW_THRESHOLD = 0.8
-JACC_THRESHOLD = 0.4
+JACC_THRESHOLD = 0.3
+TOP_K_EMBEDS = 3
 #
 #   Model
 #
@@ -80,3 +82,4 @@ potential_candidates = ner.check_NERs(potential_candidates, query_question, verb
 
 potential_candidates = kw_potential_candidates(potential_candidates, query_question, KW_THRESHOLD, verbose = GLOB_VERBOSE)
 
+embed_candids = embed_search(query_question, TOP_K_EMBEDS, GLOB_VERBOSE)
