@@ -66,6 +66,7 @@ def replace_apostrophe_words_custom(A):
 
 def replace_apostrophe_words_general(phrase):
 
+    phrase = re.sub(r"can\'t", "can not", phrase)
     phrase = re.sub(r"n\'t", " not", phrase)
     phrase = re.sub(r"\'re", " are", phrase)
     phrase = re.sub(r"\'s", " is", phrase)
@@ -87,8 +88,6 @@ def replace_elements_in_string(A):
 
     A = A.lower()
 
-    A = replace_apostrophe_words_general(A)
-
     A = list(A.split(" "))
 
     A = replace_elements(A)
@@ -96,10 +95,13 @@ def replace_elements_in_string(A):
     A = lemmatize_words(A)
 
     A = " ".join(A)
+
+    A = replace_apostrophe_words_general(A)
+    
     return A
 
 
-print(replace_elements_in_string("How many wouldn't pi bonds in CL molecules"))
+print(replace_elements_in_string("How many can't wouldn't pi bonds in CL molecules"))
 
 # // Dependency parsing
 # // Presentation
