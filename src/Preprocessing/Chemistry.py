@@ -66,6 +66,8 @@ def replace_apostrophe_words_custom(A):
 
 def replace_apostrophe_words_general(phrase):
 
+    phrase = re.sub(r"ain\'t", "am not", phrase)
+    phrase = re.sub(r"y\'all", "you all", phrase)
     phrase = re.sub(r"can\'t", "can not", phrase)
     phrase = re.sub(r"n\'t", " not", phrase)
     phrase = re.sub(r"\'re", " are", phrase)
