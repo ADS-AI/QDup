@@ -41,7 +41,7 @@ greek_letters = {
     'omega': 'ω'
 }
 
-apostrophe_words = { "ain't" : "am not", "aren't" : "are not", "can't" : "can not", "couldn't" : "could not", "didn't" : "did not", "doesn't" : "does not", "don't" : "do not", "hadn't" : "had not", "hasn't" : "has not", "haven't" : "have not", "he'sn't" : "he is not", "i'dn't" : "i would not", "i'd" : "i would", "isn't" : "is not", "i'ven't" : "i have not", "mightn't" : "might not", "mustn't" : "must not","needn't" : "need not", "shan't" : "shall not", "she'sn't" : "she is not", "shouldn't" : "should not", "wasn't" : "was not", "weren't" : "were not", "we'ren't" : "we are not", "won't" : "will not", "wouldn't" : "would not", "i'm" :"i am", "you're" : "you are", "it's" : "it is", "i'd" : "i would", "let's" : "let us", "who's" : "who is", "they'd" : "they had" }
+apostrophe_words = { "ain't" : "am not", "he'sn't" : "he is not", "i'dn't" : "i would not", "i'd" : "i would", "isn't" : "is not", "i'ven't" : "i have not", "mightn't" : "might not", "mustn't" : "must not","needn't" : "need not", "shan't" : "shall not", "she'sn't" : "she is not", "shouldn't" : "should not", "wasn't" : "was not", "weren't" : "were not", "we'ren't" : "we are not", "won't" : "will not", "wouldn't" : "would not", "i'm" :"i am", "you're" : "you are", "it's" : "it is", "i'd" : "i would", "let's" : "let us", "who's" : "who is", "they'd" : "they had" }
 
 def replace_elements(A):
     for i in range(len(A)):
@@ -68,6 +68,11 @@ def replace_apostrophe_words_general(A):
 
     for i in range(len(A)):
         phrase = A[i]
+
+        if(phrase[0] == '\'' or phrase[-1] == '\''):   # 'dear' -> wouldear
+            A[i] = phrase 
+            continue 
+
         phrase = re.sub(r"ain\'t", "am not", phrase)
         phrase = re.sub(r"y\'all", "you all", phrase)
         phrase = re.sub(r"can\'t", "can not", phrase)
@@ -106,7 +111,7 @@ def replace_elements_in_string(A):
     return A
 
 
-print(replace_elements_in_string("How many can't wouldn't pi bonds in CL molecules"))
+print(replace_elements_in_string("How many 'dear' can't wouldn't pi bonds in CL molecules"))
 
 # // Dependency parsing
 # // Presentation
