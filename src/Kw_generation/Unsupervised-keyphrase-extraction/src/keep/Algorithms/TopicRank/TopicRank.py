@@ -1,7 +1,14 @@
 import pke
 import string
-from keep.utility import load_stop_words, getlanguage, CreateKeywordsFolder, LoadFiles, Convert2TrecEval
+from keep.utility import (
+    load_stop_words,
+    getlanguage,
+    CreateKeywordsFolder,
+    LoadFiles,
+    Convert2TrecEval,
+)
 import os
+
 
 class TopicRank(object):
     def __init__(self, numOfKeywords, pathData, dataset_name):
@@ -10,14 +17,18 @@ class TopicRank(object):
         self.__dataset_name = dataset_name
         self.__pathData = pathData
         self.__pathToDatasetName = pathData + "/Datasets/" + dataset_name
-        self.__keywordsPath = self.__pathData + '/Keywords/TopicRank/' + self.__dataset_name
+        self.__keywordsPath = (
+            self.__pathData + "/Keywords/TopicRank/" + self.__dataset_name
+        )
         self.__outputPath = self.__pathData + "/conversor/output/"
         self.__algorithmName = "TopicRank"
 
     def LoadDatasetFiles(self):
         # Gets all files within the dataset fold
-        listFile = LoadFiles(self.__pathToDatasetName + '/docsutf8/*')
-        print(f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}")
+        listFile = LoadFiles(self.__pathToDatasetName + "/docsutf8/*")
+        print(
+            f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}"
+        )
         return listFile
 
     def CreateKeywordsOutputFolder(self):
@@ -25,7 +36,7 @@ class TopicRank(object):
         CreateKeywordsFolder(self.__keywordsPath)
 
     def runSingleDoc(self, doc):
-        #Get topicRank keywords
+        # Get topicRank keywords
         # 1. create a topicRank extractor.
         extractor = pke.unsupervised.TopicRank()
 
@@ -34,18 +45,17 @@ class TopicRank(object):
 
         # 3. select the longest sequences of nouns and adjectives, that do
         #    not contain punctuation marks or stopwords as candidates.
-        pos = {'NOUN', 'PROPN', 'ADJ'}
+        pos = {"NOUN", "PROPN", "ADJ"}
         stoplist = list(string.punctuation)
-        stoplist += ['-lrb-', '-rrb-', '-lcb-', '-rcb-', '-lsb-', '-rsb-']
+        stoplist += ["-lrb-", "-rrb-", "-lcb-", "-rcb-", "-lsb-", "-rsb-"]
         stoplist += load_stop_words(self.__lan)
         extractor.candidate_selection(pos=pos, stoplist=stoplist)
-
 
         try:
             # 4. build topics by grouping candidates with HAC (average linkage,
             #    threshold of 1/4 of shared stems). Weight the topics using random
             #    walk, and select the first occuring candidate from each topic.
-            extractor.candidate_weighting(threshold=0.74,method='average')
+            extractor.candidate_weighting(threshold=0.74, method="average")
 
             # 5. get the numOfKeywords-highest scored candidates as keyphrases
             keywords = extractor.get_n_best(n=self.__numOfKeywords)
@@ -59,17 +69,19 @@ class TopicRank(object):
 
         for j, doc in enumerate(listOfDocs):
             # docID keeps the name of the file (without the extension)
-            docID = '.'.join(os.path.basename(doc).split('.')[0:-1])
+            docID = ".".join(os.path.basename(doc).split(".")[0:-1])
 
             keywords = self.runSingleDoc(doc)
 
             # Save the keywords; score (on Algorithms/NameOfAlg/Keywords/NameOfDataset
-            with open(os.path.join(self.__keywordsPath, docID), 'w', encoding="utf-8") as out:
+            with open(
+                os.path.join(self.__keywordsPath, docID), "w", encoding="utf-8"
+            ) as out:
                 for (key, score) in keywords:
-                    out.write(f'{key} {score}\n')
+                    out.write(f"{key} {score}\n")
 
             # Track the status of the task
-            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end='')
+            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end="")
 
         print(f"\n100% of the Extraction Concluded")
 
@@ -79,5 +91,11 @@ class TopicRank(object):
         self.runMultipleDocs(listOfDocs)
 
     def Convert2Trec_Eval(self, EvaluationStemming=False):
-        Convert2TrecEval(self.__pathToDatasetName, EvaluationStemming, self.__outputPath, self.__keywordsPath,
-                         self.__dataset_name, self.__algorithmName)
+        Convert2TrecEval(
+            self.__pathToDatasetName,
+            EvaluationStemming,
+            self.__outputPath,
+            self.__keywordsPath,
+            self.__dataset_name,
+            self.__algorithmName,
+        )

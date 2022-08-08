@@ -23,21 +23,24 @@ class MinimalCoreNLPReader(Reader):
     def read(self, path, **kwargs):
         sentences = []
         tree = etree.parse(path, self.parser)
-        for sentence in tree.iterfind('./document/sentences/sentence'):
+        for sentence in tree.iterfind("./document/sentences/sentence"):
             # get the character offsets
-            starts = [int(u.text) for u in
-                      sentence.iterfind("tokens/token/CharacterOffsetBegin")]
-            ends = [int(u.text) for u in
-                    sentence.iterfind("tokens/token/CharacterOffsetEnd")]
-            sentences.append({
-                "words": [u.text for u in
-                          sentence.iterfind("tokens/token/word")],
-                "lemmas": [u.text for u in
-                           sentence.iterfind("tokens/token/lemma")],
-                "POS": [u.text for u in sentence.iterfind("tokens/token/POS")],
-                "char_offsets": [(starts[k], ends[k]) for k in
-                                 range(len(starts))]
-            })
+            starts = [
+                int(u.text)
+                for u in sentence.iterfind("tokens/token/CharacterOffsetBegin")
+            ]
+            ends = [
+                int(u.text)
+                for u in sentence.iterfind("tokens/token/CharacterOffsetEnd")
+            ]
+            sentences.append(
+                {
+                    "words": [u.text for u in sentence.iterfind("tokens/token/word")],
+                    "lemmas": [u.text for u in sentence.iterfind("tokens/token/lemma")],
+                    "POS": [u.text for u in sentence.iterfind("tokens/token/POS")],
+                    "char_offsets": [(starts[k], ends[k]) for k in range(len(starts))],
+                }
+            )
             sentences[-1].update(sentence.attrib)
 
         doc = Document.from_sentences(sentences, input_file=path, **kwargs)
@@ -53,10 +56,11 @@ def fix_spacy_for_french(nlp):
     Taken from https://github.com/explosion/spaCy/issues/5179.
     """
     from spacy.symbols import TAG
-    if nlp.lang != 'fr':
+
+    if nlp.lang != "fr":
         # Only fix french model
         return nlp
-    if '' not in [t.pos_ for t in nlp('est-ce')]:
+    if "" not in [t.pos_ for t in nlp("est-ce")]:
         # If the bug does not happen do nothing
         return nlp
     rules = nlp.Defaults.tokenizer_exceptions
@@ -66,7 +70,9 @@ def fix_spacy_for_french(nlp):
             if TAG in token_dict:
                 del token_dict[TAG]
     try:
-        nlp.tokenizer = nlp.Defaults.create_tokenizer(nlp)  # this property assignment flushes the cache
+        nlp.tokenizer = nlp.Defaults.create_tokenizer(
+            nlp
+        )  # this property assignment flushes the cache
     except Exception as e:
         # There was a problem fallback on using `pos = token.pos_ or token.tag_`
         ()
@@ -86,7 +92,7 @@ class RawTextReader(Reader):
         self.language = language
 
         if language is None:
-            self.language = 'en'
+            self.language = "en"
 
     def read(self, text, **kwargs):
         """Read the input file and use spacy to pre-process.
@@ -98,34 +104,38 @@ class RawTextReader(Reader):
             spacy_model (model): an already loaded spacy model.
         """
 
-        spacy_model = kwargs.get('spacy_model', None)
+        spacy_model = kwargs.get("spacy_model", None)
 
         if spacy_model is not None:
             spacy_model = fix_spacy_for_french(spacy_model)
             spacy_doc = spacy_model(text)
         else:
-            max_length = kwargs.get('max_length', 10**6)
-            nlp = spacy.load(self.language,
-                             max_length=max_length,
-                             disable=['ner', 'textcat', 'parser'])
-            nlp.add_pipe(nlp.create_pipe('sentencizer'))
+            max_length = kwargs.get("max_length", 10**6)
+            nlp = spacy.load(
+                self.language,
+                max_length=max_length,
+                disable=["ner", "textcat", "parser"],
+            )
+            nlp.add_pipe(nlp.create_pipe("sentencizer"))
             nlp = fix_spacy_for_french(nlp)
             spacy_doc = nlp(text)
 
         sentences = []
         for sentence_id, sentence in enumerate(spacy_doc.sents):
-            sentences.append({
-                "words": [token.text for token in sentence],
-                "lemmas": [token.lemma_ for token in sentence],
-                # FIX : This is a fallback if `fix_spacy_for_french` does not work
-                "POS": [token.pos_ or token.tag_ for token in sentence],
-                "char_offsets": [(token.idx, token.idx + len(token.text))
-                                     for token in sentence]
-            })
+            sentences.append(
+                {
+                    "words": [token.text for token in sentence],
+                    "lemmas": [token.lemma_ for token in sentence],
+                    # FIX : This is a fallback if `fix_spacy_for_french` does not work
+                    "POS": [token.pos_ or token.tag_ for token in sentence],
+                    "char_offsets": [
+                        (token.idx, token.idx + len(token.text)) for token in sentence
+                    ],
+                }
+            )
 
-        doc = Document.from_sentences(sentences,
-                                      input_file=kwargs.get('input_file', None),
-                                      **kwargs)
+        doc = Document.from_sentences(
+            sentences, input_file=kwargs.get("input_file", None), **kwargs
+        )
 
         return doc
-

@@ -38,7 +38,7 @@ if __name__ == "__main__":
     for index, row in data.iterrows():
         annotator1.append(row["label1"])
         annotator2.append(row["label2"])
-    print(len(data["label1"].values),len(annotator2), len(annotator1))
+    print(len(data["label1"].values), len(annotator2), len(annotator1))
 
     # for input_file in glob.iglob("annotations/annotations/*"):
     #     print(input_file)
@@ -48,12 +48,12 @@ if __name__ == "__main__":
     #         if row["relevance"] ==1:
     #             annotator2.append(row["keywords"])
     # print(len(annotator2))
-    cohen_kappa =[]
-    i=0
+    cohen_kappa = []
+    i = 0
     # while i +18 <= (int(len(annotator1))):
     #     print(i,i+18)
     #     print(annotator1[i:i+18])
     #     cohen_kappa.append(cohen_kappa_score(annotator1[i:i+18],annotator2[i:i+18]))
     #     print(mean(cohen_kappa ), cohen_kappa_score(annotator1,annotator2))
     #     i = i+18
-    print("cohen's kappa score",cohen_kappa_score(annotator1,annotator2))
+    print("cohen's kappa score", cohen_kappa_score(annotator1, annotator2))

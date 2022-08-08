@@ -4,7 +4,9 @@ import re
 from main.extraction.input_representation import InputTextObj, PosTaggingCoreNLP
 from nltk.parse import CoreNLPParser
 from nltk.stem import WordNetLemmatizer
+
 wnl = WordNetLemmatizer()
+
 
 class NPGrammars:
     GRAMMAR1 = """  NP:{<NN.*|JJ>*<NN.*>}  # Adjective(s)(optional) + Noun(s)"""
@@ -15,24 +17,25 @@ class NPGrammars:
 class NPMethods:
     NOUN_CHUNKS = "noun_chunks"
     GRAMMAR = "grammar"
-    REGEX = 'regex'
+    REGEX = "regex"
 
 
 class NPTags:
-    NLTK = ['NN', 'NNS', 'NNP', 'NNPS', 'JJ']
+    NLTK = ["NN", "NNS", "NNP", "NNPS", "JJ"]
 
 
 class StopWords:
-    NLTK = set(stopwords.words('english'))
+    NLTK = set(stopwords.words("english"))
 
 
 class PhraseHighlighter:
     """Highlights phrases in text"""
-    color = '0,255,255'
+
+    color = "0,255,255"
 
     @staticmethod
     def to_html(text, phrases):
-        marked_text = ''
+        marked_text = ""
         # last_end = 0
         # for phrase, st_idx, end_idx in phrases:
         #     marked_text += text[last_end:st_idx] + PhraseHighlighter._highlight(phrase, 1.0)
@@ -40,13 +43,17 @@ class PhraseHighlighter:
 
         # marked_text += text[last_end:]
         for phrase in phrases:
-            text = re.sub(phrase[0].lstrip().lower(),PhraseHighlighter._highlight(phrase[0].lower(), 1.0), text.lower() )
+            text = re.sub(
+                phrase[0].lstrip().lower(),
+                PhraseHighlighter._highlight(phrase[0].lower(), 1.0),
+                text.lower(),
+            )
 
         return text
 
     @staticmethod
     def _highlight(phrase: str, alpha: float) -> str:
-        return f"<b style=\"background-color:rgba({PhraseHighlighter.color},{alpha})\">{phrase}</b>"
+        return f'<b style="background-color:rgba({PhraseHighlighter.color},{alpha})">{phrase}</b>'
 
 
 class Extractor:
@@ -60,7 +67,6 @@ class Extractor:
 
 
 class CoreNLPExtractor(Extractor):
-
     def __init__(self, nlp):
         self.pos_tagger = PosTaggingCoreNLP("localhost", "9000")
         self.GRAMMAR_EN = """  NP:
@@ -80,16 +86,15 @@ class CoreNLPExtractor(Extractor):
                 {<NN.*|JJ>*<NN.*>+<JJ>*}  # Adjective(s)(optional) + Noun(s) + Adjective(s)(optional)"""
 
     def get_grammar(self, lang):
-        if lang == 'en':
+        if lang == "en":
             grammar = self.GRAMMAR_EN
-        elif lang == 'de':
+        elif lang == "de":
             grammar = self.GRAMMAR_DE
-        elif lang == 'fr':
+        elif lang == "fr":
             grammar = self.GRAMMAR_FR
         else:
-            raise ValueError('Language not handled')
+            raise ValueError("Language not handled")
         return grammar
-
 
     def extract_candidates(self, text_obj, no_subset=False):
         """
@@ -101,13 +106,21 @@ class CoreNLPExtractor(Extractor):
 
         keyphrase_candidate = set()
 
-        np_parser = nltk.RegexpParser(self.get_grammar(text_obj.lang))  # Noun phrase parser
-        trees = np_parser.parse_sents(text_obj.pos_tagged)  # Generator with one tree per sentence
+        np_parser = nltk.RegexpParser(
+            self.get_grammar(text_obj.lang)
+        )  # Noun phrase parser
+        trees = np_parser.parse_sents(
+            text_obj.pos_tagged
+        )  # Generator with one tree per sentence
 
         for tree in trees:
-            for subtree in tree.subtrees(filter=lambda t: t.label() == 'NP'):  # For each nounphrase
+            for subtree in tree.subtrees(
+                filter=lambda t: t.label() == "NP"
+            ):  # For each nounphrase
                 # Concatenate the token with a space
-                keyphrase_candidate.add(' '.join(word for word, tag in subtree.leaves()))
+                keyphrase_candidate.add(
+                    " ".join(word for word, tag in subtree.leaves())
+                )
 
         keyphrase_candidate = {kp for kp in keyphrase_candidate if len(kp.split()) <= 5}
 
@@ -118,18 +131,24 @@ class CoreNLPExtractor(Extractor):
 
         return keyphrase_candidate
 
-    def run(self, text, lists = None):
+    def run(self, text, lists=None):
         tagged_text = self.pos_tagger.pos_tag_raw_text(text)
         text_object = InputTextObj(tagged_text, "en")
         candidates = self.extract_candidates(text_object)
         return candidates
-        
 
 
 class PhraseExtractor(Extractor):
     """Extracts candidate phrases from given text using language models"""
 
-    def __init__(self, nlp, grammar='GRAMMAR1', np_method='NOUN_CHUNKS', np_tags='NLTK', stopwords="NLTK"):
+    def __init__(
+        self,
+        nlp,
+        grammar="GRAMMAR1",
+        np_method="NOUN_CHUNKS",
+        np_tags="NLTK",
+        stopwords="NLTK",
+    ):
         """Takes nlp model (which supports POS tagging, SentTokenizer) and takes text to tokenize"""
         super().__init__()
 
@@ -142,23 +161,24 @@ class PhraseExtractor(Extractor):
         self._init_np_parser()
 
     def clean_sentence(self, sentence):
-        sentence = re.sub(r'([a-z])([A-Z])', r'\1\. \2', sentence)  # before lower case
+        sentence = re.sub(r"([a-z])([A-Z])", r"\1\. \2", sentence)  # before lower case
         s = sentence.lower()
         # normalization 3: "&gt", "&lt"
-        s = re.sub(r'&gt|&lt', ' ', s)
+        s = re.sub(r"&gt|&lt", " ", s)
         # normalization 4: letter repetition (if more than 2)
-        s = re.sub("\n", ' ',s)
+        s = re.sub("\n", " ", s)
         # normalization 4: letter repetition (if more than 2)
-        s = re.sub(r'([a-z])\1{2,}', r'\1', s)
+        s = re.sub(r"([a-z])\1{2,}", r"\1", s)
         # normalization 5: non-word repetition (if more than 1)
-        s = re.sub(r'([\W+])\1{1,}', r'\1', s)
-        s = re.sub(r'\[.*?\]', '. ', s)
+        s = re.sub(r"([\W+])\1{1,}", r"\1", s)
+        s = re.sub(r"\[.*?\]", ". ", s)
         # normalization 9: [.?!] --> [.?!] xxx
-        s = re.sub(r'(\.|\?|!)(\w)', r'\1 \2', s)
-    #     # normalization 12: phrase repetition
-    #     s = re.sub(r'(.{2,}?)\1{1,}', r'\1', s)
+        s = re.sub(r"(\.|\?|!)(\w)", r"\1 \2", s)
+        #     # normalization 12: phrase repetition
+        #     s = re.sub(r'(.{2,}?)\1{1,}', r'\1', s)
         s = s.lower()
         return s.strip()
+
     def run(self, text, lists=None):
         text = self.clean_sentence(text)
         doc = self.nlp(text)
@@ -184,20 +204,25 @@ class PhraseExtractor(Extractor):
         if self.stopwords:
             for token in doc:
                 if token.text.lower() in self.stopwords:
-                    token.tag_ = 'IN'
+                    token.tag_ = "IN"
 
         return doc
 
     @staticmethod
     def _extract_tokens(doc):
-        return [(token.text.lower(), token.tag_, token.idx, token.idx + len(token)) for token in doc]
+        return [
+            (token.text.lower(), token.tag_, token.idx, token.idx + len(token))
+            for token in doc
+        ]
 
     @staticmethod
     def _extract_candidates_spacy(doc):
         phrase_candidates = []
 
         for chunk in doc.noun_chunks:
-            phrase_candidates.append((chunk.text.lower(), chunk.start_char, chunk.end_char))
+            phrase_candidates.append(
+                (chunk.text.lower(), chunk.start_char, chunk.end_char)
+            )
 
         return phrase_candidates
 
@@ -220,7 +245,7 @@ class PhraseExtractor(Extractor):
         np_tree = self.np_parser.parse(tokens)
 
         for node in np_tree:
-            if isinstance(node, nltk.tree.Tree) and node._label  == 'NP':
+            if isinstance(node, nltk.tree.Tree) and node._label == "NP":
                 tokens = []
                 indices = set()
                 for node_child in node.leaves():
@@ -228,32 +253,30 @@ class PhraseExtractor(Extractor):
                     indices.add(node_child[2])
                     indices.add(node_child[3])
 
-                phrase = ' '.join(tokens)
+                phrase = " ".join(tokens)
 
                 phrase_start_idx = min(indices)
                 phrase_end_idx = max(indices)
-                #comment lines 166 to 171 to evaluate results without wikipedia based filtering  step if fine grained cocnepts 
-                #are not needed. For example for keyphrase extraction we dont need this as the goal of this piece of code
-                #is to consider phrases that fall into wikipedia articles as it conforms to ur definition of a technical concept
+                # comment lines 166 to 171 to evaluate results without wikipedia based filtering  step if fine grained cocnepts
+                # are not needed. For example for keyphrase extraction we dont need this as the goal of this piece of code
+                # is to consider phrases that fall into wikipedia articles as it conforms to ur definition of a technical concept
                 # In keyphrase extarction this may eliminate some phrases that might lead to decrease in accuracy.
                 if lists:
-                    words = phrase.split(' ')
-                    phrase = ''
+                    words = phrase.split(" ")
+                    phrase = ""
                     for word in words:
                         if self.phrase_in_lists(lists, word):
-                            phrase = phrase +' ' +word
+                            phrase = phrase + " " + word
                 phrase_candidates.append((phrase, phrase_start_idx, phrase_end_idx))
 
         sorted_phrase_candidates = self._sort_candidates(phrase_candidates)
         final_list_candidates = set()
-        selected_candidates=[]
+        selected_candidates = []
         # for phrase,position_start,position_end in sorted_phrase_candidates:
         #     if not phrase in final_list_candidates:
         #         lemmatized_phrase = ' '.join(wnl.lemmatize(word) for word in phrase.split(" "))
         #         final_list_candidates.add(lemmatized_phrase)
         #         selected_candidates.append((lemmatized_phrase,position_start,position_end))
-
-
 
         return sorted_phrase_candidates
 

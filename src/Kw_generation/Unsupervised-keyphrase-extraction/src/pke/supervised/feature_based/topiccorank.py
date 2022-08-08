@@ -92,12 +92,14 @@ class TopicCoRank(TopicRank):
 
                     weight = len(
                         set(self.candidates[c_i].sentence_ids).intersection(
-                            self.candidates[c_j].sentence_ids))
+                            self.candidates[c_j].sentence_ids
+                        )
+                    )
 
                     if weight > 0:
                         if not self.graph.has_edge(i, j):
                             self.graph.add_edge(i, j, weight=0, type="in")
-                        self.graph[i][j]['weight'] += weight
+                        self.graph[i][j]["weight"] += weight
 
     def unify_with_domain_graph(self, input_file, excluded_file=None):
         """Unify the domain graph, built from a reference file, with the topic
@@ -109,9 +111,8 @@ class TopicCoRank(TopicRank):
                 cross-validation), defaults to None.
         """
 
-        if input_file.endswith('.json'):
-            references = load_references(input_file=input_file,
-                                         language=self.language)
+        if input_file.endswith(".json"):
+            references = load_references(input_file=input_file, language=self.language)
         else:
             logging.warning("{} is not a reference file".format(input_file))
             pass
@@ -144,9 +145,12 @@ class TopicCoRank(TopicRank):
 
                     # checking for out edges with topics
                     if gold_1 in self.topic_to_integer:
-                        self.graph.add_edge(self.domain_to_integer[gold_1],
-                                            self.topic_to_integer[gold_1],
-                                            weight=0, type="out")
+                        self.graph.add_edge(
+                            self.domain_to_integer[gold_1],
+                            self.topic_to_integer[gold_1],
+                            weight=0,
+                            type="out",
+                        )
 
                     offset += 1
 
@@ -156,9 +160,12 @@ class TopicCoRank(TopicRank):
 
                     # checking for out edges with topics
                     if gold_2 in self.topic_to_integer:
-                        self.graph.add_edge(self.domain_to_integer[gold_2],
-                                            self.topic_to_integer[gold_2],
-                                            weight=0, type="out")
+                        self.graph.add_edge(
+                            self.domain_to_integer[gold_2],
+                            self.topic_to_integer[gold_2],
+                            weight=0,
+                            type="out",
+                        )
 
                     offset += 1
 
@@ -168,15 +175,17 @@ class TopicCoRank(TopicRank):
                 # add/update the edge
                 if not self.graph.has_edge(node_1, node_2):
                     self.graph.add_edge(node_1, node_2, weight=0, type="in")
-                self.graph[node_1][node_2]['weight'] += 1
+                self.graph[node_1][node_2]["weight"] += 1
 
-    def candidate_weighting(self,
-                            input_file=None,
-                            excluded_file=None,
-                            lambda_t=0.1,
-                            lambda_k=0.5,
-                            nb_iter=100,
-                            convergence_threshold=0.001):
+    def candidate_weighting(
+        self,
+        input_file=None,
+        excluded_file=None,
+        lambda_t=0.1,
+        lambda_k=0.5,
+        nb_iter=100,
+        convergence_threshold=0.001,
+    ):
         """Weight candidates using the co-ranking formulae.
 
         Args:
@@ -199,11 +208,9 @@ class TopicCoRank(TopicRank):
         self.build_topic_graph()
 
         # unify with domain graph
-        self.unify_with_domain_graph(input_file=input_file,
-                                     excluded_file=excluded_file)
+        self.unify_with_domain_graph(input_file=input_file, excluded_file=excluded_file)
 
-        logging.info("resulting graph is {} nodes".format(
-                                                    len(self.graph.nodes())))
+        logging.info("resulting graph is {} nodes".format(len(self.graph.nodes())))
 
         weights = [1.0] * len(self.graph.nodes)
 
@@ -215,7 +222,7 @@ class TopicCoRank(TopicRank):
             inner_norm = 0
             outer_norm = 0
             for k in self.graph.neighbors(j):
-                if self.graph[j][k]['type'] == "in":
+                if self.graph[j][k]["type"] == "in":
                     inner_norm += self.graph[j][k]["weight"]
                 else:
                     outer_norm += 1
@@ -228,7 +235,7 @@ class TopicCoRank(TopicRank):
 
             converged = True
 
-            #logging.info("{} iter left".format(nb_iter))
+            # logging.info("{} iter left".format(nb_iter))
 
             # save the weights
             w = weights.copy()
@@ -241,9 +248,8 @@ class TopicCoRank(TopicRank):
                 for j in self.graph.neighbors(i):
 
                     # inner recommendation
-                    if self.graph[i][j]['type'] == "in":
-                        r_in += (self.graph[i][j]["weight"] * w[j]) / \
-                                inner_norms[j]
+                    if self.graph[i][j]["type"] == "in":
+                        r_in += (self.graph[i][j]["weight"] * w[j]) / inner_norms[j]
 
                     # outer recommendation
                     else:

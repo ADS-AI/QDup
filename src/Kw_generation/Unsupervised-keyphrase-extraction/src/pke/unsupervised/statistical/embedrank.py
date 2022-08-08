@@ -41,37 +41,44 @@ class EmbedRank(LoadFile):
         try:
             import sent2vec  # See https://github.com/epfml/sent2vec
         except ImportError:
-            logging.warning('Module sent2vec was not found.')
-            logging.warning('Please install using `python -m pip install cython;'
-                            'python -m pip install git+https://github.com/epfml/sent2vec` '
-                            'to use EmbedRank')
+            logging.warning("Module sent2vec was not found.")
+            logging.warning(
+                "Please install using `python -m pip install cython;"
+                "python -m pip install git+https://github.com/epfml/sent2vec` "
+                "to use EmbedRank"
+            )
             return
 
         super(EmbedRank, self).__init__()
 
         if embedding_path is None:
-            model_name = 'wiki_bigrams.bin'
+            model_name = "wiki_bigrams.bin"
             self._embedding_path = os.path.join(self._models, model_name)
         else:
             self._embedding_path = embedding_path
 
         if not os.path.exists(self._embedding_path):
-            logging.error('Could not find {}'.format(self._embedding_path))
-            logging.error('Please download "sent2vec_wiki_bigrams" model from '
-                            'https://github.com/epfml/sent2vec#downloading-sent2vec-pre-trained-models.')
-            logging.error('And place it in {}.'.format(self._models))
-            logging.error('Or provide an embedding path.')
+            logging.error("Could not find {}".format(self._embedding_path))
+            logging.error(
+                'Please download "sent2vec_wiki_bigrams" model from '
+                "https://github.com/epfml/sent2vec#downloading-sent2vec-pre-trained-models."
+            )
+            logging.error("And place it in {}.".format(self._models))
+            logging.error("Or provide an embedding path.")
 
-        if EmbedRank._embedding_path is None or EmbedRank._embedding_path != self._embedding_path:
-            logging.info('Loading sent2vec model')
+        if (
+            EmbedRank._embedding_path is None
+            or EmbedRank._embedding_path != self._embedding_path
+        ):
+            logging.info("Loading sent2vec model")
             EmbedRank._embedding_model = sent2vec.Sent2vecModel()
             EmbedRank._embedding_model.load_model(self._embedding_path)
             self._embedding_model = EmbedRank._embedding_model
             EmbedRank._embedding_path = self._embedding_path
-            logging.info('Done loading sent2vec model')
+            logging.info("Done loading sent2vec model")
 
         # Initialize _pos here, if another selection function is used.
-        self._pos = {'NOUN', 'PROPN', 'ADJ'}
+        self._pos = {"NOUN", "PROPN", "ADJ"}
 
     def candidate_selection(self, pos=None):
         """Candidate selection using longest sequences of PoS.
@@ -106,14 +113,14 @@ class EmbedRank(LoadFile):
             return sim
 
         sim_doc = cosine_similarity(document, candidates)
-        sim_doc[np.isnan(sim_doc)] = 0.
+        sim_doc[np.isnan(sim_doc)] = 0.0
         sim_doc = norm(sim_doc)
-        sim_doc[np.isnan(sim_doc)] = 0.
+        sim_doc[np.isnan(sim_doc)] = 0.0
 
         sim_can = cosine_similarity(candidates)
-        sim_can[np.isnan(sim_can)] = 0.
+        sim_can[np.isnan(sim_can)] = 0.0
         sim_can = norm(sim_can, axis=1)
-        sim_can[np.isnan(sim_can)] = 0.
+        sim_can[np.isnan(sim_can)] = 0.0
 
         sel = np.zeros(len(candidates), dtype=bool)
         ranks = [None] * len(candidates)
@@ -148,14 +155,17 @@ class EmbedRank(LoadFile):
             (defaults to 1).
         """
         # Flatten sentences and remove words with unvalid POS
-        doc = ' '.join(w.lower() if lower else w for s in self.sentences
-                       for i, w in enumerate(s.words)
-                       if s.pos[i] in self._pos)
+        doc = " ".join(
+            w.lower() if lower else w
+            for s in self.sentences
+            for i, w in enumerate(s.words)
+            if s.pos[i] in self._pos
+        )
 
         doc_embed = self._embedding_model.embed_sentence(doc)
         cand_name = list(self.candidates.keys())
         cand = (self.candidates[k] for k in cand_name)
-        cand = [' '.join(k.surface_forms[0]) for k in cand]
+        cand = [" ".join(k.surface_forms[0]) for k in cand]
         cand = [k.lower() if lower else k for k in cand]
         cand_embed = self._embedding_model.embed_sentences(cand)
         rank = self.mmr_ranking(doc_embed, cand_embed, l)

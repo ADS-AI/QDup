@@ -3,9 +3,18 @@ from nltk.corpus import stopwords
 import warnings
 import re
 import networkx as nx
-from main.rank.text_process import  filter_text, read_file, rm_tags, stem2word, get_phrases,get_phrases_new
+from main.rank.text_process import (
+    filter_text,
+    read_file,
+    rm_tags,
+    stem2word,
+    get_phrases,
+    get_phrases_new,
+)
+
 try:
     from nltk.stem.porter import PorterStemmer
+
     STEM = True
 except ImportError:
     print("warning: stem function is off")
@@ -33,17 +42,22 @@ def get_edge_freq(text_stemmed, window=2):
     edge_freq = {}
     tokens = text_stemmed.split()
     for i in range(0, len(tokens) - window + 1):
-        edges += list(itertools.combinations(tokens[i:i+window],2))
+        edges += list(itertools.combinations(tokens[i : i + window], 2))
     for i in range(len(edges)):
         for edge in edges:
             if edges[i][0] == edge[1] and edges[i][1] == edge[0]:
                 edges[i] = edge
     for edge in edges:
-        edge_freq[tuple(sorted(edge))] = edges.count(edge)# * 2 / (tokens.count(edge[0]) + tokens.count(edge[1]))
+        edge_freq[tuple(sorted(edge))] = edges.count(
+            edge
+        )  # * 2 / (tokens.count(edge[0]) + tokens.count(edge[1]))
     return edge_freq
+
 
 def calc_force(freq1, freq2, distance):
     return freq1 * freq2 / (distance * distance)
+
+
 def dict2list(dict):
     output = []
     for key in dict:
@@ -55,12 +69,17 @@ def dict2list(dict):
         output.append(tmp)
     return output
 
+
 def build_graph(edge_weight):
     graph = nx.Graph()
     graph.add_weighted_edges_from(edge_weight)
     return graph
+
+
 def calc_dice(freq1, freq2, edge_count):
     return 2 * edge_count / (freq1 + freq2)
+
+
 class WordAttraction(object):
     """
     Implementation of methods proposed in:
@@ -68,6 +87,7 @@ class WordAttraction(object):
     POS tag filtering is excluded from process as no POS tagging tool can be applied to all languages,
     and it's time-consuming.
     """
+
     def __init__(self, embedding_model):
         self.__accuracy, self.__running, self.__text_length = set(), set(), set()
         self.__word_embedding = embedding_model
@@ -78,8 +98,16 @@ class WordAttraction(object):
         if STEM:
             self.__wnl = PorterStemmer()
 
-    def extract_main(self, text, output_score=True, stem=True,
-                     max_words=2, damping=0.85, max_iter=100, converge_threshold=0.01):
+    def extract_main(
+        self,
+        text,
+        output_score=True,
+        stem=True,
+        max_words=2,
+        damping=0.85,
+        max_iter=100,
+        converge_threshold=0.01,
+    ):
         """
         main method for extracting keywords
         :param text: content from which keywords are extracted
@@ -111,5 +139,7 @@ class WordAttraction(object):
         edges = dict2list(edge_weight)
         graph = build_graph(edges)
         pr = nx.pagerank(graph, alpha=damping)
-        phrases = get_phrases_new(pr, graph, text, ng=3, pl2=0.6, pl3=0.3, with_tag=False)    
+        phrases = get_phrases_new(
+            pr, graph, text, ng=3, pl2=0.6, pl3=0.3, with_tag=False
+        )
         return phrases[:max_words]

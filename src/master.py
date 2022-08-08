@@ -2,12 +2,16 @@ import time
 from formatting import EM_LOGO
 
 print()
-print('********************************* Online Question Duplication Demo ******************************************')
+print(
+    "********************************* Online Question Duplication Demo ******************************************"
+)
 print()
-print('Installing modules...')
-print('-------------------------------------------------------------------------------------------------------------')
+print("Installing modules...")
+print(
+    "-------------------------------------------------------------------------------------------------------------"
+)
 print(EM_LOGO)
-time.sleep(5) # why is this here ?
+time.sleep(5)  # why is this here ?
 
 import json
 import os
@@ -19,11 +23,13 @@ from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
 from Sentence_embeddings.compare_embeds import embed_search
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 
-print('-------------------------------------------------------------------------------------------------------------')
-print('Modules installed successfully!')
+print(
+    "-------------------------------------------------------------------------------------------------------------"
+)
+print("Modules installed successfully!")
 print()
 
-print("Enter the question : ", end = '')
+print("Enter the question : ", end="")
 query_question = input()
 
 #
@@ -39,19 +45,27 @@ TOP_K_EMBEDS = 3
 #   Model
 #
 query_question = pre.preprocess(query_question)
-extract_kw_ques(query_question) # this step is being called here to run simultaneously with next commands
+extract_kw_ques(
+    query_question
+)  # this step is being called here to run simultaneously with next commands
 
 #
-#Get tags and potential candidates list
+# Get tags and potential candidates list
 #
-tag_pred = get_question_tag(ques = query_question, verbose = GLOB_VERBOSE)
-tag_potential_candidates = get_same_tag_candids(ques_text = query_question, curr_tag = tag_pred)
-potential_candidates = tag_potential_candidates # tag_potential_candidates  latere used for embeddings
+tag_pred = get_question_tag(ques=query_question, verbose=GLOB_VERBOSE)
+tag_potential_candidates = get_same_tag_candids(
+    ques_text=query_question, curr_tag=tag_pred
+)
+potential_candidates = (
+    tag_potential_candidates  # tag_potential_candidates  latere used for embeddings
+)
 
 #
-#Get jaccard similarity questions
+# Get jaccard similarity questions
 #
-high_jaccard, potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, JACC_THRESHOLD, verbose = 1) 
+high_jaccard, potential_candidates = jaccard.main_jaccard_search(
+    potential_candidates, query_question, JACC_THRESHOLD, verbose=1
+)
 
 #
 # Exact duplicates
@@ -59,25 +73,33 @@ high_jaccard, potential_candidates = jaccard.main_jaccard_search(potential_candi
 duplicate_questions = high_jaccard
 
 
-
 #
 # Checking for NERs
 #
 
-potential_candidates = ner.check_NERs(potential_candidates, query_question, verbose=GLOB_VERBOSE)
+potential_candidates = ner.check_NERs(
+    potential_candidates, query_question, verbose=GLOB_VERBOSE
+)
 
 
 #
 # Getting extracted keywords
 #
 
-potential_candidates = kw_potential_candidates(potential_candidates, query_question, KW_THRESHOLD, verbose = GLOB_VERBOSE)
-
-
+potential_candidates = kw_potential_candidates(
+    potential_candidates, query_question, KW_THRESHOLD, verbose=GLOB_VERBOSE
+)
 
 
 #
 # Search based on embeddings
 #
 
-embed_candids = embed_search(query_question, tag_potential_candidates, TOP_K_EMBEDS, GLOB_VERBOSE)
+embed_candids = embed_search(
+    query_question,
+    tag_potential_candidates,
+    potential_candidates,
+    TOP_K_EMBEDS,
+    embed_only_new=True,
+    verbose=GLOB_VERBOSE,
+)

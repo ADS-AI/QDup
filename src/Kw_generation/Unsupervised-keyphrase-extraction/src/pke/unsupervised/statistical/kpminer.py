@@ -31,7 +31,7 @@ class KPMiner(LoadFile):
 
         import pke
 
-        # 1. create a KPMiner extractor. 
+        # 1. create a KPMiner extractor.
         extractor = pke.unsupervised.KPMiner()
 
         # 2. load the content of the document.
@@ -101,7 +101,7 @@ class KPMiner(LoadFile):
         Note:
             w = tf * idf * B * P_f
             with
-            
+
               * B = N_d / (P_d * alpha) and B = min(sigma, B)
               * N_d = the number of all candidate terms
               * P_d = number of candidates whose length exceeds one
@@ -116,16 +116,22 @@ class KPMiner(LoadFile):
 
         # initialize default document frequency counts if none provided
         if df is None:
-            logging.warning('LoadFile._df_counts is hard coded to {}'.format(
-                self._df_counts))
-            df = load_document_frequency_file(self._df_counts, delimiter='\t')
+            logging.warning(
+                "LoadFile._df_counts is hard coded to {}".format(self._df_counts)
+            )
+            df = load_document_frequency_file(self._df_counts, delimiter="\t")
 
         # initialize the number of documents as --NB_DOC-- + 1 (current)
-        N = 1 + df.get('--NB_DOC--', 0)
+        N = 1 + df.get("--NB_DOC--", 0)
 
         # compute the number of candidates whose length exceeds one
-        P_d = sum([len(v.surface_forms) for v in self.candidates.values()
-                   if len(v.lexical_form) > 1])
+        P_d = sum(
+            [
+                len(v.surface_forms)
+                for v in self.candidates.values()
+                if len(v.lexical_form) > 1
+            ]
+        )
 
         # fall back to 1 if all candidates are words
         P_d = max(1, P_d)
@@ -153,4 +159,4 @@ class KPMiner(LoadFile):
                 # If single word candidate do not apply boosting factor
                 self.weights[k] = len(v.surface_forms) * idf
             else:
-                 self.weights[k] = len(v.surface_forms) * B * idf
+                self.weights[k] = len(v.surface_forms) * B * idf

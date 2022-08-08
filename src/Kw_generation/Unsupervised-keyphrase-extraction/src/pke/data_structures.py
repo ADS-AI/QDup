@@ -99,23 +99,23 @@ class Document(object):
         doc = Document()
 
         # set the input file
-        doc.input_file = kwargs.get('input_file', None)
+        doc.input_file = kwargs.get("input_file", None)
 
         # loop through the parsed sentences
         for i, sentence in enumerate(sentences):
 
             # add the sentence to the container
-            s = Sentence(words=sentence['words'])
+            s = Sentence(words=sentence["words"])
 
             # add the POS
-            s.pos = sentence['POS']
+            s.pos = sentence["POS"]
 
             # add the lemmas
-            s.stems = sentence['lemmas']
+            s.stems = sentence["lemmas"]
 
             # add the meta-information
             for (k, infos) in sentence.items():
-                if k not in {'POS', 'lemmas', 'words'}:
+                if k not in {"POS", "lemmas", "words"}:
                     s.meta[k] = infos
 
             # add the sentence to the document

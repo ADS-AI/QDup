@@ -1,7 +1,14 @@
 import os
 import pke
-from keep.utility import CreateLatentDirichletAllocationModel, getlanguage, CreateKeywordsFolder, LoadFiles, Convert2TrecEval
+from keep.utility import (
+    CreateLatentDirichletAllocationModel,
+    getlanguage,
+    CreateKeywordsFolder,
+    LoadFiles,
+    Convert2TrecEval,
+)
 import os
+
 
 class TopicalPageRank(object):
     def __init__(self, numOfKeywords, pathData, dataset_name, normalization):
@@ -12,18 +19,27 @@ class TopicalPageRank(object):
         self.__dataset_name = dataset_name
         self.__pathData = pathData
         self.__pathToDatasetName = pathData + "/Datasets/" + dataset_name
-        self.__keywordsPath = self.__pathData + '/Keywords/TopicalPageRank/' + self.__dataset_name
+        self.__keywordsPath = (
+            self.__pathData + "/Keywords/TopicalPageRank/" + self.__dataset_name
+        )
         self.__outputPath = self.__pathData + "/conversor/output/"
         self.__algorithmName = "TopicalPageRank"
 
     def CreateLDAModel(self):
-        CreateLatentDirichletAllocationModel(self.__pathToDatasetName, self.__dataset_name, self.__lan,
-                                             self.__normalization, self.__pathToLDAFolder)
+        CreateLatentDirichletAllocationModel(
+            self.__pathToDatasetName,
+            self.__dataset_name,
+            self.__lan,
+            self.__normalization,
+            self.__pathToLDAFolder,
+        )
 
     def LoadDatasetFiles(self):
         # Gets all files within the dataset fold
-        listFile = LoadFiles(self.__pathToDatasetName + '/docsutf8/*')
-        print(f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}")
+        listFile = LoadFiles(self.__pathToDatasetName + "/docsutf8/*")
+        print(
+            f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}"
+        )
         return listFile
 
     def CreateKeywordsOutputFolder(self):
@@ -32,30 +48,34 @@ class TopicalPageRank(object):
 
     def runSingleDoc(self, doc):
         # define the valid Part-of-Speeches to occur in the graph
-        pos = {'NOUN', 'PROPN', 'ADJ'}
+        pos = {"NOUN", "PROPN", "ADJ"}
 
-        #define the grammar for selecting the keyphrase candidates
+        # define the grammar for selecting the keyphrase candidates
         grammar = "NP: {<ADJ>*<NOUN|PROPN>+}"
 
-        #Get PositionRank keywords
+        # Get PositionRank keywords
         # 1. create a PositionRank extractor.
         extractor = pke.unsupervised.TopicalPageRank()
-        with open(doc, 'r') as doc_reader:
+        with open(doc, "r") as doc_reader:
             text = doc_reader.read()
         if self.__dataset_name == "SemEval2010":
             if len(text.split("INTRODUCTION")) > 1:
                 doc_text_abstract = text.split("INTRODUCTION")[0]
 
-                doc_text_intro_partial = " ".join(text.split("INTRODUCTION")[1].split(" ")[:150])
+                doc_text_intro_partial = " ".join(
+                    text.split("INTRODUCTION")[1].split(" ")[:150]
+                )
             else:
                 doc_text_abstract = " ".join(text.split(" ")[:400])
                 doc_text_intro_partial = " "
-            doc = doc_text_abstract+" "+doc_text_intro_partial
+            doc = doc_text_abstract + " " + doc_text_intro_partial
         if self.__dataset_name == "NLM500":
-                doc_text_abstract_intro = " ".join(text.split(" ")[:400])
-                doc = doc_text_abstract_intro
+            doc_text_abstract_intro = " ".join(text.split(" ")[:400])
+            doc = doc_text_abstract_intro
         # 2. load the content of the document in a given language
-        extractor.load_document(input=doc, language=self.__lan, normalization=self.__normalization)
+        extractor.load_document(
+            input=doc, language=self.__lan, normalization=self.__normalization
+        )
 
         try:
             # 3. select the noun phrases up to 3 words as keyphrase candidates.
@@ -66,7 +86,11 @@ class TopicalPageRank(object):
             #    in the document. In the graph, nodes are words (nouns and
             #    adjectives only) that are connected if they occur in a window of
             #    10 words.
-            extractor.candidate_weighting(window=10, pos = pos, lda_model=self.__pathToLDAFolder +  self.__dataset_name + '_lda.gz')
+            extractor.candidate_weighting(
+                window=10,
+                pos=pos,
+                lda_model=self.__pathToLDAFolder + self.__dataset_name + "_lda.gz",
+            )
 
             # 5. get the numOfKeywords-highest scored candidates as keyphrases
             keywords = extractor.get_n_best(n=self.__numOfKeywords)
@@ -80,22 +104,26 @@ class TopicalPageRank(object):
 
         for j, doc in enumerate(listOfDocs):
             # docID keeps the name of the file (without the extension)
-            docID = '.'.join(os.path.basename(doc).split('.')[0:-1])
+            docID = ".".join(os.path.basename(doc).split(".")[0:-1])
 
             keywords = self.runSingleDoc(doc)
 
             # Save the keywords; score (on Algorithms/NameOfAlg/Keywords/NameOfDataset
-            with open(os.path.join(self.__keywordsPath, docID), 'w', encoding="utf-8") as out:
+            with open(
+                os.path.join(self.__keywordsPath, docID), "w", encoding="utf-8"
+            ) as out:
                 for (key, score) in keywords:
-                    out.write(f'{key} {score}\n')
+                    out.write(f"{key} {score}\n")
 
             # Track the status of the task
-            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end='')
+            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end="")
 
         print(f"\n100% of the Extraction Concluded")
 
     def ExtractKeyphrases(self):
-        print(f"\n------------------------------Create LDA Model--------------------------")
+        print(
+            f"\n------------------------------Create LDA Model--------------------------"
+        )
         self.CreateLDAModel()
 
         print(f"\n\n-----------------Extract Keyphrases--------------------------")
@@ -103,5 +131,11 @@ class TopicalPageRank(object):
         self.runMultipleDocs(listOfDocs)
 
     def Convert2Trec_Eval(self, EvaluationStemming=False):
-        Convert2TrecEval(self.__pathToDatasetName, EvaluationStemming, self.__outputPath, self.__keywordsPath,
-                         self.__dataset_name, self.__algorithmName)
+        Convert2TrecEval(
+            self.__pathToDatasetName,
+            EvaluationStemming,
+            self.__outputPath,
+            self.__keywordsPath,
+            self.__dataset_name,
+            self.__algorithmName,
+        )

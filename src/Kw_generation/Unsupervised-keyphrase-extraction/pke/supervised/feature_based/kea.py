@@ -115,12 +115,13 @@ class Kea(SupervisedLoadFile):
 
         # initialize default document frequency counts if none provided
         if df is None:
-            logging.warning('LoadFile._df_counts is hard coded to {}'.format(
-                self._df_counts))
-            df = load_document_frequency_file(self._df_counts, delimiter='\t')
+            logging.warning(
+                "LoadFile._df_counts is hard coded to {}".format(self._df_counts)
+            )
+            df = load_document_frequency_file(self._df_counts, delimiter="\t")
 
         # initialize the number of documents as --NB_DOC--
-        N = df.get('--NB_DOC--', 0) + 1
+        N = df.get("--NB_DOC--", 0) + 1
         if training:
             N -= 1
 
@@ -140,8 +141,9 @@ class Kea(SupervisedLoadFile):
             idf = math.log(N / candidate_df, 2)
 
             # add the features to the instance container
-            self.instances[k] = np.array([len(v.surface_forms) * idf,
-                                          v.offsets[0] / maximum_offset])
+            self.instances[k] = np.array(
+                [len(v.surface_forms) * idf, v.offsets[0] / maximum_offset]
+            )
 
         # scale features
         self.feature_scaling()
@@ -160,12 +162,12 @@ class Kea(SupervisedLoadFile):
 
     @staticmethod
     def train(training_instances, training_classes, model_file):
-        """ Train a Naive Bayes classifier and store the model in a file.
+        """Train a Naive Bayes classifier and store the model in a file.
 
-            Args:
-                training_instances (list): list of features.
-                training_classes (list): list of binary values.
-                model_file (str): the model output file.
+        Args:
+            training_instances (list): list of features.
+            training_classes (list): list of binary values.
+            model_file (str): the model output file.
         """
 
         clf = MultinomialNB()

@@ -2,6 +2,7 @@ from yake import KeywordExtractor as YakeKW
 from keep.utility import getlanguage, CreateKeywordsFolder, LoadFiles, Convert2TrecEval
 import os
 
+
 class YAKE(object):
     def __init__(self, numOfKeywords, pathData, dataset_name):
         self.__lan = getlanguage(pathData + "/Datasets/" + dataset_name)
@@ -9,14 +10,16 @@ class YAKE(object):
         self.__dataset_name = dataset_name
         self.__pathData = pathData
         self.__pathToDatasetName = self.__pathData + "/Datasets/" + self.__dataset_name
-        self.__keywordsPath = self.__pathData + '/Keywords/YAKE/' + self.__dataset_name
+        self.__keywordsPath = self.__pathData + "/Keywords/YAKE/" + self.__dataset_name
         self.__outputPath = self.__pathData + "/conversor/output/"
         self.__algorithmName = "YAKE"
 
     def LoadDatasetFiles(self):
         # Gets all files within the dataset fold
-        listFile = LoadFiles(self.__pathToDatasetName + '/docsutf8/*')
-        print(f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}")
+        listFile = LoadFiles(self.__pathToDatasetName + "/docsutf8/*")
+        print(
+            f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}"
+        )
         return listFile
 
     def CreateKeywordsOutputFolder(self):
@@ -24,10 +27,9 @@ class YAKE(object):
         CreateKeywordsFolder(self.__keywordsPath)
 
     def runSingleDoc(self, text):
-        #Get YAKE keywords
+        # Get YAKE keywords
         # 1. create a YAKE extractor.
-        extractor = YakeKW(lan = self.__lan, top = self.__numOfKeywords)
-
+        extractor = YakeKW(lan=self.__lan, top=self.__numOfKeywords)
 
         try:
             # 2. get the numOfKeywords-highest scored candidates as keyphrases
@@ -42,21 +44,23 @@ class YAKE(object):
 
         for j, doc in enumerate(listOfDocs):
             # docID keeps the name of the file (without the extension)
-            docID = '.'.join(os.path.basename(doc).split('.')[0:-1])
+            docID = ".".join(os.path.basename(doc).split(".")[0:-1])
 
             # Reads the File
-            with open(doc, encoding='utf-8') as fil:
+            with open(doc, encoding="utf-8") as fil:
                 text = fil.read()
 
             keywords = self.runSingleDoc(text)
 
             # Save the keywords; score (on Algorithms/NameOfAlg/Keywords/NameOfDataset
-            with open(os.path.join(self.__keywordsPath, docID), 'w', encoding="utf-8") as out:
+            with open(
+                os.path.join(self.__keywordsPath, docID), "w", encoding="utf-8"
+            ) as out:
                 for (key, score) in keywords:
-                    out.write(f'{key} {score}\n')
+                    out.write(f"{key} {score}\n")
 
             # Track the status of the task
-            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end='')
+            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end="")
 
         print(f"\n100% of the Extraction Concluded")
 
@@ -66,5 +70,11 @@ class YAKE(object):
         self.runMultipleDocs(listOfDocs)
 
     def Convert2Trec_Eval(self, EvaluationStemming=False):
-        Convert2TrecEval(self.__pathToDatasetName, EvaluationStemming, self.__outputPath, self.__keywordsPath,
-                         self.__dataset_name, self.__algorithmName)
+        Convert2TrecEval(
+            self.__pathToDatasetName,
+            EvaluationStemming,
+            self.__outputPath,
+            self.__keywordsPath,
+            self.__dataset_name,
+            self.__algorithmName,
+        )

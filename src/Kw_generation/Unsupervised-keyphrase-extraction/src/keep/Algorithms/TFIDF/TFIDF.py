@@ -1,7 +1,15 @@
 import pke
 import string
 import os
-from keep.utility import load_stop_words, ComputeDF, getlanguage, CreateKeywordsFolder, LoadFiles, Convert2TrecEval
+from keep.utility import (
+    load_stop_words,
+    ComputeDF,
+    getlanguage,
+    CreateKeywordsFolder,
+    LoadFiles,
+    Convert2TrecEval,
+)
+
 
 class TFIDF(object):
     def __init__(self, numOfKeywords, pathData, dataset_name, normalization):
@@ -10,19 +18,31 @@ class TFIDF(object):
         self.__dataset_name = dataset_name
         self.__normalization = normalization
         self.__pathData = pathData
-        self.__pathToDFFile = self.__pathData + "/Models/Unsupervised/dfs/" + self.__dataset_name + '_dfs.gz'
+        self.__pathToDFFile = (
+            self.__pathData
+            + "/Models/Unsupervised/dfs/"
+            + self.__dataset_name
+            + "_dfs.gz"
+        )
         self.__pathToDatasetName = self.__pathData + "/Datasets/" + self.__dataset_name
-        self.__keywordsPath = self.__pathData + '/Keywords/TFIDF/' + self.__dataset_name
+        self.__keywordsPath = self.__pathData + "/Keywords/TFIDF/" + self.__dataset_name
         self.__outputPath = self.__pathData + "/conversor/output/"
         self.__algorithmName = "TFIDF"
 
     def ComputeDocumentFrequency(self):
-        ComputeDF(self.__pathToDatasetName + '/docsutf8', self.__lan, self.__normalization, self.__pathToDFFile)
+        ComputeDF(
+            self.__pathToDatasetName + "/docsutf8",
+            self.__lan,
+            self.__normalization,
+            self.__pathToDFFile,
+        )
 
     def LoadDatasetFiles(self):
         # Gets all files within the dataset fold
-        listFile = LoadFiles(self.__pathToDatasetName + '/docsutf8/*')
-        print(f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}")
+        listFile = LoadFiles(self.__pathToDatasetName + "/docsutf8/*")
+        print(
+            f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}"
+        )
         return listFile
 
     def CreateKeywordsOutputFolder(self):
@@ -30,20 +50,24 @@ class TFIDF(object):
         CreateKeywordsFolder(self.__keywordsPath)
 
     def runSingleDoc(self, doc):
-        #Get TFIDF keywords
+        # Get TFIDF keywords
         # 1. create a TFIDF extractor.
         extractor = pke.unsupervised.TfIdf()
 
         # 2. load the content of the document in a given language
         # Test if lan exists in spacy models. If not considers model en
-        if self.__lan not in ['en', 'pt', 'fr', 'it', 'nl', 'de']:
-            extractor.load_document(input=doc, language='en', normalization=self.__normalization)
+        if self.__lan not in ["en", "pt", "fr", "it", "nl", "de"]:
+            extractor.load_document(
+                input=doc, language="en", normalization=self.__normalization
+            )
         else:
-            extractor.load_document(input=doc, language=self.__lan, normalization=self.__normalization)
+            extractor.load_document(
+                input=doc, language=self.__lan, normalization=self.__normalization
+            )
 
         # 3. select {1-3}-grams not containing punctuation marks as candidates.
         stoplist = list(string.punctuation)
-        stoplist += ['-lrb-', '-rrb-', '-lcb-', '-rcb-', '-lsb-', '-rsb-']
+        stoplist += ["-lrb-", "-rrb-", "-lcb-", "-rcb-", "-lsb-", "-rsb-"]
         stoplist += load_stop_words(self.__lan)
 
         extractor.candidate_selection(n=3, stoplist=stoplist)
@@ -65,17 +89,19 @@ class TFIDF(object):
 
         for j, doc in enumerate(listOfDocs):
             # docID keeps the name of the file (without the extension)
-            docID = '.'.join(os.path.basename(doc).split('.')[0:-1])
+            docID = ".".join(os.path.basename(doc).split(".")[0:-1])
 
             keywords = self.runSingleDoc(doc)
 
             # Save the keywords; score (on Algorithms/NameOfAlg/Keywords/NameOfDataset
-            with open(os.path.join(self.__keywordsPath, docID), 'w', encoding="utf-8") as out:
+            with open(
+                os.path.join(self.__keywordsPath, docID), "w", encoding="utf-8"
+            ) as out:
                 for (key, score) in keywords:
-                    out.write(f'{key} {score}\n')
+                    out.write(f"{key} {score}\n")
 
             # Track the status of the task
-            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end='')
+            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end="")
 
         print(f"\n100% of the Extraction Concluded")
 
@@ -88,5 +114,11 @@ class TFIDF(object):
         self.runMultipleDocs(listOfDocs)
 
     def Convert2Trec_Eval(self, EvaluationStemming=False):
-        Convert2TrecEval(self.__pathToDatasetName, EvaluationStemming, self.__outputPath, self.__keywordsPath,
-                         self.__dataset_name, self.__algorithmName)
+        Convert2TrecEval(
+            self.__pathToDatasetName,
+            EvaluationStemming,
+            self.__outputPath,
+            self.__keywordsPath,
+            self.__dataset_name,
+            self.__algorithmName,
+        )

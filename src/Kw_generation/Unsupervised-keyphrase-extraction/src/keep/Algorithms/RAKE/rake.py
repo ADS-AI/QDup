@@ -1,7 +1,7 @@
 # Implementation of RAKE - Rapid Automtic Keyword Exraction algorithm
 # as described in:
-# Rose, S., D. Engel, N. Cramer, and W. Cowley (2010). 
-# Automatic keyword extraction from indi-vidual documents. 
+# Rose, S., D. Engel, N. Cramer, and W. Cowley (2010).
+# Automatic keyword extraction from indi-vidual documents.
 # In M. W. Berry and J. Kogan (Eds.), Text Mining: Applications and Theory.unknown: John Wiley and Sons, Ltd.
 #
 # NOTE: The original code (from https://github.com/aneesha/RAKE)
@@ -15,7 +15,13 @@ from __future__ import print_function
 import re
 import operator
 import six
-from keep.utility import load_stop_words, getlanguage, CreateKeywordsFolder, LoadFiles, Convert2TrecEval
+from keep.utility import (
+    load_stop_words,
+    getlanguage,
+    CreateKeywordsFolder,
+    LoadFiles,
+    Convert2TrecEval,
+)
 from six.moves import range
 
 import os
@@ -24,9 +30,10 @@ import os
 debug = False
 test = False
 
+
 def is_number(s):
     try:
-        float(s) if '.' in s else int(s)
+        float(s) if "." in s else int(s)
         return True
     except ValueError:
         return False
@@ -38,12 +45,16 @@ def separate_words(text, min_word_return_size):
     @param text The text that must be split in to words.
     @param min_word_return_size The minimum no of characters a word must have to be included.
     """
-    splitter = re.compile('[^a-zA-Z0-9_\\+\\-/]')
+    splitter = re.compile("[^a-zA-Z0-9_\\+\\-/]")
     words = []
     for single_word in splitter.split(text):
         current_word = single_word.strip().lower()
-        #leave numbers in phrase, but don't count as words, since they tend to invalidate scores of their phrases
-        if len(current_word) > min_word_return_size and current_word != '' and not is_number(current_word):
+        # leave numbers in phrase, but don't count as words, since they tend to invalidate scores of their phrases
+        if (
+            len(current_word) > min_word_return_size
+            and current_word != ""
+            and not is_number(current_word)
+        ):
             words.append(current_word)
     return words
 
@@ -53,7 +64,7 @@ def split_sentences(text):
     Utility function to return a list of sentences.
     @param text The text that must be split in to sentences.
     """
-    sentence_delimiters = re.compile(u'[\\[\\]\n.!?,;:\t\\-\\"\\(\\)\\\'\u2019\u2013]')
+    sentence_delimiters = re.compile("[\\[\\]\n.!?,;:\t\\-\\\"\\(\\)\\'\u2019\u2013]")
     sentences = sentence_delimiters.split(text)
     return sentences
 
@@ -62,20 +73,24 @@ def build_stop_word_regex(lan):
     stop_word_list = load_stop_words(lan)
     stop_word_regex_list = []
     for word in stop_word_list:
-        word_regex = '\\b' + word + '\\b'
+        word_regex = "\\b" + word + "\\b"
         stop_word_regex_list.append(word_regex)
-    stop_word_pattern = re.compile('|'.join(stop_word_regex_list), re.IGNORECASE)
+    stop_word_pattern = re.compile("|".join(stop_word_regex_list), re.IGNORECASE)
     return stop_word_pattern
 
 
-def generate_candidate_keywords(sentence_list, stopword_pattern, min_char_length=1, max_words_length=5):
+def generate_candidate_keywords(
+    sentence_list, stopword_pattern, min_char_length=1, max_words_length=5
+):
     phrase_list = []
     for s in sentence_list:
-        tmp = re.sub(stopword_pattern, '|', s.strip())
+        tmp = re.sub(stopword_pattern, "|", s.strip())
         phrases = tmp.split("|")
         for phrase in phrases:
             phrase = phrase.strip().lower()
-            if phrase != "" and is_acceptable(phrase, min_char_length, max_words_length):
+            if phrase != "" and is_acceptable(
+                phrase, min_char_length, max_words_length
+            ):
                 phrase_list.append(phrase)
     return phrase_list
 
@@ -116,13 +131,13 @@ def calculate_word_scores(phraseList):
         word_list = separate_words(phrase, 0)
         word_list_length = len(word_list)
         word_list_degree = word_list_length - 1
-        #if word_list_degree > 3: word_list_degree = 3 #exp.
+        # if word_list_degree > 3: word_list_degree = 3 #exp.
         for word in word_list:
             word_frequency.setdefault(word, 0)
             word_frequency[word] += 1
             word_degree.setdefault(word, 0)
-            word_degree[word] += word_list_degree  #orig.
-            #word_degree[word] += 1/(word_list_length*1.0) #exp.
+            word_degree[word] += word_list_degree  # orig.
+            # word_degree[word] += 1/(word_list_length*1.0) #exp.
     for item in word_frequency:
         word_degree[item] = word_degree[item] + word_frequency[item]
 
@@ -130,8 +145,8 @@ def calculate_word_scores(phraseList):
     word_score = {}
     for item in word_frequency:
         word_score.setdefault(item, 0)
-        word_score[item] = word_degree[item] / (word_frequency[item] * 1.0)  #orig.
-    #word_score[item] = word_frequency[item]/(word_degree[item] * 1.0) #exp.
+        word_score[item] = word_degree[item] / (word_frequency[item] * 1.0)  # orig.
+    # word_score[item] = word_frequency[item]/(word_degree[item] * 1.0) #exp.
     return word_score
 
 
@@ -152,7 +167,15 @@ def generate_candidate_keyword_scores(phrase_list, word_score, min_keyword_frequ
 
 
 class Rake(object):
-    def __init__(self, numOfKeywords, pathData, dataset_name, min_char_length=1, max_words_length=3, min_keyword_frequency=1):
+    def __init__(
+        self,
+        numOfKeywords,
+        pathData,
+        dataset_name,
+        min_char_length=1,
+        max_words_length=3,
+        min_keyword_frequency=1,
+    ):
         self.__lan = getlanguage(pathData + "/Datasets/" + dataset_name)
 
         self.__stop_words_pattern = build_stop_word_regex(self.__lan)
@@ -164,42 +187,53 @@ class Rake(object):
         self.__dataset_name = dataset_name
         self.__pathData = pathData
         self.__pathToDatasetName = pathData + "/Datasets/" + dataset_name
-        self.__keywordsPath = self.__pathData + '/Keywords/Rake/' + self.__dataset_name
+        self.__keywordsPath = self.__pathData + "/Keywords/Rake/" + self.__dataset_name
         self.__outputPath = self.__pathData + "/conversor/output/"
         self.__algorithmName = "RAKE"
 
     def runSingleDoc(self, text):
         sentence_list = split_sentences(text)
 
-        phrase_list = generate_candidate_keywords(sentence_list, self.__stop_words_pattern, self.__min_char_length, self.__max_words_length)
+        phrase_list = generate_candidate_keywords(
+            sentence_list,
+            self.__stop_words_pattern,
+            self.__min_char_length,
+            self.__max_words_length,
+        )
 
         word_scores = calculate_word_scores(phrase_list)
 
-        keyword_candidates = generate_candidate_keyword_scores(phrase_list, word_scores, self.__min_keyword_frequency)
+        keyword_candidates = generate_candidate_keyword_scores(
+            phrase_list, word_scores, self.__min_keyword_frequency
+        )
 
-        sorted_keywords = sorted(six.iteritems(keyword_candidates), key=operator.itemgetter(1), reverse=True)
-        return sorted_keywords[:self.__numOfKeywords]
+        sorted_keywords = sorted(
+            six.iteritems(keyword_candidates), key=operator.itemgetter(1), reverse=True
+        )
+        return sorted_keywords[: self.__numOfKeywords]
 
     def runMultipleDocs(self, listOfDocs):
         self.CreateKeywordsOutputFolder()
 
         for j, doc in enumerate(listOfDocs):
             # docID keeps the name of the file (without the extension)
-            docID = '.'.join(os.path.basename(doc).split('.')[0:-1])
+            docID = ".".join(os.path.basename(doc).split(".")[0:-1])
 
             # Reads the File
-            with open(doc, encoding='utf-8') as fil:
+            with open(doc, encoding="utf-8") as fil:
                 text = fil.read()
 
             keywords = self.runSingleDoc(text)
 
             # Save the keywords; score (on Algorithms/NameOfAlg/Keywords/NameOfDataset
-            with open(os.path.join(self.__keywordsPath, docID), 'w', encoding="utf-8") as out:
+            with open(
+                os.path.join(self.__keywordsPath, docID), "w", encoding="utf-8"
+            ) as out:
                 for (key, score) in keywords:
-                    out.write(f'{key} {score}\n')
+                    out.write(f"{key} {score}\n")
 
             # Track the status of the task
-            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end='')
+            print(f"\rFile: {j + 1}/{len(listOfDocs)}", end="")
 
         print(f"\n100% of the Extraction Concluded")
 
@@ -209,26 +243,35 @@ class Rake(object):
         self.runMultipleDocs(listOfDocs)
 
     def Convert2Trec_Eval(self, EvaluationStemming=False):
-        Convert2TrecEval(self.__pathToDatasetName, EvaluationStemming, self.__outputPath, self.__keywordsPath,
-                         self.__dataset_name, self.__algorithmName)
+        Convert2TrecEval(
+            self.__pathToDatasetName,
+            EvaluationStemming,
+            self.__outputPath,
+            self.__keywordsPath,
+            self.__dataset_name,
+            self.__algorithmName,
+        )
 
     def LoadDatasetFiles(self):
         # Gets all files within the dataset fold
-        listFile = LoadFiles(self.__pathToDatasetName + '/docsutf8/*')
-        print(f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}")
+        listFile = LoadFiles(self.__pathToDatasetName + "/docsutf8/*")
+        print(
+            f"\ndatasetID = {self.__dataset_name}; Number of Files = {len(listFile)}; Language of the Dataset = {self.__lan}"
+        )
         return listFile
 
     def CreateKeywordsOutputFolder(self):
         # Set the folder where keywords are going to be saved
         CreateKeywordsFolder(self.__keywordsPath)
 
+
 if test:
     text = "Compatibility of systems of linear constraints over the set of natural numbers. Criteria of compatibility of a system of linear Diophantine equations, strict inequations, and nonstrict inequations are considered. Upper bounds for components of a minimal set of solutions and algorithms of construction of minimal generating sets of solutions for all types of systems are given. These criteria and the corresponding algorithms for constructing a minimal supporting set of solutions can be used in solving all the considered types of systems and systems of mixed types."
 
     # Split text into sentences
     sentenceList = split_sentences(text)
-    #stoppath = "FoxStoplist.txt" #Fox stoplist contains "numbers", so it will not find "natural numbers" like in Table 1.1
-    stoppath = "english"  #SMART stoplist misses some of the lower-scoring keywords in Figure 1.5, which means that the top 1/3 cuts off one of the 4.0 score words in Table 1.1
+    # stoppath = "FoxStoplist.txt" #Fox stoplist contains "numbers", so it will not find "natural numbers" like in Table 1.1
+    stoppath = "english"  # SMART stoplist misses some of the lower-scoring keywords in Figure 1.5, which means that the top 1/3 cuts off one of the 4.0 score words in Table 1.1
     stopwordpattern = build_stop_word_regex(stoppath)
 
     # generate candidate keywords
@@ -239,14 +282,19 @@ if test:
 
     # generate candidate keyword scores
     keywordcandidates = generate_candidate_keyword_scores(phraseList, wordscores)
-    if debug: print(keywordcandidates)
+    if debug:
+        print(keywordcandidates)
 
-    sortedKeywords = sorted(six.iteritems(keywordcandidates), key=operator.itemgetter(1), reverse=True)
-    if debug: print(sortedKeywords)
+    sortedKeywords = sorted(
+        six.iteritems(keywordcandidates), key=operator.itemgetter(1), reverse=True
+    )
+    if debug:
+        print(sortedKeywords)
 
     totalKeywords = len(sortedKeywords)
-    if debug: print(totalKeywords)
-    print(sortedKeywords[0:(totalKeywords // 3)])
+    if debug:
+        print(totalKeywords)
+    print(sortedKeywords[0 : (totalKeywords // 3)])
 
     rake = Rake("english")
     keywords = rake.run(text)

@@ -49,7 +49,7 @@ class FirstPhrases(LoadFile):
         """
 
         if pos is None:
-            pos = {'NOUN', 'PROPN', 'ADJ'}
+            pos = {"NOUN", "PROPN", "ADJ"}
 
         # select sequence of adjectives and nouns
         self.longest_pos_sequence_selection(valid_pos=pos)

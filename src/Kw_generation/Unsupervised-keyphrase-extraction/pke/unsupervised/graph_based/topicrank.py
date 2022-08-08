@@ -61,8 +61,7 @@ class TopicRank(LoadFile):
     """
 
     def __init__(self):
-        """Redefining initializer for TopicRank.
-        """
+        """Redefining initializer for TopicRank."""
 
         super(TopicRank, self).__init__()
 
@@ -87,7 +86,7 @@ class TopicRank(LoadFile):
 
         # define default pos tags set
         if pos is None:
-            pos = {'NOUN', 'PROPN', 'ADJ'}
+            pos = {"NOUN", "PROPN", "ADJ"}
 
         # select sequence of adjectives and nouns
         self.longest_pos_sequence_selection(valid_pos=pos)
@@ -97,9 +96,11 @@ class TopicRank(LoadFile):
             stoplist = self.stoplist
 
         # filter candidates containing stopwords or punctuation marks
-        self.candidate_filtering(stoplist=list(string.punctuation) +
-                                          ['-lrb-', '-rrb-', '-lcb-', '-rcb-', '-lsb-', '-rsb-'] +
-                                          stoplist)
+        self.candidate_filtering(
+            stoplist=list(string.punctuation)
+            + ["-lrb-", "-rrb-", "-lcb-", "-rcb-", "-lsb-", "-rsb-"]
+            + stoplist
+        )
 
     def vectorize_candidates(self):
         """Vectorize the keyphrase candidates.
@@ -130,7 +131,7 @@ class TopicRank(LoadFile):
 
         return C, X
 
-    def topic_clustering(self, threshold=0.74, method='average'):
+    def topic_clustering(self, threshold=0.74, method="average"):
         """Clustering candidates into topics.
 
         Args:
@@ -149,18 +150,23 @@ class TopicRank(LoadFile):
         candidates, X = self.vectorize_candidates()
 
         # compute the distance matrix
-        Y = pdist(X, 'jaccard')
+        Y = pdist(X, "jaccard")
 
         # compute the clusters
         Z = linkage(Y, method=method)
 
         # form flat clusters
-        clusters = fcluster(Z, t=threshold, criterion='distance')
+        clusters = fcluster(Z, t=threshold, criterion="distance")
 
         # for each topic identifier
         for cluster_id in range(1, max(clusters) + 1):
-            self.topics.append([candidates[j] for j in range(len(clusters))
-                                if clusters[j] == cluster_id])
+            self.topics.append(
+                [
+                    candidates[j]
+                    for j in range(len(clusters))
+                    if clusters[j] == cluster_id
+                ]
+            )
 
     def build_topic_graph(self):
         """Build topic graph."""
@@ -180,12 +186,9 @@ class TopicRank(LoadFile):
                                 gap -= len(self.candidates[c_i].lexical_form) - 1
                             if p_j < p_i:
                                 gap -= len(self.candidates[c_j].lexical_form) - 1
-                            self.graph[i][j]['weight'] += 1.0 / gap
+                            self.graph[i][j]["weight"] += 1.0 / gap
 
-    def candidate_weighting(self,
-                            threshold=0.74,
-                            method='average',
-                            heuristic=None):
+    def candidate_weighting(self, threshold=0.74, method="average", heuristic=None):
         """Candidate ranking using random walk.
 
         Args:
@@ -206,7 +209,7 @@ class TopicRank(LoadFile):
         self.build_topic_graph()
 
         # compute the word scores using random walk
-        w = nx.pagerank_scipy(self.graph, alpha=0.85, weight='weight')
+        w = nx.pagerank_scipy(self.graph, alpha=0.85, weight="weight")
 
         # loop through the topics
         for i, topic in enumerate(self.topics):
@@ -215,7 +218,7 @@ class TopicRank(LoadFile):
             offsets = [self.candidates[t].offsets[0] for t in topic]
 
             # get first candidate from topic
-            if heuristic == 'frequent':
+            if heuristic == "frequent":
 
                 # get frequencies for each candidate within the topic
                 freq = [len(self.candidates[t].surface_forms) for t in topic]

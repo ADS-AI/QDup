@@ -6,34 +6,42 @@
 from nltk.stem import PorterStemmer
 from nltk.parse import CoreNLPParser
 
+
 class PosTaggingCoreNLP:
     """
-    Concrete class of PosTagging using a CoreNLP server 
+    Concrete class of PosTagging using a CoreNLP server
     """
 
-    def __init__(self, host='localhost', port=9000, separator='|'):
-        self.parser = CoreNLPParser(url=f'http://localhost:9000')
+    def __init__(self, host="localhost", port=9000, separator="|"):
+        self.parser = CoreNLPParser(url=f"http://localhost:9000")
         self.separator = separator
 
     def pos_tag_raw_text(self, text, as_tuple_list=True):
-        
-
         def raw_tag_text():
             """
-            Perform tokenizing sentence splitting and PosTagging and keep the 
+            Perform tokenizing sentence splitting and PosTagging and keep the
             sentence splits structure
             """
-            properties = {'annotators': 'tokenize,ssplit,pos'}
+            properties = {"annotators": "tokenize,ssplit,pos"}
             tagged_data = self.parser.api_call(text, properties=properties)
-            for tagged_sentence in tagged_data['sentences']:
-                yield [(token['word'], token['pos']) for token in tagged_sentence['tokens']]
+            for tagged_sentence in tagged_data["sentences"]:
+                yield [
+                    (token["word"], token["pos"]) for token in tagged_sentence["tokens"]
+                ]
 
         tagged_text = list(raw_tag_text())
 
         if as_tuple_list:
             return tagged_text
-        return '[ENDSENT]'.join(
-            [' '.join([tuple2str(tagged_token, self.separator) for tagged_token in sent]) for sent in tagged_text])
+        return "[ENDSENT]".join(
+            [
+                " ".join(
+                    [tuple2str(tagged_token, self.separator) for tagged_token in sent]
+                )
+                for sent in tagged_text
+            ]
+        )
+
 
 class InputTextObj:
     """Represent the input text in which we want to extract keyphrases"""
@@ -45,7 +53,7 @@ class InputTextObj:
         :param stem: If we want to apply stemming on the text.
         """
         self.min_word_len = min_word_len
-        self.considered_tags = {'NN', 'NNS', 'NNP', 'NNPS', 'JJ'}
+        self.considered_tags = {"NN", "NNS", "NNP", "NNPS", "JJ"}
         self.pos_tagged = []
         self.filtered_pos_tagged = []
         self.isStemmed = stem
@@ -53,28 +61,38 @@ class InputTextObj:
 
         if stem:
             stemmer = PorterStemmer()
-            self.pos_tagged = [[(stemmer.stem(t[0]), t[1]) for t in sent] for sent in pos_tagged]
+            self.pos_tagged = [
+                [(stemmer.stem(t[0]), t[1]) for t in sent] for sent in pos_tagged
+            ]
         else:
-            self.pos_tagged = [[(t[0].lower(), t[1]) for t in sent] for sent in pos_tagged]
+            self.pos_tagged = [
+                [(t[0].lower(), t[1]) for t in sent] for sent in pos_tagged
+            ]
 
         temp = []
         for sent in self.pos_tagged:
             s = []
             for elem in sent:
                 if len(elem[0]) < min_word_len:
-                    s.append((elem[0], 'LESS'))
+                    s.append((elem[0], "LESS"))
                 else:
                     s.append(elem)
             temp.append(s)
 
         self.pos_tagged = temp
         # Convert some language-specific tag (NC, NE to NN) or ADJA ->JJ see convert method.
-        if lang in ['fr', 'de']:
-            self.pos_tagged = [[(tagged_token[0], convert(tagged_token[1])) for tagged_token in sentence] for sentence
-                               in
-                               self.pos_tagged]
-        self.filtered_pos_tagged = [[(t[0].lower(), t[1]) for t in sent if self.is_candidate(t)] for sent in
-                                    self.pos_tagged]
+        if lang in ["fr", "de"]:
+            self.pos_tagged = [
+                [
+                    (tagged_token[0], convert(tagged_token[1]))
+                    for tagged_token in sentence
+                ]
+                for sentence in self.pos_tagged
+            ]
+        self.filtered_pos_tagged = [
+            [(t[0].lower(), t[1]) for t in sent if self.is_candidate(t)]
+            for sent in self.pos_tagged
+        ]
 
     def is_candidate(self, tagged_token):
         """
@@ -88,17 +106,19 @@ class InputTextObj:
         """
         :return: set of all candidates word
         """
-        return {tagged_token[0].lower()
-                for sentence in self.pos_tagged
-                for tagged_token in sentence
-                if self.is_candidate(tagged_token) and len(tagged_token[0]) >= self.min_word_len
-                }
+        return {
+            tagged_token[0].lower()
+            for sentence in self.pos_tagged
+            for tagged_token in sentence
+            if self.is_candidate(tagged_token)
+            and len(tagged_token[0]) >= self.min_word_len
+        }
 
 
 def convert(fr_or_de_tag):
-    if fr_or_de_tag in {'NN', 'NNE', 'NE', 'N', 'NPP', 'NC', 'NOUN'}:
-        return 'NN'
-    elif fr_or_de_tag in {'ADJA', 'ADJ'}:
-        return 'JJ'
+    if fr_or_de_tag in {"NN", "NNE", "NE", "N", "NPP", "NC", "NOUN"}:
+        return "NN"
+    elif fr_or_de_tag in {"ADJA", "ADJ"}:
+        return "JJ"
     else:
         return fr_or_de_tag

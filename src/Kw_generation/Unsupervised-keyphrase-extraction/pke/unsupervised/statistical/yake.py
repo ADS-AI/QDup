@@ -66,8 +66,7 @@ class YAKE(LoadFile):
     """
 
     def __init__(self):
-        """Redefining initializer for YAKE.
-        """
+        """Redefining initializer for YAKE."""
 
         super(YAKE, self).__init__()
 
@@ -112,10 +111,12 @@ class YAKE(LoadFile):
 
             # filter candidates starting/ending with a stopword or containing
             # a first/last word with less than 3 characters
-            if v.surface_forms[0][0].lower() in stoplist or v.surface_forms[0][
-                -1].lower() in stoplist or len(
-                    v.surface_forms[0][0]) < 3 or len(
-                    v.surface_forms[0][-1]) < 3:
+            if (
+                v.surface_forms[0][0].lower() in stoplist
+                or v.surface_forms[0][-1].lower() in stoplist
+                or len(v.surface_forms[0][0]) < 3
+                or len(v.surface_forms[0][-1]) < 3
+            ):
                 del self.candidates[k]
 
     def _vocabulary_building(self, use_stems=False):
@@ -137,8 +138,9 @@ class YAKE(LoadFile):
             for j, word in enumerate(sentence.words):
 
                 # consider words containing at least one alpha-numeric character
-                if self._is_alphanum(word) and \
-                        not re.search('(?i)^-[lr][rcs]b-$', word):
+                if self._is_alphanum(word) and not re.search(
+                    "(?i)^-[lr][rcs]b-$", word
+                ):
 
                     # get the word or stem
                     index = word.lower()
@@ -184,11 +186,11 @@ class YAKE(LoadFile):
 
                 # add the left context
                 self.contexts[word][0].extend(
-                    [w for w in block[max(0, len(block) - window):len(block)]]
+                    [w for w in block[max(0, len(block) - window) : len(block)]]
                 )
 
                 # add the right context
-                for w in block[max(0, len(block) - window):len(block)]:
+                for w in block[max(0, len(block) - window) : len(block)]:
                     self.contexts[w][1].append(word)
 
                 # add word to the current block
@@ -258,68 +260,66 @@ class YAKE(LoadFile):
         for word in self.words:
 
             # Indicating whether the word is a stopword (vitordouzi change)
-            self.features[word]['isstop'] = word in stoplist or len(word) < 3
+            self.features[word]["isstop"] = word in stoplist or len(word) < 3
 
             # Term Frequency
-            self.features[word]['TF'] = len(self.words[word])
+            self.features[word]["TF"] = len(self.words[word])
 
             # Uppercase/Acronym Term Frequencies
-            self.features[word]['TF_A'] = 0
-            self.features[word]['TF_U'] = 0
+            self.features[word]["TF_A"] = 0
+            self.features[word]["TF_U"] = 0
             for (offset, shift, sent_id, surface_form) in self.words[word]:
                 if surface_form.isupper() and len(word) > 1:
-                    self.features[word]['TF_A'] += 1
+                    self.features[word]["TF_A"] += 1
                 elif surface_form[0].isupper() and offset != shift:
-                    self.features[word]['TF_U'] += 1
+                    self.features[word]["TF_U"] += 1
 
             # 1. CASING feature
-            self.features[word]['CASING'] = max(self.features[word]['TF_A'],
-                                                self.features[word]['TF_U'])
-            self.features[word]['CASING'] /= 1.0 + math.log(
-                self.features[word]['TF'])
+            self.features[word]["CASING"] = max(
+                self.features[word]["TF_A"], self.features[word]["TF_U"]
+            )
+            self.features[word]["CASING"] /= 1.0 + math.log(self.features[word]["TF"])
 
             # 2. POSITION feature
             sentence_ids = list(set([t[2] for t in self.words[word]]))
-            self.features[word]['POSITION'] = math.log(
-                3.0 + numpy.median(sentence_ids))
-            self.features[word]['POSITION'] = math.log(
-                self.features[word]['POSITION'])
+            self.features[word]["POSITION"] = math.log(3.0 + numpy.median(sentence_ids))
+            self.features[word]["POSITION"] = math.log(self.features[word]["POSITION"])
 
             # 3. FREQUENCY feature
-            self.features[word]['FREQUENCY'] = self.features[word]['TF']
-            self.features[word]['FREQUENCY'] /= (mean_TF + std_TF)
+            self.features[word]["FREQUENCY"] = self.features[word]["TF"]
+            self.features[word]["FREQUENCY"] /= mean_TF + std_TF
 
             # 4. RELATEDNESS feature
-            self.features[word]['WL'] = 0.0
+            self.features[word]["WL"] = 0.0
             if len(self.contexts[word][0]):
-                self.features[word]['WL'] = len(set(self.contexts[word][0]))
-                self.features[word]['WL'] /= len(self.contexts[word][0])
-            self.features[word]['PL'] = len(set(self.contexts[word][0])) / max_TF
+                self.features[word]["WL"] = len(set(self.contexts[word][0]))
+                self.features[word]["WL"] /= len(self.contexts[word][0])
+            self.features[word]["PL"] = len(set(self.contexts[word][0])) / max_TF
 
-            self.features[word]['WR'] = 0.0
+            self.features[word]["WR"] = 0.0
             if len(self.contexts[word][1]):
-                self.features[word]['WR'] = len(set(self.contexts[word][1]))
-                self.features[word]['WR'] /= len(self.contexts[word][1])
-            self.features[word]['PR'] = len(set(self.contexts[word][1])) / max_TF
+                self.features[word]["WR"] = len(set(self.contexts[word][1]))
+                self.features[word]["WR"] /= len(self.contexts[word][1])
+            self.features[word]["PR"] = len(set(self.contexts[word][1])) / max_TF
 
-            self.features[word]['RELATEDNESS'] = 1
-            #self.features[word]['RELATEDNESS'] += self.features[word]['PL']
-            #self.features[word]['RELATEDNESS'] += self.features[word]['PR']
-            self.features[word]['RELATEDNESS'] += (self.features[word]['WR'] +
-                                                   self.features[word]['WL']) * \
-                                                  (self.features[word]['TF'] / max_TF)
+            self.features[word]["RELATEDNESS"] = 1
+            # self.features[word]['RELATEDNESS'] += self.features[word]['PL']
+            # self.features[word]['RELATEDNESS'] += self.features[word]['PR']
+            self.features[word]["RELATEDNESS"] += (
+                self.features[word]["WR"] + self.features[word]["WL"]
+            ) * (self.features[word]["TF"] / max_TF)
 
             # 5. DIFFERENT feature
-            self.features[word]['DIFFERENT'] = len(set(sentence_ids))
-            self.features[word]['DIFFERENT'] /= len(self.sentences)
+            self.features[word]["DIFFERENT"] = len(set(sentence_ids))
+            self.features[word]["DIFFERENT"] /= len(self.sentences)
 
             # assemble the features to weight words
-            A = self.features[word]['CASING']
-            B = self.features[word]['POSITION']
-            C = self.features[word]['FREQUENCY']
-            D = self.features[word]['RELATEDNESS']
-            E = self.features[word]['DIFFERENT']
-            self.features[word]['weight'] = (D * B) / (A + (C / D) + (E / D))
+            A = self.features[word]["CASING"]
+            B = self.features[word]["POSITION"]
+            C = self.features[word]["FREQUENCY"]
+            D = self.features[word]["RELATEDNESS"]
+            E = self.features[word]["DIFFERENT"]
+            self.features[word]["weight"] = (D * B) / (A + (C / D) + (E / D))
 
     def candidate_weighting(self, window=2, stoplist=None, use_stems=False):
         """Candidate weight calculation as described in the YAKE paper.
@@ -347,37 +347,41 @@ class YAKE(LoadFile):
 
             # use stems
             if use_stems:
-                weights = [self.features[t]['weight'] for t in v.lexical_form]
+                weights = [self.features[t]["weight"] for t in v.lexical_form]
                 self.weights[k] = numpy.prod(weights)
                 self.weights[k] /= len(v.offsets) * (1 + sum(weights))
 
             # use words
             else:
-                lowercase_forms = [' '.join(t).lower() for t in v.surface_forms]
+                lowercase_forms = [" ".join(t).lower() for t in v.surface_forms]
                 for i, candidate in enumerate(lowercase_forms):
                     TF = lowercase_forms.count(candidate)
 
                     # computing differentiated weights for words and stopwords
                     # (vitordouzi change)
                     tokens = [t.lower() for t in v.surface_forms[i]]
-                    prod_ = 1.
-                    sum_ = 0.
+                    prod_ = 1.0
+                    sum_ = 0.0
                     for j, token in enumerate(tokens):
-                        if self.features[token]['isstop']:
-                            term_left = tokens[j-1]
-                            term_right = tokens[j+1]
+                        if self.features[token]["isstop"]:
+                            term_left = tokens[j - 1]
+                            term_right = tokens[j + 1]
                             term_stop = token
-                            prob_t1 = self.contexts[term_left][1].count(
-                                term_stop) / self.features[term_left]['TF']
-                            prob_t2 = self.contexts[term_stop][0].count(
-                                term_right) / self.features[term_right]['TF']
+                            prob_t1 = (
+                                self.contexts[term_left][1].count(term_stop)
+                                / self.features[term_left]["TF"]
+                            )
+                            prob_t2 = (
+                                self.contexts[term_stop][0].count(term_right)
+                                / self.features[term_right]["TF"]
+                            )
 
                             prob = prob_t1 * prob_t2
-                            prod_ *= (1 + (1 - prob))
-                            sum_ -= (1 - prob)
+                            prod_ *= 1 + (1 - prob)
+                            sum_ -= 1 - prob
                         else:
-                            prod_ *= self.features[token]['weight']
-                            sum_ += self.features[token]['weight']
+                            prod_ *= self.features[token]["weight"]
+                            sum_ += self.features[token]["weight"]
 
                     self.weights[candidate] = prod_
                     self.weights[candidate] /= TF * (1 + sum_)
@@ -410,23 +414,19 @@ class YAKE(LoadFile):
                 return True
         return False
 
-    def get_n_best(self,
-                   n=10,
-                   redundancy_removal=True,
-                   stemming=False,
-                   threshold=0.8):
-        """ Returns the n-best candidates given the weights.
+    def get_n_best(self, n=10, redundancy_removal=True, stemming=False, threshold=0.8):
+        """Returns the n-best candidates given the weights.
 
-            Args:
-                n (int): the number of candidates, defaults to 10.
-                redundancy_removal (bool): whether redundant keyphrases are
-                    filtered out from the n-best list using levenshtein
-                    distance, defaults to True.
-                stemming (bool): whether to extract stems or surface forms
-                    (lowercased, first occurring form of candidate), default to
-                    stems.
-                threshold (float): the threshold used when computing the
-                    levenshtein distance, defaults to 0.8.
+        Args:
+            n (int): the number of candidates, defaults to 10.
+            redundancy_removal (bool): whether redundant keyphrases are
+                filtered out from the n-best list using levenshtein
+                distance, defaults to True.
+            stemming (bool): whether to extract stems or surface forms
+                (lowercased, first occurring form of candidate), default to
+                stems.
+            threshold (float): the threshold used when computing the
+                levenshtein distance, defaults to 0.8.
         """
 
         # sort candidates by ascending weight
@@ -442,9 +442,9 @@ class YAKE(LoadFile):
             for candidate in best:
 
                 # test wether candidate is redundant
-                if self.is_redundant(candidate,
-                                     non_redundant_best,
-                                     threshold=threshold):
+                if self.is_redundant(
+                    candidate, non_redundant_best, threshold=threshold
+                ):
                     continue
 
                 # add the candidate otherwise
@@ -458,7 +458,7 @@ class YAKE(LoadFile):
             best = non_redundant_best
 
         # get the list of best candidates as (lexical form, weight) tuples
-        n_best = [(u, self.weights[u]) for u in best[:min(n, len(best))]]
+        n_best = [(u, self.weights[u]) for u in best[: min(n, len(best))]]
 
         # replace with surface forms if no stemming
         if stemming:
@@ -467,7 +467,7 @@ class YAKE(LoadFile):
                 if candidate not in self.candidates:
                     candidate = self.surface_to_lexical[candidate]
 
-                candidate = ' '.join(self.candidates[candidate].lexical_form)
+                candidate = " ".join(self.candidates[candidate].lexical_form)
                 n_best[i] = (candidate, weight)
 
         # return the list of best candidates

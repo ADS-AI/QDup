@@ -14,11 +14,11 @@ from joblib import load as load_model
 
 
 class SupervisedLoadFile(LoadFile):
-    """ The SupervisedLoadFile class that provides extra base functions for
-        supervised models. """
+    """The SupervisedLoadFile class that provides extra base functions for
+    supervised models."""
 
     def __init__(self):
-        """ Redefining initializer. """
+        """Redefining initializer."""
 
         super(SupervisedLoadFile, self).__init__()
 
@@ -26,7 +26,7 @@ class SupervisedLoadFile(LoadFile):
         """ The instances container. """
 
     def feature_scaling(self):
-        """ Scale features to [0,1]. """
+        """Scale features to [0,1]."""
 
         candidates = self.instances.keys()
         X = [self.instances[u] for u in candidates]
@@ -35,15 +35,15 @@ class SupervisedLoadFile(LoadFile):
             self.instances[candidate] = X[i]
 
     def feature_extraction(self):
-        """ Skeleton for feature extraction. """
+        """Skeleton for feature extraction."""
         pass
 
     def classify_candidates(self, model=None):
-        """ Classify the candidates as keyphrase or not keyphrase.
+        """Classify the candidates as keyphrase or not keyphrase.
 
-            Args:
-                model (str): the path to load the model in pickle format,
-                    default to None.
+        Args:
+            model (str): the path to load the model in pickle format,
+                default to None.
         """
 
         # set the default model if none provided
@@ -51,11 +51,9 @@ class SupervisedLoadFile(LoadFile):
             instance = self.__class__.__name__
             # model = os.path.join(self._models, instance+"-semeval2010.pickle")
             if six.PY2:
-                model = os.path.join(self._models,
-                                     instance + "-semeval2010.py2.pickle")
+                model = os.path.join(self._models, instance + "-semeval2010.py2.pickle")
             else:
-                model = os.path.join(self._models,
-                                     instance + "-semeval2010.py3.pickle")
+                model = os.path.join(self._models, instance + "-semeval2010.py3.pickle")
 
         # load the model
         clf = load_model(model)
@@ -73,7 +71,7 @@ class SupervisedLoadFile(LoadFile):
             self.weights[candidate] = y[i][1]
 
     def candidate_weighting(self):
-        """ Extract features and classify candidates with default parameters."""
+        """Extract features and classify candidates with default parameters."""
 
         self.feature_extraction()
         self.classify_candidates()

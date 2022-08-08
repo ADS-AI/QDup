@@ -1,24 +1,30 @@
-
 import math
 import re
 import os
 import gensim
+
 try:
     from nltk.stem.porter import PorterStemmer
+
     STEM = True
 except ImportError:
     print("warning: stem function is off")
     STEM = False
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-model_path = os.path.join(dir_path,"../embedding/GoogleNews-vectors-negative300.bin.gz")
+model_path = os.path.join(
+    dir_path, "../embedding/GoogleNews-vectors-negative300.bin.gz"
+)
 model = gensim.models.KeyedVectors.load_word2vec_format(model_path, binary=True)
+
+
 class Word2Vec(object):
-    """ the class is the interface to load word embedding model from Google Word2Vec code, from following link:
-        https://code.google.com/archive/p/word2vec/
-        Tt loads txt format word2vec model file instead of binary file.
-        (The output format can be set as "-binary 0" when running Word2Vec)
-        This class also provides query and searching method."""
+    """the class is the interface to load word embedding model from Google Word2Vec code, from following link:
+    https://code.google.com/archive/p/word2vec/
+    Tt loads txt format word2vec model file instead of binary file.
+    (The output format can be set as "-binary 0" when running Word2Vec)
+    This class also provides query and searching method."""
+
     def __init__(self, filename, stem=True):
         self.__MAX_DISTANCE = 100000
         self.__word_embedding = {}
@@ -34,6 +40,7 @@ class Word2Vec(object):
         #         self.__word_embedding[word] = [float(token) for token in line_split[1:]]
 
         self.__word_embedding = model.wv
+
     def get_vector(self, word):
         """word can be a single word or white-space delimited phrase,
         return zeroes vector when word not in dictionary"""
@@ -49,8 +56,8 @@ class Word2Vec(object):
     def distance(self, word1, word2):
         """Returns cosine distance of word1 and word2, any of which can be single word or whitespace delimited phrase"""
         vec1, vec2 = self.get_vector(word1), self.get_vector(word2)
-        length1 = sum(i ** 2 for i in vec1)
-        length2 = sum(i ** 2 for i in vec2)
+        length1 = sum(i**2 for i in vec1)
+        length2 = sum(i**2 for i in vec2)
         product = sum(vec1[i] * vec2[i] for i in range(self.__dimension))
         if length1 == 0 or length2 == 0:
             return 0

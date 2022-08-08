@@ -64,15 +64,11 @@ class CollabRank(SingleRank):
     """
 
     def __init__(self):
-        """ Redefining initializer for CollabRank. """
+        """Redefining initializer for CollabRank."""
 
         super(CollabRank, self).__init__()
 
-    def collab_word_graph(self,
-                          input_file,
-                          similarity,
-                          window=10,
-                          pos=None):
+    def collab_word_graph(self, input_file, similarity, window=10, pos=None):
         """Expands the word graph using the given document.
 
         Args:
@@ -86,15 +82,18 @@ class CollabRank(SingleRank):
 
         # define default pos tags set
         if pos is None:
-            pos = {'NOUN', 'PROPN', 'ADJ'}
+            pos = {"NOUN", "PROPN", "ADJ"}
 
         # initialize document loader
         doc = LoadFile()
         print(input_file)
         # read document
-        doc.load_document(input="/home/poulain/Documents/Stage_LS2N/Retrieval/ake-benchmarking/datasets/DUC-2001/test/" + input_file,
-                          language=self.language,
-                          normalization=self.normalization)
+        doc.load_document(
+            input="/home/poulain/Documents/Stage_LS2N/Retrieval/ake-benchmarking/datasets/DUC-2001/test/"
+            + input_file,
+            language=self.language,
+            normalization=self.normalization,
+        )
 
         # flatten document and initialize nodes
         sequence = []
@@ -109,17 +108,14 @@ class CollabRank(SingleRank):
         for j, node_1 in enumerate(sequence):
             for k in range(j + 1, min(j + window, len(sequence))):
                 node_2 = sequence[k]
-                if node_1[1] in pos and node_2[1] in pos \
-                        and node_1[0] != node_2[0]:
+                if node_1[1] in pos and node_2[1] in pos and node_1[0] != node_2[0]:
                     if not self.graph.has_edge(node_1[0], node_2[0]):
                         self.graph.add_edge(node_1[0], node_2[0], weight=0)
-                    self.graph[node_1[0]][node_2[0]]['weight'] += float(similarity)
+                    self.graph[node_1[0]][node_2[0]]["weight"] += float(similarity)
 
-    def candidate_weighting(self,
-                            window=10,
-                            pos=None,
-                            collab_documents=None,
-                            normalized=False):
+    def candidate_weighting(
+        self, window=10, pos=None, collab_documents=None, normalized=False
+    ):
         """Candidate ranking using random walk.
 
         Args:
@@ -136,24 +132,23 @@ class CollabRank(SingleRank):
 
         # define default pos tags set
         if pos is None:
-            pos = {'NOUN', 'PROPN', 'ADJ'}
+            pos = {"NOUN", "PROPN", "ADJ"}
 
         if collab_documents is None:
             collab_documents = []
-            logging.warning('No cluster documents provided for CollabRank.')
+            logging.warning("No cluster documents provided for CollabRank.")
 
         # build the word graph
         self.build_word_graph(window=window, pos=pos)
 
         # expand the word graph
         for input_file, similarity in collab_documents:
-            self.collab_word_graph(input_file=input_file,
-                                   similarity=similarity,
-                                   window=window,
-                                   pos=pos)
+            self.collab_word_graph(
+                input_file=input_file, similarity=similarity, window=window, pos=pos
+            )
 
         # compute the word scores using random walk
-        w = nx.pagerank_scipy(self.graph, alpha=0.85, weight='weight')
+        w = nx.pagerank_scipy(self.graph, alpha=0.85, weight="weight")
 
         # loop through the candidates
         for k in self.candidates.keys():

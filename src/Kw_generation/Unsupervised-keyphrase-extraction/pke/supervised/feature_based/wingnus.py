@@ -79,7 +79,6 @@ class WINGNUS(SupervisedLoadFile):
 
         self.grammar_selection(grammar)
 
-
     def feature_extraction(self, df=None, training=False, features_set=None):
         """Extract features for each candidate.
 
@@ -99,12 +98,13 @@ class WINGNUS(SupervisedLoadFile):
 
         # initialize default document frequency counts if none provided
         if df is None:
-            logging.warning('LoadFile._df_counts is hard coded to {}'.format(
-                self._df_counts))
-            df = load_document_frequency_file(self._df_counts, delimiter='\t')
+            logging.warning(
+                "LoadFile._df_counts is hard coded to {}".format(self._df_counts)
+            )
+            df = load_document_frequency_file(self._df_counts, delimiter="\t")
 
         # initialize the number of documents as --NB_DOC--
-        N = df.get('--NB_DOC--', 0) + 1
+        N = df.get("--NB_DOC--", 0) + 1
         if training:
             N -= 1
 
@@ -138,11 +138,11 @@ class WINGNUS(SupervisedLoadFile):
             stoplist = self.stoplist
             for i in range(len(v.lexical_form)):
                 for j in range(i, min(len(v.lexical_form), i + 3)):
-                    sub_words = v.lexical_form[i:j + 1]
-                    sub_string = ' '.join(sub_words)
+                    sub_words = v.lexical_form[i : j + 1]
+                    sub_string = " ".join(sub_words)
 
                     # skip if substring is fullstring
-                    if sub_string == ' '.join(v.lexical_form):
+                    if sub_string == " ".join(v.lexical_form):
                         continue
 
                     # skip if substring contains a stopword
@@ -156,7 +156,11 @@ class WINGNUS(SupervisedLoadFile):
                         for offset_1 in self.candidates[sub_string].offsets:
                             is_included = False
                             for offset_2 in v.offsets:
-                                if offset_2 <= offset_1 <= offset_2 + len(v.lexical_form):
+                                if (
+                                    offset_2
+                                    <= offset_1
+                                    <= offset_2 + len(v.lexical_form)
+                                ):
                                     is_included = True
                             if not is_included:
                                 tf_of_substrings += 1
@@ -179,52 +183,55 @@ class WINGNUS(SupervisedLoadFile):
             meta = [self.sentences[sid].meta for sid in v.sentence_ids]
 
             # extract meta information of candidate
-            sections = [u['section'] for u in meta if 'section' in u]
-            types = [u['type'] for u in meta if 'type' in u]
+            sections = [u["section"] for u in meta if "section" in u]
+            types = [u["type"] for u in meta if "type" in u]
 
             # [F8] -> Is in title
-            feature_array.append('title' in sections)
+            feature_array.append("title" in sections)
 
             # [F9] -> TitleOverlap
             feature_array.append(0)
 
             # [F10] -> Header
-            feature_array.append('sectionHeader' in types or
-                                 'subsectionHeader' in types or
-                                 'subsubsectionHeader' in types)
+            feature_array.append(
+                "sectionHeader" in types
+                or "subsectionHeader" in types
+                or "subsubsectionHeader" in types
+            )
 
             # [F11] -> abstract
-            feature_array.append('abstract' in sections)
+            feature_array.append("abstract" in sections)
 
             # [F12] -> introduction
-            feature_array.append('introduction' in sections)
+            feature_array.append("introduction" in sections)
 
             # [F13] -> related work
-            feature_array.append('related work' in sections)
+            feature_array.append("related work" in sections)
 
             # [F14] -> conclusions
-            feature_array.append('conclusions' in sections)
+            feature_array.append("conclusions" in sections)
 
             # [F15] -> HeaderF
-            feature_array.append(types.count('sectionHeader') +
-                                 types.count('subsectionHeader') +
-                                 types.count('subsubsectionHeader'))
+            feature_array.append(
+                types.count("sectionHeader")
+                + types.count("subsectionHeader")
+                + types.count("subsubsectionHeader")
+            )
 
             # [F11] -> abstractF
-            feature_array.append(sections.count('abstract'))
+            feature_array.append(sections.count("abstract"))
 
             # [F12] -> introductionF
-            feature_array.append(sections.count('introduction'))
+            feature_array.append(sections.count("introduction"))
 
             # [F13] -> related workF
-            feature_array.append(sections.count('related work'))
+            feature_array.append(sections.count("related work"))
 
             # [F14] -> conclusionsF
-            feature_array.append(sections.count('conclusions'))
+            feature_array.append(sections.count("conclusions"))
 
             # add the features to the instance container
-            self.instances[k] = np.array([feature_array[i - 1] for i
-                                          in features_set])
+            self.instances[k] = np.array([feature_array[i - 1] for i in features_set])
 
         # scale features
         self.feature_scaling()
@@ -243,12 +250,12 @@ class WINGNUS(SupervisedLoadFile):
 
     @staticmethod
     def train(training_instances, training_classes, model_file):
-        """ Train a Naive Bayes classifier and store the model in a file.
+        """Train a Naive Bayes classifier and store the model in a file.
 
-            Args:
-                training_instances (list): list of features.
-                training_classes (list): list of binary values.
-                model_file (str): the model output file.
+        Args:
+            training_instances (list): list of features.
+            training_classes (list): list of binary values.
+            model_file (str): the model output file.
         """
 
         clf = MultinomialNB()

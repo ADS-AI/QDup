@@ -63,8 +63,7 @@ class MultipartiteRank(TopicRank):
     """
 
     def __init__(self):
-        """Redefining initializer for MultipartiteRank.
-        """
+        """Redefining initializer for MultipartiteRank."""
 
         super(MultipartiteRank, self).__init__()
 
@@ -74,16 +73,14 @@ class MultipartiteRank(TopicRank):
         self.graph = nx.DiGraph()
         """ Redefine the graph as a directed graph. """
 
-    def topic_clustering(self,
-                         threshold=0.74,
-                         method='average'):
-        """ Clustering candidates into topics.
+    def topic_clustering(self, threshold=0.74, method="average"):
+        """Clustering candidates into topics.
 
-            Args:
-                threshold (float): the minimum similarity for clustering,
-                    defaults to 0.74, i.e. more than 1/4 of stem overlap
-                    similarity. 
-                method (str): the linkage method, defaults to average.
+        Args:
+            threshold (float): the minimum similarity for clustering,
+                defaults to 0.74, i.e. more than 1/4 of stem overlap
+                similarity.
+            method (str): the linkage method, defaults to average.
         """
 
         # handle document with only one candidate
@@ -97,26 +94,31 @@ class MultipartiteRank(TopicRank):
         candidates, X = self.vectorize_candidates()
 
         # compute the distance matrix
-        Y = pdist(X, 'jaccard')
+        Y = pdist(X, "jaccard")
         Y = np.nan_to_num(Y)
 
         # compute the clusters
         Z = linkage(Y, method=method)
 
         # form flat clusters
-        clusters = fcluster(Z, t=threshold, criterion='distance')
+        clusters = fcluster(Z, t=threshold, criterion="distance")
 
         # for each cluster id
         for cluster_id in range(1, max(clusters) + 1):
-            self.topics.append([candidates[j] for j in range(len(clusters))
-                                if clusters[j] == cluster_id])
+            self.topics.append(
+                [
+                    candidates[j]
+                    for j in range(len(clusters))
+                    if clusters[j] == cluster_id
+                ]
+            )
 
         # assign cluster identifiers to candidates
         for i, cluster_id in enumerate(clusters):
             self.topic_identifiers[candidates[i]] = cluster_id - 1
 
     def build_topic_graph(self):
-        """ Build the Multipartite graph. """
+        """Build the Multipartite graph."""
 
         # adding the nodes to the graph
         self.graph.add_nodes_from(self.candidates.keys())
@@ -143,7 +145,7 @@ class MultipartiteRank(TopicRank):
 
                     weights.append(1.0 / gap)
 
-            # add weighted edges 
+            # add weighted edges
             if weights:
                 # node_i -> node_j
                 self.graph.add_edge(node_i, node_j, weight=sum(weights))
@@ -151,11 +153,11 @@ class MultipartiteRank(TopicRank):
                 self.graph.add_edge(node_j, node_i, weight=sum(weights))
 
     def weight_adjustment(self, alpha=1.1):
-        """ Adjust edge weights for boosting some candidates.
+        """Adjust edge weights for boosting some candidates.
 
-            Args:
-                alpha (float): hyper-parameter that controls the strength of the
-                    weight adjustment, defaults to 1.1.
+        Args:
+            alpha (float): hyper-parameter that controls the strength of the
+                weight adjustment, defaults to 1.1.
         """
 
         # weighted_edges = defaultdict(list)
@@ -184,7 +186,7 @@ class MultipartiteRank(TopicRank):
                 boosters = []
                 for v in variants:
                     if v != first and self.graph.has_edge(v, end):
-                        boosters.append(self.graph[v][end]['weight'])
+                        boosters.append(self.graph[v][end]["weight"])
 
                 if boosters:
                     weighted_edges[(start, end)] = np.sum(boosters)
@@ -195,20 +197,17 @@ class MultipartiteRank(TopicRank):
             node_i, node_j = nodes
             position_i = 1.0 / (1 + self.candidates[node_i].offsets[0])
             position_i = math.exp(position_i)
-            self.graph[node_j][node_i]['weight'] += (boosters * alpha * position_i)
+            self.graph[node_j][node_i]["weight"] += boosters * alpha * position_i
 
-    def candidate_weighting(self,
-                            threshold=0.74,
-                            method='average',
-                            alpha=1.1):
-        """ Candidate weight calculation using random walk.
+    def candidate_weighting(self, threshold=0.74, method="average", alpha=1.1):
+        """Candidate weight calculation using random walk.
 
-            Args:
-                threshold (float): the minimum similarity for clustering,
-                    defaults to 0.25.
-                method (str): the linkage method, defaults to average.
-                alpha (float): hyper-parameter that controls the strength of the
-                    weight adjustment, defaults to 1.1.
+        Args:
+            threshold (float): the minimum similarity for clustering,
+                defaults to 0.25.
+            method (str): the linkage method, defaults to average.
+            alpha (float): hyper-parameter that controls the strength of the
+                weight adjustment, defaults to 1.1.
         """
 
         # cluster the candidates

@@ -2,41 +2,45 @@ import json
 from formatting import output_color
 import nltk
 import os
-from nltk import  word_tokenize
+from nltk import word_tokenize
 import nltk
-from nltk.stem import WordNetLemmatizer 
-nltk.download('wordnet')
-nltk.download('punkt')
+from nltk.stem import WordNetLemmatizer
 
+nltk.download("wordnet")
+nltk.download("punkt")
 
 
 def load_data():
     # try :
-        path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-        path_file_tkn = os.path.join(path_file_tkn, 'QUESTION_DUPLICATE_DETECTION')
-        path_file_tkn = os.path.join(path_file_tkn, 'src')
-        path_file_tkn = os.path.join(path_file_tkn, 'Data-cache')
-        path_file_tkn = os.path.join(path_file_tkn, 'tokenised_question.json')
-        data = json.load(open(path_file_tkn, encoding='utf-8'))
-        return data
-    # except:
-    #     print("Error loading jaccard data")
-    #     return None
+    path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+    path_file_tkn = os.path.join(path_file_tkn, "QUESTION_DUPLICATE_DETECTION")
+    path_file_tkn = os.path.join(path_file_tkn, "src")
+    path_file_tkn = os.path.join(path_file_tkn, "Data-cache")
+    path_file_tkn = os.path.join(path_file_tkn, "tokenised_question.json")
+    data = json.load(open(path_file_tkn, encoding="utf-8"))
+    return data
+
+
+# except:
+#     print("Error loading jaccard data")
+#     return None
+
 
 def load_txt_data():
     # try :
-        path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-        path_file_tkn = os.path.join(path_file_tkn, 'QUESTION_DUPLICATE_DETECTION')
-        path_file_tkn = os.path.join(path_file_tkn, 'src')
-        path_file_tkn = os.path.join(path_file_tkn, 'Data-cache')
-        path_file_tkn = os.path.join(path_file_tkn, 'questiontext.json')
-        data = json.load(open(path_file_tkn, encoding='utf-8'))
-        return data
-    # except:
-    #     print("Error loading jaccard data")
-    #     return None
+    path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+    path_file_tkn = os.path.join(path_file_tkn, "QUESTION_DUPLICATE_DETECTION")
+    path_file_tkn = os.path.join(path_file_tkn, "src")
+    path_file_tkn = os.path.join(path_file_tkn, "Data-cache")
+    path_file_tkn = os.path.join(path_file_tkn, "questiontext.json")
+    data = json.load(open(path_file_tkn, encoding="utf-8"))
+    return data
 
-    
+
+# except:
+#     print("Error loading jaccard data")
+#     return None
+
 
 def generate_tokens(ques, lemmatizer):
     tokens = nltk.word_tokenize(ques)
@@ -52,9 +56,12 @@ def jaccard_score(query_tokens, question_tokens):
     common = len(query_tokens & question_tokens)
     union = len(query_tokens | question_tokens)
 
-    return common/union
+    return common / union
 
-def main_jaccard_search(candidates, query_question, threshold, duplicate_threshold = 0.99, verbose = 1):
+
+def main_jaccard_search(
+    candidates, query_question, threshold, duplicate_threshold=0.99, verbose=1
+):
     data = load_data()
     lemmatizer = WordNetLemmatizer()
     query_tokens = generate_tokens(query_question, lemmatizer)
@@ -62,24 +69,24 @@ def main_jaccard_search(candidates, query_question, threshold, duplicate_thresho
     duplicate_candidates = []
 
     for ques_id in candidates:
-        try :
+        try:
             score = jaccard_score(query_tokens, data[ques_id])
-            if score >= duplicate_threshold :
+            if score >= duplicate_threshold:
                 duplicate_candidates.append(ques_id)
-            elif score >= threshold :
+            elif score >= threshold:
                 passed_candidates.append(ques_id)
         except:
-            continue 
-    
+            continue
+
     if verbose == 1:
         question_texts = load_txt_data()
         print(output_color.GREEN + "(JACC)Duplicate questions : ")
-        for id in duplicate_candidates: 
+        for id in duplicate_candidates:
             print(id + " : " + question_texts[id])
         print(output_color.END)
 
         print(output_color.DARKCYAN + "(JACC)Potential Candidates: ")
-        for id in passed_candidates: 
+        for id in passed_candidates:
             print(id + " : " + question_texts[id])
         print(output_color.END)
 
