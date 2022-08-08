@@ -7,18 +7,18 @@ import json
 import numpy as np
 from formatting import output_color
 
-def load_ids():
-    # try:
-        path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-        path_file_embd = os.path.join(path_file_embd, 'QUESTION_DUPLICATE_DETECTION')
-        path_file_embd = os.path.join(path_file_embd, 'src')
-        path_file_embd = os.path.join(path_file_embd, 'Data-cache')
-        path_file_embd = os.path.join(path_file_embd, 'all_ids.json')
-        data = json.load(open(path_file_embd, encoding='utf-8'))
-        return data
-    # except:
-    #     print("Error loading embeddings data")
-    #     return None
+# def load_ids():
+#     # try:
+#         path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
+#         path_file_embd = os.path.join(path_file_embd, 'QUESTION_DUPLICATE_DETECTION')
+#         path_file_embd = os.path.join(path_file_embd, 'src')
+#         path_file_embd = os.path.join(path_file_embd, 'Data-cache')
+#         path_file_embd = os.path.join(path_file_embd, 'all_ids.json')
+#         data = json.load(open(path_file_embd, encoding='utf-8'))
+#         return data
+#     # except:
+#     #     print("Error loading embeddings data")
+#     #     return None
 
 
 def load_data():
@@ -63,8 +63,7 @@ def sort_list(list1, list2):
     z = [x for _, x in sorted(zipped_pairs, reverse=True)]
     return z
 
-def embed_search(query_question, top_k, verbose = 1):
-    candidates = load_ids()
+def embed_search(query_question, candidates, top_k, verbose = 1):
     data = load_data()
     embeds = generate_embeddings([query_question])
     passed_candidates = []

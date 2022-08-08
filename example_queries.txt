@@ -1,0 +1,1 @@
+first three nearest neighbour distances for primitive cubic lattice are respectively edge length of unit cell a

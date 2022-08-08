@@ -17,6 +17,7 @@ from NERs import Named_entity_recog as ner
 from formatting import output_color
 from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
 from Sentence_embeddings.compare_embeds import embed_search
+from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 
 print('-------------------------------------------------------------------------------------------------------------')
 print('Modules installed successfully!')
@@ -32,42 +33,32 @@ GLOB_VERBOSE = 1
 KW_THRESHOLD = 0.8
 JACC_THRESHOLD = 0.3
 TOP_K_EMBEDS = 3
+
+
 #
 #   Model
 #
 query_question = pre.preprocess(query_question)
 extract_kw_ques(query_question) # this step is being called here to run simultaneously with next commands
 
-path_file_qtxt = os.path.dirname(__file__)
-path_file_qtxt = os.path.join(path_file_qtxt, 'Data-cache')
-path_file_qtxt = os.path.join(path_file_qtxt, 'questiontext.json')
-question_texts = json.load(open(path_file_qtxt, encoding='utf-8'))
+#
+#Get tags and potential candidates list
+#
+tag_pred = get_question_tag(ques = query_question, verbose = GLOB_VERBOSE)
+tag_potential_candidates = get_same_tag_candids(ques_text = query_question, curr_tag = tag_pred)
+potential_candidates = tag_potential_candidates # tag_potential_candidates  latere used for embeddings
 
-potential_candidates = list(question_texts.keys())
+#
+#Get jaccard similarity questions
+#
+high_jaccard, potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, JACC_THRESHOLD, verbose = 1) 
 
-
-
-# TODO Reduce search space to only those questions that have the same syllabus as the query question
-
-'''
-    Reduce the search space using jaccard similarity
-'''
-
-high_jaccard, potential_candidates = jaccard.main_jaccard_search(potential_candidates,query_question, JACC_THRESHOLD, verbose = 1)
-
-
-# 
+#
 # Exact duplicates
 #
-
 duplicate_questions = high_jaccard
 
 
-
-# print(output_color.PURPLE + "Potential_candidates : ")
-# for id in potential_candidates: 
-#     print(id + " : " + question_texts[id])
-# print(output_color.END)
 
 #
 # Checking for NERs
@@ -82,4 +73,11 @@ potential_candidates = ner.check_NERs(potential_candidates, query_question, verb
 
 potential_candidates = kw_potential_candidates(potential_candidates, query_question, KW_THRESHOLD, verbose = GLOB_VERBOSE)
 
-embed_candids = embed_search(query_question, TOP_K_EMBEDS, GLOB_VERBOSE)
+
+
+
+#
+# Search based on embeddings
+#
+
+embed_candids = embed_search(query_question, tag_potential_candidates, TOP_K_EMBEDS, GLOB_VERBOSE)
