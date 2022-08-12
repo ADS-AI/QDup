@@ -24,7 +24,7 @@ from formatting import output_color
 def load_data():
     # try:
     path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    path_file_embd = os.path.join(path_file_embd, "QUESTION_DUPLICATE_DETECTION")
+    # path_file_embd = os.path.join(path_file_embd, "QUESTION_DUPLICATE_DETECTION")
     path_file_embd = os.path.join(path_file_embd, "src")
     path_file_embd = os.path.join(path_file_embd, "Data-cache")
     path_file_embd = os.path.join(path_file_embd, "questions_embeddings.json")
@@ -40,7 +40,7 @@ def load_data():
 def load_txt_data():
     # try :
     path_file_txt = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    path_file_txt = os.path.join(path_file_txt, "QUESTION_DUPLICATE_DETECTION")
+    # path_file_txt = os.path.join(path_file_txt, "QUESTION_DUPLICATE_DETECTION")
     path_file_txt = os.path.join(path_file_txt, "src")
     path_file_txt = os.path.join(path_file_txt, "Data-cache")
     path_file_txt = os.path.join(path_file_txt, "questiontext.json")

@@ -13,7 +13,6 @@ nltk.download("punkt")
 def load_data():
     # try :
     path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    path_file_tkn = os.path.join(path_file_tkn, "QUESTION_DUPLICATE_DETECTION")
     path_file_tkn = os.path.join(path_file_tkn, "src")
     path_file_tkn = os.path.join(path_file_tkn, "Data-cache")
     path_file_tkn = os.path.join(path_file_tkn, "tokenised_question.json")
@@ -29,7 +28,6 @@ def load_data():
 def load_txt_data():
     # try :
     path_file_tkn = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    path_file_tkn = os.path.join(path_file_tkn, "QUESTION_DUPLICATE_DETECTION")
     path_file_tkn = os.path.join(path_file_tkn, "src")
     path_file_tkn = os.path.join(path_file_tkn, "Data-cache")
     path_file_tkn = os.path.join(path_file_tkn, "questiontext.json")
