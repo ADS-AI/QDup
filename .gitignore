@@ -1,3 +1,4 @@
 venv/
 src/Kw_generation/stanford
 src/Data-cache/
+src/Syllabus_Tagging/taxonomy_predictor_api/

@@ -1,5 +1,7 @@
 import pandas as pd
 import os
+import requests
+
 import re
 from formatting import output_color
 
@@ -15,9 +17,23 @@ def load_data():
     #     return pd.DataFrame(columns = ["question_id", "tagrec++_predictions"])
     return df
 
+def process_tagrec_result(txt):
+
+
+    return txt
+
 
 def get_question_tag(ques, verbose):
-    pred_tag = "chemistry"
+    
+
+    headers = {
+        'accept': 'application/json',
+    }
+    json_data = {
+        'content': 'when mercury ii chloride is treated with excess of stannous chloride the products obtained are',
+    }
+    response = requests.post('http://localhost:8000/gettaxonomy', headers=headers, json=json_data)
+    pred_tag = process_tagrec_result(response.text)
 
     if verbose > 0:
         print(output_color.BLUE + "(Tag) Question belongs to category : ", pred_tag)
