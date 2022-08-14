@@ -24,6 +24,7 @@ from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
 from Sentence_embeddings.compare_embeds import embed_search
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 from return_questions import get_texts
+from Kw_generation.ans_kw_checker import get_ans_potential_candidates
 
 print(
     "-------------------------------------------------------------------------------------------------------------"
@@ -39,10 +40,11 @@ def run_model(query_question):
     #   GLOBAL VARIABLES
     #
     GLOB_VERBOSE = 1
-    KW_THRESHOLD = 0.8
-    JACC_THRESHOLD = 0.3
+    KW_THRESHOLD = 0.6
+    JACC_THRESHOLD = 0.4
     TOP_K_EMBEDS = 3
     EMBED_ONLY_NEW = True 
+    ANS_KW_THRESHOLD = 0.4
     # show only those sentences which have not yet been identified as duplicate when showing closest sentences by embeddings
 
     #
@@ -90,8 +92,12 @@ def run_model(query_question):
     # Getting extracted keywords
     #
 
-    potential_candidates = kw_potential_candidates(
+    potential_candidates = list(kw_potential_candidates(
         potential_candidates, query_question, KW_THRESHOLD, verbose=GLOB_VERBOSE
+    ))
+
+    ans_also_same = get_ans_potential_candidates(
+        potential_candidates, query_question, ANS_KW_THRESHOLD, verbose=GLOB_VERBOSE
     )
 
 
@@ -108,7 +114,7 @@ def run_model(query_question):
         verbose=GLOB_VERBOSE,
     )
 
-    duplicate_questions_ques = get_texts(duplicate_questions)
+    duplicate_questions_ques = get_texts(duplicate_questions).extend(get_texts(ans_also_same))
     potential_candidates_ques = get_texts(potential_candidates)
     embed_candids_ques = get_texts(embed_candids)
 
