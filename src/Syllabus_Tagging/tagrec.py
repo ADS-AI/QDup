@@ -17,7 +17,7 @@ def load_data():
 
 
 def get_question_tag(ques, verbose):
-    pred_tag = "science"
+    pred_tag = "chemistry"
 
     if verbose > 0:
         print(output_color.BLUE + "(Tag) Question belongs to category : ", pred_tag)
