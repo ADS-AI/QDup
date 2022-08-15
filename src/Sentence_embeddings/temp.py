@@ -115,4 +115,4 @@ def embed_search(
 #     [957734, 957725, 957723], [2323], 4, embed_only_new=True, verbose=1
 # )
 
-# embeds = generate_embeddings(["first three nearest neighbour distances for primitive cubic lattice are respectively edge length of unit cell a"])
+embeds = generate_embeddings(["first three nearest neighbour distances for primitive cubic lattice are respectively edge length of unit cell a"])

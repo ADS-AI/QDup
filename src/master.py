@@ -21,7 +21,7 @@ from Jaccard_Similarity import jaccard_search as jaccard
 from NERs import Named_entity_recog as ner
 from formatting import output_color
 from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
-from Sentence_embeddings.compare_embeds import embed_search
+# from Sentence_embeddings.compare_embeds import embed_search
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 from return_questions import get_texts
 from Kw_generation.ans_kw_checker import get_ans_potential_candidates
@@ -104,18 +104,20 @@ def run_model(query_question):
     #
     # Search based on embeddings
     #
-    already_listed = potential_candidates+duplicate_questions
-    embed_candids = embed_search(
-        query_question,
-        tag_potential_candidates,
-        already_listed,
-        TOP_K_EMBEDS,
-        embed_only_new=EMBED_ONLY_NEW,
-        verbose=GLOB_VERBOSE,
-    )
+    # already_listed = potential_candidates+duplicate_questions
+    # embed_candids = embed_search(
+    #     query_question,
+    #     tag_potential_candidates,
+    #     already_listed,
+    #     TOP_K_EMBEDS,
+    #     embed_only_new=EMBED_ONLY_NEW,
+    #     verbose=GLOB_VERBOSE,
+    # )
+    # embed_candids_ques = get_texts(embed_candids)
 
-    duplicate_questions_ques = get_texts(duplicate_questions).extend(get_texts(ans_also_same))
+    embed_candids_ques = get_texts(ans_also_same)
+    duplicate_questions_ques = get_texts(duplicate_questions)
+    duplicate_questions_ques.extend(embed_candids_ques)
     potential_candidates_ques = get_texts(potential_candidates)
-    embed_candids_ques = get_texts(embed_candids)
 
     return (duplicate_questions_ques, potential_candidates_ques, embed_candids_ques)

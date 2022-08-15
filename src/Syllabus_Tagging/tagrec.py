@@ -17,10 +17,10 @@ def load_data():
     #     return pd.DataFrame(columns = ["question_id", "tagrec++_predictions"])
     return df
 
-def process_tagrec_result(txt):
-
-
-    return txt
+def process_tagrec_result(response_tag):
+    first_dict_tag = eval(response_tag)[0]["taxonomy"] 
+    subject = first_dict_tag.split(">>")[2]
+    return subject
 
 
 def get_question_tag(ques, verbose):
