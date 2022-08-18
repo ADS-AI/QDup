@@ -96,9 +96,12 @@ def run_model(query_question, query_question_ans):
         potential_candidates, query_question, KW_THRESHOLD, verbose=GLOB_VERBOSE
     ))
 
-    ans_also_same = get_ans_potential_candidates(
-        potential_candidates, query_question_ans, ANS_KW_THRESHOLD, verbose=GLOB_VERBOSE
-    )
+    if len(query_question_ans) > 0:
+        ans_also_same = get_ans_potential_candidates(
+            potential_candidates, query_question_ans, ANS_KW_THRESHOLD, verbose=GLOB_VERBOSE
+        )
+    else:
+        ans_also_same = potential_candidates
 
 
     #
@@ -115,9 +118,10 @@ def run_model(query_question, query_question_ans):
     # )
     # embed_candids_ques = get_texts(embed_candids)
 
-    embed_candids_ques = get_texts(ans_also_same)
+    embed_candids_ques = []
+    ans_candids = get_texts(ans_also_same)
     duplicate_questions_ques = get_texts(duplicate_questions)
-    duplicate_questions_ques.extend(embed_candids_ques)
+    duplicate_questions_ques.extend(ans_candids)
     potential_candidates_ques = get_texts(potential_candidates)
 
     return (duplicate_questions_ques, potential_candidates_ques, embed_candids_ques)
