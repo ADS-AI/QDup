@@ -34,7 +34,7 @@ print()
 
 print("Enter the question : ", end="")
 
-def run_model(query_question, query_question_ans): 
+def run_model(query_question, query_question_ans=""): 
 
     #
     #   GLOBAL VARIABLES
@@ -101,6 +101,7 @@ def run_model(query_question, query_question_ans):
             potential_candidates, query_question_ans, ANS_KW_THRESHOLD, verbose=GLOB_VERBOSE
         )
     else:
+        print("(ANS) No answer provided")
         ans_also_same = potential_candidates
 
 

@@ -7,6 +7,18 @@ import os
 
 VERBOSE = 0
 
+class output_color:
+    PURPLE = "\033[95m"
+    CYAN = "\033[96m"
+    DARKCYAN = "\033[36m"
+    BLUE = "\033[94m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+    END = "\033[0m"
+
 def get_ans_potential_candidates(potential_candidates, query_ans, ans_kw_threshold, verbose):
     if len(potential_candidates) == 0:
         return potential_candidates
@@ -34,11 +46,11 @@ def get_ans_potential_candidates(potential_candidates, query_ans, ans_kw_thresho
         if curr_candid_scores[ind] > ans_kw_threshold:
             final_candidates.append(candidate)
 
-    # if VERBOSE > 0:
-    #     print(output_color.BLUE + "(KW) Potential_candidates : ")
-    #     for id in final_candidates:
-    #         print(id + " : " + txt_dict[id])
-    #     print(output_color.END)
+    if VERBOSE > 0:
+        print(output_color.BLUE + "(ANS) Potential candidates : ")
+        for id in final_candidates:
+            print(id + " : " + txt_dict[id])
+        print(output_color.END)
 
     return final_candidates
 
