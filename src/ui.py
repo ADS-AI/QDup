@@ -1,8 +1,22 @@
 import gradio as gr
 from master import run_model
 
+def list_to_string(list):
+    string = ""
+    count = 1
+    for i in list:
+        string += str(count) + ". " + i + "   \n"
+        count += 1
+    return string
+
 def master_of_masters(Question, Answer=""):
-    return run_model(Question, Answer)
+    
+    list1, list2 = run_model(Question, Answer)
+
+    ans1 = list_to_string(list1)
+    ans2 = list_to_string(list2)
+
+    return ans1, ans2
 
 question_text = gr.Textbox(lines = 2, placeholder="Enter Question..")
 answer_text = gr.Textbox(lines = 2, placeholder="Enter Answer or Leave it empty..")
@@ -30,3 +44,5 @@ gui = gr.Interface(
 )
 
 gui.launch(share = True)
+
+# print(list_to_string(["What is the meaning of life?", "42"]))
