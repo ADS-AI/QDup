@@ -11,4 +11,4 @@ java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -preload toke
 Download tagrec model from : https://drive.google.com/file/d/1T2-vV-ZxtqvUCcWmLng934dLXGgIVLPy/view?usp=drive_web
 Extract folder from zip and add to "./src/Syllabus_Tagging/"
 Run requirements.txt inside it
-Run "uvicorn app.main:app" inside it
+Run `uvicorn app.main:app` inside it
