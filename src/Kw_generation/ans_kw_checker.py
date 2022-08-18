@@ -5,8 +5,6 @@ nlp = spacy.load("en_core_web_sm")
 import json
 import os
 
-VERBOSE = 0
-
 class output_color:
     PURPLE = "\033[95m"
     CYAN = "\033[96m"
@@ -46,7 +44,7 @@ def get_ans_potential_candidates(potential_candidates, query_ans, ans_kw_thresho
         if curr_candid_scores[ind] > ans_kw_threshold:
             final_candidates.append(candidate)
 
-    if VERBOSE > 0:
+    if verbose > 0:
         print(output_color.BLUE + "(ANS) Potential candidates : ")
         for id in final_candidates:
             print(id + " : " + txt_dict[id])

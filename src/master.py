@@ -34,7 +34,7 @@ print()
 
 print("Enter the question : ", end="")
 
-def run_model(query_question, query_question_ans=""): 
+def run_model(query_question, query_question_ans): 
 
     #
     #   GLOBAL VARIABLES
@@ -86,6 +86,7 @@ def run_model(query_question, query_question_ans=""):
     potential_candidates = ner.check_NERs(
         potential_candidates, query_question, verbose=GLOB_VERBOSE
     )
+    after_ner_potential_candidates = list(potential_candidates)
 
 
     #
@@ -120,9 +121,18 @@ def run_model(query_question, query_question_ans=""):
     # embed_candids_ques = get_texts(embed_candids)
 
     embed_candids_ques = []
+    # duplicates
     ans_candids = get_texts(ans_also_same)
     duplicate_questions_ques = get_texts(duplicate_questions)
     duplicate_questions_ques.extend(ans_candids)
-    potential_candidates_ques = get_texts(potential_candidates)
 
-    return (duplicate_questions_ques, potential_candidates_ques, embed_candids_ques)
+    #related questions
+    related_questions = get_texts(embed_candids_ques)
+    related_questions.extend(get_texts(potential_candidates))
+    related_questions.extend(get_texts(after_ner_potential_candidates))
+    # possible overlap of
+    # (potential_candidates with after_ner_potential_candidates)
+    # and
+    # (potential_candidates and duplicates)
+
+    return (duplicate_questions_ques, related_questions)
