@@ -28,14 +28,6 @@ In order to setup the model please follwo the following steps:
 16. Open a new terminal and navigate to "src" folder: `cd src`
 17. Run `python3 ui.py`
 
-
-
-
-Download tagrec model from : https://drive.google.com/file/d/1T2-vV-ZxtqvUCcWmLng934dLXGgIVLPy/view?usp=drive_web
-Extract folder from zip and add to "./src/Syllabus_Tagging/"
-Run requirements.txt inside it
-Run `uvicorn app.main:app` inside it
-
 ##### Development details
 
 Period of development : 15 May 2022 - 22 August 2022
