@@ -5,7 +5,7 @@ def list_to_string(list):
     string = ""
     count = 1
     for i in list:
-        string += str(count) + ". " + i + "   \n"
+        string += str(count) + ". " + i.capitalize() + "   \n"
         count += 1
     return string
 
@@ -45,4 +45,4 @@ gui = gr.Interface(
 
 gui.launch(share = True)
 
-# print(list_to_string(["What is the meaning of life?", "42"]))
+# print(list_to_string(["what is the meaning of life?", "ccghcghc42"]))
