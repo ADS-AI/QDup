@@ -1,12 +1,7 @@
 import gradio as gr
-#from master import run_model
+from master import run_model
 import pandas as pd
 import json
-
-def run_model(Question, Answer=""):
-    list1 = ['first three nearest neighbour distance for primitive cubic lattice are respectively edge length of unit cell a']
-    list2 = ['first three nearest neighbour distance for body centered cubic lattice are respectively', 'first three nearest neighbour distance for body centered cubic lattice are respectively']
-    return list1, list2
 
 def list_to_string(list):
     string = ""
@@ -62,9 +57,6 @@ desc = ("An application to prevent academicians from creating duplicate question
         "Definition of Duplicacy : "
         )
 
-article = ("Question Duplicates :  \n"
-        "Related Questions : "
-        )
 
 
 with gr.Blocks() as demo:
@@ -100,8 +92,6 @@ with gr.Blocks() as demo:
 
         text_button.click(master_of_masters, inputs=[question_text, answer_text], outputs=[output1, output2])
         csv_button.click(master_of_masters_file, inputs=[question_file], outputs=[output_file])
-
-    gr.Markdown(article)
 
 demo.launch()
 

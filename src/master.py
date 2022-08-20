@@ -40,8 +40,8 @@ def run_model(query_question, query_question_ans):
     #   GLOBAL VARIABLES
     #
     GLOB_VERBOSE = 1
-    KW_THRESHOLD = 0.6
-    JACC_THRESHOLD = 0.4
+    KW_THRESHOLD = 0.7
+    JACC_THRESHOLD = 0.5
     TOP_K_EMBEDS = 3
     EMBED_ONLY_NEW = True 
     ANS_KW_THRESHOLD = 0.4
@@ -86,7 +86,10 @@ def run_model(query_question, query_question_ans):
     potential_candidates = ner.check_NERs(
         potential_candidates, query_question, verbose=GLOB_VERBOSE
     )
-    after_ner_potential_candidates = list(potential_candidates)
+
+    after_ner_potential_candidates= [] 
+    for i in potential_candidates:
+        after_ner_potential_candidates.append(i)
 
 
     #
@@ -98,6 +101,7 @@ def run_model(query_question, query_question_ans):
     ))
 
     if len(query_question_ans) > 0:
+        print(query_question_ans)
         ans_also_same = get_ans_potential_candidates(
             potential_candidates, query_question_ans, ANS_KW_THRESHOLD, verbose=GLOB_VERBOSE
         )
@@ -109,7 +113,7 @@ def run_model(query_question, query_question_ans):
     #
     # Search based on embeddings
     #
-    already_listed = potential_candidates+duplicate_questions
+    # already_listed = potential_candidates+duplicate_questions
     # embed_candids = embed_search(
     #     query_question,
     #     tag_potential_candidates,
@@ -122,14 +126,23 @@ def run_model(query_question, query_question_ans):
 
     embed_candids_ques = []
     # duplicates
-    ans_candids = get_texts(ans_also_same)
-    duplicate_questions_ques = get_texts(duplicate_questions)
-    duplicate_questions_ques.extend(ans_candids)
+    duplicate_questions_ques_ids = []
+    for i in duplicate_questions: 
+        duplicate_questions_ques_ids.append(i)
+    for i in ans_also_same: 
+        duplicate_questions_ques_ids.append(i)
+
+    duplicate_questions_ques = get_texts(duplicate_questions_ques_ids)
 
     #related questions
     related_questions = get_texts(embed_candids_ques)
-    related_questions.extend(get_texts(potential_candidates))
-    related_questions.extend(get_texts(after_ner_potential_candidates))
+    all_questions = []
+    for j in potential_candidates:
+        all_questions.append(j)
+    # for j in after_ner_potential_candidates:
+    #     all_questions.append(j)
+    all_questions = list(set(all_questions).difference(set(duplicate_questions_ques_ids)))
+    related_questions.extend(get_texts(all_questions))
     # possible overlap of
     # (potential_candidates with after_ner_potential_candidates)
     # and

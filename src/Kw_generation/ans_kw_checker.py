@@ -18,6 +18,7 @@ class output_color:
     END = "\033[0m"
 
 def get_ans_potential_candidates(potential_candidates, query_ans, ans_kw_threshold, verbose):
+    print(potential_candidates, query_ans, ans_kw_threshold, verbose)
     if len(potential_candidates) == 0:
         return potential_candidates
     txt_dict = load_ans_data() 

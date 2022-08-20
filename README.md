@@ -1,6 +1,6 @@
 # Project 8. Question similarity.
 
-This repository is an implementation of the Question Duplicacy detection model developed for [Extramarks Ltd](https://www.extramarks.com).
+This repository is an implementation of the Question Duplicacy detection model developed for [Extramarks Ltd](https://www.extramarks.com). The purpose of the project was to TODO
 
 ### Pipeline of the model
 

@@ -50,4 +50,7 @@ def get_same_tag_candids(ques_text, curr_tag):
         pred = spl[0]
         if pred == curr_tag:
             return_ls.append(str(row["question_id"]))
+        else:
+            return_ls.append(str(row["question_id"]))
+
     return return_ls
