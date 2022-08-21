@@ -6,7 +6,18 @@ from numpy.linalg import norm
 import json
 import numpy as np
 # from ..formatting import output_color
-
+class output_color:
+    PURPLE = "\033[95m"
+    CYAN = "\033[96m"
+    DARKCYAN = "\033[36m"
+    BLUE = "\033[94m"
+    GREEN = "\033[92m"
+    YELLOW = "\033[93m"
+    RED = "\033[91m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
+    END = "\033[0m"
+    
 # def load_ids():
 #     # try:
 #         path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
@@ -106,6 +117,44 @@ def embed_search(
         for id in return_candidates:
             print(id, " : ", str(question_texts[str(id)]))
         # print(output_color.END)
+
+    return return_candidates
+
+
+
+def embed_search_v2(
+    predicted_duplicate_id, candidates, already_listed, top_k, embed_only_new=True, verbose=1
+):
+    data = load_data()
+    embeds = data[str(predicted_duplicate_id)]
+    passed_candidates = []
+    ls_cos_sim = []
+    for ques_id in candidates:
+        try:
+            score = cos_sim(embeds, data[str(ques_id)])
+            ls_cos_sim.append(score)
+        except:
+            print("key missing: ", ques_id)
+            ls_cos_sim.append(0)
+
+    closest_candidates = sort_list(candidates, ls_cos_sim)
+
+    if embed_only_new:
+        return_candidates = []
+        for id in closest_candidates:
+            if id not in already_listed:
+                return_candidates.append(id)
+            if len(return_candidates) >= top_k:
+                break
+    else:
+        return_candidates = closest_candidates[:top_k]
+
+    question_texts = load_txt_data()
+    if verbose == 1:
+        print(output_color.DARKCYAN + "(EMBED)Related questions: ")
+        for id in return_candidates:
+            print(id, " : ", str(question_texts[str(id)]))
+        print(output_color.END)
 
     return return_candidates
 

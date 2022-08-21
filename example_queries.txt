@@ -1,5 +1,4 @@
 1. First three nearest neighbour distances for primitive cubic lattice are respectively edge length of unit cell a
 2. How many pi bonds are there in ferrocene 
 3. How many pi bonds are there in ferrocene (add answer: random word)
-4. how many pi bonds are there in ferrocene (add answer: random word)
-5. ferric chloride is applied to stop bleeding because
+4. ferric chloride is applied to stop bleeding because

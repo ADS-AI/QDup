@@ -21,7 +21,7 @@ from Jaccard_Similarity import jaccard_search as jaccard
 from NERs import Named_entity_recog as ner
 from formatting import output_color
 from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
-from Sentence_embeddings.compare_embeds import embed_search
+from Sentence_embeddings.compare_embeds import embed_search_v2
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 from return_questions import get_texts
 from Kw_generation.ans_kw_checker import get_ans_potential_candidates
@@ -110,21 +110,7 @@ def run_model(query_question, query_question_ans):
         ans_also_same = potential_candidates
 
 
-    #
-    # Search based on embeddings
-    #
-    # already_listed = potential_candidates+duplicate_questions
-    # embed_candids = embed_search(
-    #     query_question,
-    #     tag_potential_candidates,
-    #     already_listed,
-    #     TOP_K_EMBEDS,
-    #     embed_only_new=EMBED_ONLY_NEW,
-    #     verbose=GLOB_VERBOSE,
-    # )
-    # embed_candids_ques = get_texts(embed_candids)
 
-    embed_candids_ques = []
     # duplicates
     duplicate_questions_ques_ids = []
     for i in duplicate_questions: 
@@ -134,8 +120,29 @@ def run_model(query_question, query_question_ans):
 
     duplicate_questions_ques = get_texts(duplicate_questions_ques_ids)
 
+    
+    #
+    # Search based on embeddings
+    #
+    already_listed = potential_candidates+duplicate_questions_ques_ids
+    if(len(duplicate_questions_ques_ids) > 0):
+        embed_candids = embed_search_v2(
+            duplicate_questions_ques_ids[0],
+            tag_potential_candidates,
+            already_listed,
+            TOP_K_EMBEDS,
+            embed_only_new=EMBED_ONLY_NEW,
+            verbose=GLOB_VERBOSE,
+        )
+    else:
+        embed_candids = []
+
+    related_questions = get_texts(embed_candids)
+
+
+
     #related questions
-    related_questions = get_texts(embed_candids_ques)
+    # related_questions = get_texts(embed_candids_ques)
     all_questions = []
     for j in potential_candidates:
         all_questions.append(j)
