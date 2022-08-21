@@ -21,8 +21,7 @@ def master_of_masters(Question, Answer=""):
     return ans1, ans2
 
 def master_of_masters_file(question_file):
-    
-    print(question_file.name)
+
     df = pd.read_csv(question_file.name,delimiter=',')
     
     df.fillna("",inplace=True)
@@ -30,16 +29,12 @@ def master_of_masters_file(question_file):
     questions = df['question'].tolist()
     answers = df['answer'].tolist()
 
-    print(answers)
-
     json_out = {}
 
     for i in range(len(questions)):
         
         list1, list2 = run_model(questions[i], answers[i])
         json_out[questions[i]] = {"duplicate" : list1, "related" : list2}
-
-    print(json_out)
 
     with open("output.json", "w") as outfile:
         json.dump(json_out, outfile)
@@ -56,8 +51,6 @@ desc = ("An application to prevent academicians from creating duplicate question
 
         "Definition of Duplicacy : "
         )
-
-
 
 with gr.Blocks() as demo:
 
