@@ -142,7 +142,7 @@ def embed_search_v2(
     if embed_only_new:
         return_candidates = []
         for id in closest_candidates:
-            if id not in already_listed:
+            if str(id) not in already_listed:
                 return_candidates.append(id)
             if len(return_candidates) >= top_k:
                 break

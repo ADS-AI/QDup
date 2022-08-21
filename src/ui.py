@@ -86,6 +86,6 @@ with gr.Blocks() as demo:
         text_button.click(master_of_masters, inputs=[question_text, answer_text], outputs=[output1, output2])
         csv_button.click(master_of_masters_file, inputs=[question_file], outputs=[output_file])
 
-demo.launch()
+demo.launch(share=True)
 
 # print(list_to_string(["what is the meaning of life?", "ccghcghc42"]))
