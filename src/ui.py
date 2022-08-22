@@ -87,5 +87,3 @@ with gr.Blocks() as demo:
         csv_button.click(master_of_masters_file, inputs=[question_file], outputs=[output_file])
 
 demo.launch(share=True)
-
-# print(list_to_string(["what is the meaning of life?", "ccghcghc42"]))
