@@ -43,6 +43,7 @@ def get_question_tag(ques, verbose):
 
 
 def get_same_tag_candids(ques_text, curr_tag):
+    print("CURR_TAG:", curr_tag)
     df = load_data()
     return_ls = []
     for index, row in df.iterrows():

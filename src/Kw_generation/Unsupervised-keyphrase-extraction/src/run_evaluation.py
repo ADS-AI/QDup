@@ -239,7 +239,7 @@ if __name__ == "__main__":
     # 'EmbedRank','CoTagRankWindow','CoTagRanks2v','CoTagRankPositional','CoTagRankUSE'
     # 'SingleRank', 'TopicalPageRank','TextRank',EmbedRankSentenceUSE,
     #  'CoTagRankUSE', 'EmbedRankSentenceBERT','EmbedRank'
-    ListOfAlgorithms = ["EmbedRankSentenceBERT", "CoTagRankPositional"]
+    ListOfAlgorithms = ["EmbedRankSentenceBERT"]
     # ,'MultiPartiteRank','CoTagRankWindow','CoTagRanks2v','CoTagRankUSE','CoTagRankPositional'
     # 'SingleRank', 'TopicalPageRank','TextRank','EmbedRankSentenceUSE',
     #  'CoTagRankUSE', 'EmbedRankSentenceBERT','MultiPartiteRank','CoTagRankWindow','CoTagRanks2v'

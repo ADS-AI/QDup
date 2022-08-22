@@ -51,10 +51,13 @@ def run_model(query_question, query_question_ans):
     #   Model
     #
     query_question = pre.preprocess(query_question)
+    t = time.time()
     extract_kw_ques(
         query_question
     )  # this step is being called here to run simultaneously with next commands
+    print("Kw extraction time: ", time.time() - t)
 
+    t = time.time()
     #
     # Get tags and potential candidates list
     #
@@ -120,11 +123,12 @@ def run_model(query_question, query_question_ans):
 
     duplicate_questions_ques = get_texts(duplicate_questions_ques_ids)
 
-    
+    print("Between time: ", time.time() - t)
     #
     # Search based on embeddings
     #
     already_listed = potential_candidates+duplicate_questions_ques_ids
+    t= time.time()
     if(len(duplicate_questions_ques_ids) > 0):
         embed_candids = embed_search_v2(
             duplicate_questions_ques_ids[0],
@@ -136,7 +140,7 @@ def run_model(query_question, query_question_ans):
         )
     else:
         embed_candids = []
-
+    print("Embedding time: ", time.time() - t)
     related_questions = get_texts(embed_candids)
 
 
