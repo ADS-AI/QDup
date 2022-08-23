@@ -41,7 +41,7 @@ def run_model(query_question, query_question_ans):
     #
     GLOB_VERBOSE = 1
     KW_THRESHOLD = 0.7
-    JACC_THRESHOLD = 0.5
+    JACC_THRESHOLD = 0.4
     TOP_K_EMBEDS = 3
     EMBED_ONLY_NEW = True 
     ANS_KW_THRESHOLD = 0.4
