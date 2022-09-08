@@ -30,7 +30,7 @@ def get_question_tag(ques, verbose):
         'accept': 'application/json',
     }
     json_data = {
-        'content': 'when mercury ii chloride is treated with excess of stannous chloride the products obtained are',
+        'content': ques,
     }
     response = requests.post('http://localhost:8000/gettaxonomy', headers=headers, json=json_data)
     pred_tag = process_tagrec_result(response.text)

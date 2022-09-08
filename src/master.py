@@ -20,7 +20,7 @@ from Preprocessing import main_preprocessing as pre
 from Jaccard_Similarity import jaccard_search as jaccard
 from NERs import Named_entity_recog as ner
 from formatting import output_color
-from Kw_generation.kw_runner import extract_kw_ques, kw_potential_candidates
+from Kw_generation.kw_runner import kw_potential_candidates
 from Sentence_embeddings.compare_embeds import embed_search_v2
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 from return_questions import get_texts
@@ -51,11 +51,6 @@ def run_model(query_question, query_question_ans):
     #   Model
     #
     query_question = pre.preprocess(query_question)
-    t = time.time()
-    extract_kw_ques(
-        query_question
-    )  # this step is being called here to run simultaneously with next commands
-    print("Kw extraction time: ", time.time() - t)
 
     t = time.time()
     #

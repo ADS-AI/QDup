@@ -1,7 +1,7 @@
 from subprocess import call
 import spacy
 from formatting import output_color
-
+import requests
 nlp = spacy.load("en_core_web_sm")
 import json
 import os
@@ -35,9 +35,22 @@ def load_txt_data():
 # except:
 #     print("Error keyword loading data")
 #     return None
+def get_kw(file_addr):
+    headers = {
+        'accept': 'application/json',
+    }
+    files = {'document': open(file_addr,'rb')}
+    response = requests.post('http://localhost:9000/concept/extract', headers=headers, files=files)
+    kws = json.loads(response.text)['keywords']
+    res = [i[0] for i in kws]
+    return (res)
 
 
-def extract_kw_ques(question):
+
+def kw_potential_candidates(curr_candid_ls, question, threshold_sc, verbose=0):
+    VERBOSE = verbose
+    
+    # kw_1 = get_extracted_kw()
     curr_dir = os.path.dirname(__file__)
     target_dir = os.path.join(curr_dir, "Unsupervised-keyphrase-extraction", "src")
     # save the question in a text file
@@ -47,23 +60,18 @@ def extract_kw_ques(question):
     text_file = open(save_txt_file, "w")
     text_file.write(question)
     text_file.close()
-    # run the model
-    call(["python3", "run_evaluation.py"], cwd=target_dir)
 
-
-def kw_potential_candidates(curr_candid_ls, orig_ques, threshold_sc, verbose=0):
-    VERBOSE = verbose
-    kw_1 = get_extracted_kw()
+    kw_1 = " ".join(get_kw(save_txt_file))
     kw_dict = load_kw_data()
     txt_dict = load_txt_data()
     curr_candid_scores = []
 
     for candidate in curr_candid_ls:
         score = keyword_score(
-            kw_1.split(), kw_dict[candidate][0].split(), orig_ques, txt_dict[candidate]
+            kw_1.split(), kw_dict[candidate][0].split(), question, txt_dict[candidate]
         )
         if VERBOSE == 2:
-            print("orig_ques -> ", orig_ques)
+            print("orig_ques -> ", question)
             print("kw_1 : ", kw_1)
             print()
             print("txt_dict[candidate]  -> ", txt_dict[candidate])

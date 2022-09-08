@@ -5,6 +5,7 @@ import os
 from numpy.linalg import norm
 import json
 import numpy as np
+# import scann
 # from ..formatting import output_color
 class output_color:
     PURPLE = "\033[95m"
@@ -17,51 +18,23 @@ class output_color:
     BOLD = "\033[1m"
     UNDERLINE = "\033[4m"
     END = "\033[0m"
-    
-# def load_ids():
-#     # try:
-#         path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-#         path_file_embd = os.path.join(path_file_embd, 'QUESTION_DUPLICATE_DETECTION')
-#         path_file_embd = os.path.join(path_file_embd, 'src')
-#         path_file_embd = os.path.join(path_file_embd, 'Data-cache')
-#         path_file_embd = os.path.join(path_file_embd, 'all_ids.json')
-#         data = json.load(open(path_file_embd, encoding='utf-8'))
-#         return data
-#     # except:
-#     #     print("Error loading embeddings data")
-#     #     return None
 
 
 def load_data():
-    # try:
     path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    # path_file_embd = os.path.join(path_file_embd, "QUESTION_DUPLICATE_DETECTION")
     path_file_embd = os.path.join(path_file_embd, "src")
     path_file_embd = os.path.join(path_file_embd, "Data-cache")
-    path_file_embd = os.path.join(path_file_embd, "questions_embeddings.json")
-    data = json.load(open(path_file_embd, encoding="utf-8"))
+    path_file_embd = os.path.join(path_file_embd, "embedding_df.csv")
+    data = pd.read_csv(path_file_embd, index_col = 0)
     return data
 
-
-# except:
-#     print("Error loading embeddings data")
-#     return None
-
-
 def load_txt_data():
-    # try :
     path_file_txt = os.path.normpath(os.getcwd() + os.sep + os.pardir)
-    # path_file_txt = os.path.join(path_file_txt, "QUESTION_DUPLICATE_DETECTION")
     path_file_txt = os.path.join(path_file_txt, "src")
     path_file_txt = os.path.join(path_file_txt, "Data-cache")
     path_file_txt = os.path.join(path_file_txt, "questiontext.json")
     data = json.load(open(path_file_txt, encoding="utf-8"))
     return data
-
-
-# except:
-#     print("(Embedding) Error loading txt data")
-#     return None
 
 
 def generate_embeddings(data_ls):
@@ -83,55 +56,19 @@ def sort_list(list1, list2):
     return z
 
 
-def embed_search(
-    query_question, candidates, already_listed, top_k, embed_only_new=True, verbose=1
-):
-    print(query_question)
-    data = load_data()
-    embeds = generate_embeddings([query_question])
-    passed_candidates = []
-    ls_cos_sim = []
-    for ques_id in candidates:
-        try:
-            score = cos_sim(embeds[0], data[str(ques_id)])
-            ls_cos_sim.append(score)
-        except:
-            print("key missing: ", ques_id)
-            ls_cos_sim.append(0)
-
-    closest_candidates = sort_list(candidates, ls_cos_sim)
-
-    if embed_only_new:
-        return_candidates = []
-        for id in closest_candidates:
-            if id not in already_listed:
-                return_candidates.append(id)
-            if len(return_candidates) >= top_k:
-                break
-    else:
-        return_candidates = closest_candidates[:top_k]
-
-    question_texts = load_txt_data()
-    if verbose == 1:
-        # print(output_color.DARKCYAN + "(EMBED)Related questions: ")
-        for id in return_candidates:
-            print(id, " : ", str(question_texts[str(id)]))
-        # print(output_color.END)
-
-    return return_candidates
-
-
-
 def embed_search_v2(
     predicted_duplicate_id, candidates, already_listed, top_k, embed_only_new=True, verbose=1
 ):
     data = load_data()
-    embeds = data[str(predicted_duplicate_id)]
+    # k = int(np.sqrt(data.shape[0]))
+    # searcher = scann.scann_ops_pybind.builder(data, 10, "dot_product").tree(num_leaves=k, num_leaves_to_search=int(k/20), training_sample_size=2500).score_brute_force(2).reorder(7).build()
+    embeds = data.loc[int(predicted_duplicate_id)]
+    # return searcher.search(embeds[0], final_num_neighbors=3)[0]
     passed_candidates = []
     ls_cos_sim = []
     for ques_id in candidates:
         try:
-            score = cos_sim(embeds, data[str(ques_id)])
+            score = cos_sim(embeds, data.loc[int(ques_id)])
             ls_cos_sim.append(score)
         except:
             print("key missing: ", ques_id)
@@ -157,11 +94,3 @@ def embed_search_v2(
         print(output_color.END)
 
     return return_candidates
-
-
-# embed_search(
-#     "first three nearest neighbour distances for primitive cubic lattice are respectively edge length of unit cell a",
-#     [957734, 957725, 957723], [2323], 4, embed_only_new=True, verbose=1
-# )
-
-# embeds = generate_embeddings(["first three nearest neighbour distances for primitive cubic lattice are respectively edge length of unit cell a"])

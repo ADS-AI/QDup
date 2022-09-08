@@ -14,33 +14,34 @@ import matplotlib.pyplot as plt
 from main.evaluation.embedrank import EmbedRank as ER
 import os
 
+
 dir_path = os.path.dirname(os.path.realpath(__file__))
-
-
-def extract_concepts(text_1):
-    nlp = spacy.load("en_core_web_sm")
-    # corenlp = StanfordNLPLanguage(stanfordnlp.Pipeline(lang="en"))
-    with open(dir_path + "/evaluation/en_kp_list", "r", encoding="utf-8") as f:
-        lists = f.read().split("\n")
-        print("load kp_list done.")
-    pathData = os.path.join(dir_path, "../data")
-    dataset_name = "Inspec"
-    normalization = None
-    numOfKeyphrases = 10
-
-    expand = False
-    corenlp_grammar = PhraseExtractor(
+pathData = os.path.join(dir_path, "../data")
+dataset_name = "EmJacc"
+normalization = None
+corenlp_grammar = PhraseExtractor(
         grammar="GRAMMAR1",
         np_method="GRAMMAR",
         np_tags="NLTK",
         stopwords="NLTK",
         nlp=init_nlp({"name": "spacy", "model_name": "en_core_web_sm"}),
     )
-    CoTagRankUSE_object = CoTagRankUSE(
-        numOfKeyphrases, pathData, dataset_name, normalization
+EmbedRankSentenceBERT_object = EmbedRankSentenceBERT(
+        10, pathData, dataset_name, normalization
     )
+def extract_concepts(text_1):
+    nlp = spacy.load("en_core_web_sm")
+    # corenlp = StanfordNLPLanguage(stanfordnlp.Pipeline(lang="en"))
+    with open(dir_path + "/evaluation/en_kp_list", "r", encoding="utf-8") as f:
+        lists = f.read().split("\n")
+        print("load kp_list done.")
 
-    keywords, _ = CoTagRankUSE_object.ExtractKeyphrases(
+    # numOfKeyphrases = 10
+
+    expand = False
+
+
+    keywords = EmbedRankSentenceBERT_object.ExtractKeyphrases(
         text_1, highlight=True, expand=expand
     )
 
@@ -76,10 +77,10 @@ def expand_concepts(text_1):
     dataset_name = "Inspec"
     normalization = None
     expand = True
-    CoTagRankUSE_object = CoTagRankUSE(
+    EmbedRankSentenceBERT_object = EmbedRankSentenceBERT(
         numOfKeyphrases, pathData, dataset_name, normalization
     )
-    keywords, _, color_map = CoTagRankUSE_object.ExtractKeyphrases(
+    keywords, _, color_map = EmbedRankSentenceBERT_object.ExtractKeyphrases(
         text_1, highlight=True, expand=expand
     )
 
