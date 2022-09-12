@@ -1,4 +1,5 @@
 import time
+t = time.time()
 from formatting import EM_LOGO
 import gradio as gr
 
@@ -33,6 +34,8 @@ print("Modules installed successfully!")
 print()
 
 print("Enter the question : ", end="")
+
+print("importing time: ", time.time() - t)
 
 def run_model(query_question, query_question_ans): 
 

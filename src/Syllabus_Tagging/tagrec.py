@@ -24,8 +24,6 @@ def process_tagrec_result(response_tag):
 
 
 def get_question_tag(ques, verbose):
-    
-
     headers = {
         'accept': 'application/json',
     }
