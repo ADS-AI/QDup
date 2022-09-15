@@ -20,4 +20,13 @@ def get_texts(id_ls):
         res.append(data[id])
     return res
 
+def get_texts_v2(id_ls):
+    # id_ls = id_ls[0]
+    print("id_ls", id_ls)
+    data = load_txt_data()
+    res = []
+    for id in id_ls: 
+        res.append(data[str(id)])
+    return res
+
 # get_texts(['23','23','23'])

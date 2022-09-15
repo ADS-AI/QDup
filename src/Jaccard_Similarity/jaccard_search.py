@@ -57,10 +57,11 @@ def jaccard_score(query_tokens, question_tokens):
     return common / union
 
 
+data_global = load_data()
+
 def main_jaccard_search(
     candidates, query_question, threshold, duplicate_threshold=0.99, verbose=1
 ):
-    data = load_data()
     lemmatizer = WordNetLemmatizer()
     query_tokens = generate_tokens(query_question, lemmatizer)
     passed_candidates = []
@@ -68,7 +69,7 @@ def main_jaccard_search(
 
     for ques_id in candidates:
         try:
-            score = jaccard_score(query_tokens, data[ques_id])
+            score = jaccard_score(query_tokens, data_global[ques_id])
             if score >= duplicate_threshold:
                 duplicate_candidates.append(ques_id)
             elif score >= threshold:

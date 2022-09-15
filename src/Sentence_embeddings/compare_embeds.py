@@ -5,7 +5,7 @@ import os
 from numpy.linalg import norm
 import json
 import numpy as np
-# import scann
+import scann
 # from ..formatting import output_color
 class output_color:
     PURPLE = "\033[95m"
@@ -19,7 +19,6 @@ class output_color:
     UNDERLINE = "\033[4m"
     END = "\033[0m"
 
-
 def load_data():
     path_file_embd = os.path.normpath(os.getcwd() + os.sep + os.pardir)
     path_file_embd = os.path.join(path_file_embd, "src")
@@ -27,6 +26,12 @@ def load_data():
     path_file_embd = os.path.join(path_file_embd, "embedding_df.csv")
     data = pd.read_csv(path_file_embd, index_col = 0)
     return data
+
+
+data = load_data()
+k = int(np.sqrt(data.shape[0]))
+searcher = scann.scann_ops_pybind.builder(data, 10, "dot_product").tree(num_leaves=k, num_leaves_to_search=int(k/20), training_sample_size=2500).score_brute_force(2).reorder(7).build()
+
 
 def load_txt_data():
     path_file_txt = os.path.normpath(os.getcwd() + os.sep + os.pardir)
@@ -59,38 +64,55 @@ def sort_list(list1, list2):
 def embed_search_v2(
     predicted_duplicate_id, candidates, already_listed, top_k, embed_only_new=True, verbose=1
 ):
-    data = load_data()
-    # k = int(np.sqrt(data.shape[0]))
-    # searcher = scann.scann_ops_pybind.builder(data, 10, "dot_product").tree(num_leaves=k, num_leaves_to_search=int(k/20), training_sample_size=2500).score_brute_force(2).reorder(7).build()
+    # data = load_data()
     embeds = data.loc[int(predicted_duplicate_id)]
-    # return searcher.search(embeds[0], final_num_neighbors=3)[0]
-    passed_candidates = []
-    ls_cos_sim = []
-    for ques_id in candidates:
-        try:
-            score = cos_sim(embeds, data.loc[int(ques_id)])
-            ls_cos_sim.append(score)
-        except:
-            print("key missing: ", ques_id)
-            ls_cos_sim.append(0)
+    x = searcher.search(embeds, final_num_neighbors=6)
+    if(len(x)> 0):
+        x = x[0]
+        print("X: ", x)
+        index_to_ques_id_ls = []
+        for index in x:
+            index_to_ques_id_ls.append(data.iloc[index].name)
+        print("index_to_ques_id_ls: ", index_to_ques_id_ls)
 
-    closest_candidates = sort_list(candidates, ls_cos_sim)
-
-    if embed_only_new:
         return_candidates = []
-        for id in closest_candidates:
+        for id in index_to_ques_id_ls:
             if str(id) not in already_listed:
                 return_candidates.append(id)
             if len(return_candidates) >= top_k:
                 break
+
+        return return_candidates
     else:
-        return_candidates = closest_candidates[:top_k]
+        print("Didnt make it")
+        return []
+    # passed_candidates = []
+    # ls_cos_sim = []
+    # for ques_id in candidates:
+    #     try:
+    #         score = cos_sim(embeds, data.loc[int(ques_id)])
+    #         ls_cos_sim.append(score)
+    #     except:
+    #         print("key missing: ", ques_id)
+    #         ls_cos_sim.append(0)
 
-    question_texts = load_txt_data()
-    if verbose == 1:
-        print(output_color.DARKCYAN + "(EMBED)Related questions: ")
-        for id in return_candidates:
-            print(id, " : ", str(question_texts[str(id)]))
-        print(output_color.END)
+    # closest_candidates = sort_list(candidates, ls_cos_sim)
 
-    return return_candidates
+    # if embed_only_new:
+    #     return_candidates = []
+    #     for id in closest_candidates:
+    #         if str(id) not in already_listed:
+    #             return_candidates.append(id)
+    #         if len(return_candidates) >= top_k:
+    #             break
+    # else:
+    #     return_candidates = closest_candidates[:top_k]
+
+    # question_texts = load_txt_data()
+    # if verbose == 1:
+    #     print(output_color.DARKCYAN + "(EMBED)Related questions: ")
+    #     for id in return_candidates:
+    #         print(id, " : ", str(question_texts[str(id)]))
+    #     print(output_color.END)
+
+    # return return_candidates
