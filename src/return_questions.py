@@ -22,7 +22,6 @@ def get_texts(id_ls):
 
 def get_texts_v2(id_ls):
     # id_ls = id_ls[0]
-    print("id_ls", id_ls)
     data = load_txt_data()
     res = []
     for id in id_ls: 

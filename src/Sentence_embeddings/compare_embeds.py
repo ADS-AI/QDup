@@ -69,11 +69,9 @@ def embed_search_v2(
     x = searcher.search(embeds, final_num_neighbors=6)
     if(len(x)> 0):
         x = x[0]
-        print("X: ", x)
         index_to_ques_id_ls = []
         for index in x:
             index_to_ques_id_ls.append(data.iloc[index].name)
-        print("index_to_ques_id_ls: ", index_to_ques_id_ls)
 
         return_candidates = []
         for id in index_to_ques_id_ls:

@@ -13,7 +13,6 @@ print(
     "-------------------------------------------------------------------------------------------------------------"
 )
 print(EM_LOGO)
-time.sleep(5)  # why is this here ?
 
 import json
 import os
@@ -99,6 +98,7 @@ def run_model(query_question, query_question_ans):
     potential_candidates = list(kw_potential_candidates(
         potential_candidates, query_question, KW_THRESHOLD, verbose=GLOB_VERBOSE
     ))
+    
     if len(query_question_ans) > 0:
         print(query_question_ans)
         ans_also_same = get_ans_potential_candidates(
