@@ -35,7 +35,7 @@ In order to setup the model please follwo the following steps:
 | -----------                | -----------                                                                      |
 | Period of development      | 15 May 2022 - 22 August 2022                                                     |
 | Developed by               | [Maksimjeet Chowdhary](mailto:chowdharymaksimjeet@gmail.com), [Sanyam Goyal](mailto:sgoyal2508@gmail.com), [Venktesh V](mailto:venkteshv@iiitd.ac.in)|
-| Guidance of                | [Dr. Mukesh Muhania](mailto:mukesh@iiitd.ac.in), [Dr. Vikram Goyal](mailto:vikram@iiitd.ac.in), [Mr. Deep Dwivedi](mailto:deepd@iiitd.ac.in), [Mr. Gaurav Sharma](mailto:gaurav.sharma@extramarks.com)|
+| Guidance of                | [Dr. Mukesh Mohania](mailto:mukesh@iiitd.ac.in), [Dr. Vikram Goyal](mailto:vikram@iiitd.ac.in), [Mr. Deep Dwivedi](mailto:deepd@iiitd.ac.in), [Mr. Gaurav Sharma](mailto:gaurav.sharma@extramarks.com)|
 
 
  
