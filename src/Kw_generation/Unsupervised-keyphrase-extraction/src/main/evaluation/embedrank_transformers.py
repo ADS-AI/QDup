@@ -59,6 +59,7 @@ class EmbedRankSentenceBERT(object):
     def runSingleDoc(self, doc, lists, text=None, highlight=None, expand=False):
         try:
             # read raw document
+            print("text:", text,self.__dataset_name)
             if text:
                 doc_text = text
                 doc = text
@@ -89,7 +90,9 @@ class EmbedRankSentenceBERT(object):
                     method="EmbedRankSentenceBERT",
                 )
             else:
+                print("here keyword extraction")
                 keywords, relevance = self.model.run(doc_text, lists=lists)
+                print("keywords",keywords)
             keywords = [
                 (keyword, score)
                 for (keyword, _, _), score in zip(keywords, relevance)

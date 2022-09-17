@@ -37,6 +37,7 @@ print("Enter the question : ", end="")
 print("importing time: ", time.time() - t)
 
 def run_model(query_question, query_question_ans): 
+    t1 = time.time()
     t = time.time()
 
     #
@@ -71,7 +72,8 @@ def run_model(query_question, query_question_ans):
     high_jaccard, potential_candidates = jaccard.main_jaccard_search(
         potential_candidates, query_question, JACC_THRESHOLD, verbose=1
     )
-
+    print("Between time 1: ", time.time() - t)
+    t = time.time()
     #
     # Exact duplicates
     #
@@ -94,11 +96,14 @@ def run_model(query_question, query_question_ans):
     #
     # Getting extracted keywords
     #
-
+    print("Between time 1.1: ", time.time() - t)
+    t = time.time()
     potential_candidates = list(kw_potential_candidates(
         potential_candidates, query_question, KW_THRESHOLD, verbose=GLOB_VERBOSE
     ))
-    
+    print("Between time 1.2: ", time.time() - t)
+    t = time.time()
+
     if len(query_question_ans) > 0:
         print(query_question_ans)
         ans_also_same = get_ans_potential_candidates(
@@ -116,7 +121,6 @@ def run_model(query_question, query_question_ans):
         duplicate_questions_ques_ids.append(i)
 
     duplicate_questions_ques = get_texts(duplicate_questions_ques_ids)
-
     #
     # Search based on embeddings
     #
@@ -149,6 +153,7 @@ def run_model(query_question, query_question_ans):
     # (potential_candidates with after_ner_potential_candidates)
     # and
     # (potential_candidates and duplicates)
-    print("Between time 1: ", time.time() - t)
+    print("Between time 2: ", time.time() - t)
+    print("Total time ", time.time() - t1)
 
     return (duplicate_questions_ques, related_questions)

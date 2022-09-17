@@ -7,6 +7,15 @@ import json
 import os
 
 VERBOSE = 0
+def load_txt_data():
+    # try :
+    path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
+    path_file_ner = os.path.join(path_file_ner, "Data-cache")
+    path_file_ner = os.path.join(path_file_ner, "questiontext.json")
+    data = json.load(open(path_file_ner, encoding="utf-8"))
+    return data
+
+txt_dict = load_txt_data()
 
 
 def load_kw_data():
@@ -23,13 +32,6 @@ def load_kw_data():
 #     return None
 
 
-def load_txt_data():
-    # try :
-    path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
-    path_file_ner = os.path.join(path_file_ner, "Data-cache")
-    path_file_ner = os.path.join(path_file_ner, "questiontext.json")
-    data = json.load(open(path_file_ner, encoding="utf-8"))
-    return data
 
 
 # except:
@@ -63,7 +65,6 @@ def kw_potential_candidates(curr_candid_ls, question, threshold_sc, verbose=0):
 
     kw_1 = " ".join(get_kw(save_txt_file))
     kw_dict = load_kw_data()
-    txt_dict = load_txt_data()
     curr_candid_scores = []
 
     for candidate in curr_candid_ls:

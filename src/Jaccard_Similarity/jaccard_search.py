@@ -58,11 +58,11 @@ def jaccard_score(query_tokens, question_tokens):
 
 
 data_global = load_data()
+lemmatizer = WordNetLemmatizer()
 
 def main_jaccard_search(
     candidates, query_question, threshold, duplicate_threshold=0.99, verbose=1
 ):
-    lemmatizer = WordNetLemmatizer()
     query_tokens = generate_tokens(query_question, lemmatizer)
     passed_candidates = []
     duplicate_candidates = []
