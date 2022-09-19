@@ -48,6 +48,7 @@ def get_kw(file_addr):
     return (res)
 
 
+kw_dict = load_kw_data()
 
 def kw_potential_candidates(curr_candid_ls, question, threshold_sc, verbose=0):
     VERBOSE = verbose
@@ -64,23 +65,12 @@ def kw_potential_candidates(curr_candid_ls, question, threshold_sc, verbose=0):
     text_file.close()
 
     kw_1 = " ".join(get_kw(save_txt_file))
-    kw_dict = load_kw_data()
     curr_candid_scores = []
 
     for candidate in curr_candid_ls:
         score = keyword_score(
             kw_1.split(), kw_dict[candidate][0].split(), question, txt_dict[candidate]
         )
-        if VERBOSE == 2:
-            print("orig_ques -> ", question)
-            print("kw_1 : ", kw_1)
-            print()
-            print("txt_dict[candidate]  -> ", txt_dict[candidate])
-            print("kw_dict[candidate] : ", kw_dict[candidate][0])
-            print()
-            print("score : " + str(score))
-            print()
-            print("---------------------------------------")
         curr_candid_scores.append(score)
 
     final_candidates = []

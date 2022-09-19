@@ -1,5 +1,6 @@
 from subprocess import call
 import spacy
+import requests
 
 nlp = spacy.load("en_core_web_sm")
 import json
@@ -17,23 +18,39 @@ class output_color:
     UNDERLINE = "\033[4m"
     END = "\033[0m"
 
-def get_ans_potential_candidates(potential_candidates, query_ans, ans_kw_threshold, verbose):
-    print(potential_candidates, query_ans, ans_kw_threshold, verbose)
+def load_ans_data():
+# try :
+    path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
+    path_file_ner = os.path.join(path_file_ner, "Data-cache")
+    path_file_ner = os.path.join(path_file_ner, "id_answer.json")
+    data = json.load(open(path_file_ner, encoding="utf-8"))
+    return data
+
+
+def get_kw(file_addr):
+    headers = {
+        'accept': 'application/json',
+    }
+    files = {'document': open(file_addr,'rb')}
+    response = requests.post('http://localhost:9000/concept/extract', headers=headers, files=files)
+    kws = json.loads(response.text)['keywords']
+    res = [i[0] for i in kws]
+    return (res)
+
+
+txt_dict = load_ans_data() 
+
+def get_ans_potential_candidates_v2(potential_candidates, query_ans, ans_kw_threshold, verbose):
     if len(potential_candidates) == 0:
         return potential_candidates
-    txt_dict = load_ans_data() 
     potential_candid_answers = []
     for id in potential_candidates:
         potential_candid_answers.append(txt_dict[str(id)])
-    extract_kw_ans(potential_candidates, potential_candid_answers, query_ans)
-
-    curr_candid_ls = []
+    curr_candid_ls,kw_1=extract_kw_ans_v2(potential_candidates, potential_candid_answers, query_ans)
     curr_candid_scores = []
+    print("SIDHU kw_1:", kw_1)
+    print("SIDHU curr_candid_ls:", curr_candid_ls)
 
-    for id in potential_candidates:
-        curr_candid_ls.append(get_extracted_kw(str(id) + "-ans").split())
-    kw_1 = get_extracted_kw("1-query-ans").split()
-    
     for ind, candidate in enumerate(curr_candid_ls):
         score = keyword_score(
             kw_1, candidate, query_ans, potential_candid_answers[ind]
@@ -54,73 +71,42 @@ def get_ans_potential_candidates(potential_candidates, query_ans, ans_kw_thresho
     return final_candidates
 
 
-
 def load_kw_data():
-# try :
     path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
     path_file_ner = os.path.join(path_file_ner, "Data-cache")
     path_file_ner = os.path.join(path_file_ner, "question_keywords.json")
     data = json.load(open(path_file_ner, encoding="utf-8"))
     return data
-# except:
-#     print("Error loading data")
-#     return None
 
 
-def load_ans_data():
-# try :
-    path_file_ner = os.path.normpath(os.path.dirname(__file__) + os.sep + os.pardir)
-    path_file_ner = os.path.join(path_file_ner, "Data-cache")
-    path_file_ner = os.path.join(path_file_ner, "id_answer.json")
-    data = json.load(open(path_file_ner, encoding="utf-8"))
-    return data
-# except:
-#     print("Error keyword loading data")
-#     return None
+def extract_kw_ans_v2(potential_candidates, potential_candidate_Ans, query_ans):
+    curr_candid_ls = []
 
+    print("SIDHU potential_candidates: ", potential_candidates)
 
-def extract_kw_ans(potential_candidates, potential_candidate_Ans, query_ans):
     curr_dir = os.path.dirname(__file__)
     target_dir = os.path.join(curr_dir, "Unsupervised-keyphrase-extraction", "src")
     for ind, question in enumerate(potential_candidate_Ans): 
-    # save the answers of potential candidates in a text file
         save_txt_file = os.path.join(target_dir, "data", "Datasets", "EmJacc", "docsutf8", str(potential_candidates[ind]) + "-ans.txt")
         text_file = open(save_txt_file, "w")
         text_file.write(question)
         text_file.close()
+        curr_candid_ls.append(" ".join(get_kw(save_txt_file)).split())
+        print("SIDHU saving: ", question, save_txt_file)
     # save the answers of query
     save_txt_file = os.path.join(target_dir, "data", "Datasets", "EmJacc", "docsutf8", "1" + "-query-ans.txt")
     text_file = open(save_txt_file, "w")
     text_file.write(query_ans)
     text_file.close()
-    # run the model
-    call(["python3", "run_evaluation.py"], cwd=target_dir)
+    kw_1 = " ".join(get_kw(save_txt_file)).split()
+
+    return (curr_candid_ls, kw_1)
+
+
 
 #
 # Utils
 #
-
-
-def get_extracted_kw(file_name):
-    curr_dir = os.path.dirname(__file__)
-    xtr_txt_file = os.path.join(
-        curr_dir,
-        "Unsupervised-keyphrase-extraction",
-        "src",
-        "data",
-        "Keywords",
-        "EmbedRankSentenceBERT",
-        "EmJacc",
-        str(file_name),
-    )
-    res = ""
-    with open(xtr_txt_file) as f:
-        Lines = f.readlines()
-        for i in Lines:
-            res += (" ".join(i.split()[:-1])) + " "
-    os.remove(xtr_txt_file)
-    return res
-
 
 def intersection_list(list1, list2):
     set1 = set(list1)

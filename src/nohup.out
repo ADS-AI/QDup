@@ -1,0 +1,1003 @@
+
+********************************* Online Question Duplication Demo ******************************************
+
+Installing modules...
+-------------------------------------------------------------------------------------------------------------
+
+-====================          _ _                  _ _
+||                  ||        |   \                /   |
+||   ================         |    \              / /| |
+||  ||                        | |\  \            / / | |
+||  ||                        | | \  \          / /  | |
+||  ||                        | |  \  \        / /   | |
+||  ||                        | |   \  \      /	/    | |
+||  =================         | |    \  \    / /     | |
+||                  ||        | |     \  \  / /      | |
+||   ================         | |      \  \/ /       | |
+||  ||                        | |       \   /        | |
+||  ||                        | |        ---         | |
+||  ||                        | |                    | |
+||  ||                        | |                    | |
+||   ================         | |                    | |
+||                   ||       | |                    | |
+ -===================         |_|                    |_|
+
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/venkteshv/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/venkteshv/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-19 21:17:25.453701: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 21:17:25.650664: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 21:17:26.713588: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:17:26.713702: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:17:26.713714: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 21:17:27.723522: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 21:17:27.723583: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+[nltk_data] Downloading package omw-1.4 to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[libprotobuf ERROR external/com_google_protobuf/src/google/protobuf/text_format.cc:324] Error parsing text-format research_scann.ScannConfig: 25:20: Integer out of range (2)
+2022-09-19 21:17:35.217925: I scann/partitioning/partitioner_factory_base.cc:59] Size of sampled dataset for training partition: 2530
+2022-09-19 21:17:35.271663: I ./scann/partitioning/kmeans_tree_partitioner_utils.h:88] PartitionerFactory ran in 53.60996ms.
+-------------------------------------------------------------------------------------------------------------
+Modules installed successfully!
+
+Enter the question : importing time:  14.200865983963013
+Running on local URL:  http://127.0.0.1:7860/
+Running on public URL: https://27029.gradio.app
+
+This share link expires in 72 hours. For free permanent hosting, check out Spaces: https://huggingface.co/spaces
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  1.778224229812622
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.4671626091003418
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.846930980682373
+(ANS) No answer provided
+Between time 2:  0.22472643852233887
+Total time  3.3171775341033936
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  0.295818567276001
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.4407317638397217
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.5756795406341553
+(ANS) No answer provided
+Between time 2:  0.22222232818603516
+Total time  1.5346217155456543
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  0.2956118583679199
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.43399739265441895
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.5766880512237549
+(ANS) No answer provided
+Between time 2:  0.22114181518554688
+Total time  1.5276086330413818
+[92m(JACC)Duplicate questions : 
+482378 : inflorescence is
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.29338932037353516
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.13222360610961914
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.8786129951477051
+(ANS) No answer provided
+Between time 2:  0.22475481033325195
+Total time  1.5291390419006348
+[92m(JACC)Duplicate questions : 
+452820 : the group which contains all polysaccharide is
+[0m
+[36m(JACC)Potential Candidates: 
+463452 : the group which contains all polysaccharide
+[0m
+Between time 1:  0.33202219009399414
+[95m(NER) Potential_candidates : 
+463452 : the group which contains all polysaccharide
+[0m
+Between time 1.1:  0.1351315975189209
+[94m(KW) Potential_candidates : 
+463452 : the group which contains all polysaccharide
+[0m
+Between time 1.2:  0.9183969497680664
+(ANS) No answer provided
+Between time 2:  0.2608962059020996
+Total time  1.646599531173706
+[92m(JACC)Duplicate questions : 
+1193952 : identify the figure of speech used in the following sentence from the choice given below helium is a special child
+[0m
+[36m(JACC)Potential Candidates: 
+1193995 : identify the figure of speech used in the following expression from the choice given below atheism is a non prophet institution
+1193976 : identify the figure of speech used in the following sentence from the choice given below the pen is mightier than the sword
+1193974 : identify the figure of speech used in the following sentence from the choice given below necessity is the mother of invention
+1193972 : identify the figure of speech used in the following sentence from the choice given below time is money
+1193958 : identify the figure of speech used in the following expression from the choice given below ay ay a scratch a scratch
+[0m
+Between time 1:  0.3888390064239502
+[95m(NER) Potential_candidates : 
+1193995 : identify the figure of speech used in the following expression from the choice given below atheism is a non prophet institution
+1193976 : identify the figure of speech used in the following sentence from the choice given below the pen is mightier than the sword
+1193974 : identify the figure of speech used in the following sentence from the choice given below necessity is the mother of invention
+1193972 : identify the figure of speech used in the following sentence from the choice given below time is money
+1193958 : identify the figure of speech used in the following expression from the choice given below ay ay a scratch a scratch
+[0m
+Between time 1.1:  0.15703558921813965
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.9645555019378662
+(ANS) No answer provided
+Between time 2:  0.24301671981811523
+Total time  1.7535789012908936
+[92m(JACC)Duplicate questions : 
+1196350 : sclerenchyma mainly provides
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.2983741760253906
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.1519172191619873
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.9186315536499023
+(ANS) No answer provided
+Between time 2:  0.2516193389892578
+Total time  1.6206855773925781
+[92m(JACC)Duplicate questions : 
+1579173 : how are cirque formed
+1148600 : how are cirque formed
+1133774 : how are cirque formed
+714766 : how are cirque formed
+[0m
+[36m(JACC)Potential Candidates: 
+1747273 : how are speleothems formed
+1139708 : how are uvula formed
+1138645 : how are beach formed
+729013 : how are uvula formed
+727713 : how are beach formed
+[0m
+Between time 1:  0.3009781837463379
+[95m(NER) Potential_candidates : 
+1747273 : how are speleothems formed
+1139708 : how are uvula formed
+1138645 : how are beach formed
+729013 : how are uvula formed
+727713 : how are beach formed
+[0m
+Between time 1.1:  0.14681792259216309
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.9453980922698975
+(ANS) No answer provided
+Between time 2:  0.22939801216125488
+Total time  1.6227233409881592
+[92m(JACC)Duplicate questions : 
+1873931 : ice formed over lake ha
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.31473517417907715
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.13748788833618164
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.8626842498779297
+(ANS) No answer provided
+Between time 2:  0.22843384742736816
+Total time  1.543482780456543
+[92m(JACC)Duplicate questions : 
+1753467 : what is the physical significance of density
+[0m
+[36m(JACC)Potential Candidates: 
+1366823 : what is the significance of metamorphosis
+1366748 : what is the significance of metamorphosis
+1318194 : what is the significance of metamorphosis
+1318096 : what is the significance of metamorphosis
+1755880 : what is the physical significance of acceleration of an object
+1755809 : what is the physical significance of stability of an object
+1754753 : what is the physical significance of the area of an object
+1672712 : what is the significance of meiosis
+1137354 : what is the significance of snowline
+831497 : what is the significance of stamp
+831495 : what is the significance of pincode
+830409 : what is the significance of stamp
+829106 : what is the significance of pincode
+712869 : what is the significance of snowline
+571835 : what is the significance of transpiration
+566898 : what is the significance of mitosis
+462577 : what is the significance of mitosis
+456966 : what is the significance of precision
+[0m
+Between time 1:  0.33644890785217285
+[95m(NER) Potential_candidates : 
+1366823 : what is the significance of metamorphosis
+1366748 : what is the significance of metamorphosis
+1318194 : what is the significance of metamorphosis
+1318096 : what is the significance of metamorphosis
+1755880 : what is the physical significance of acceleration of an object
+1755809 : what is the physical significance of stability of an object
+1754753 : what is the physical significance of the area of an object
+1672712 : what is the significance of meiosis
+1137354 : what is the significance of snowline
+831497 : what is the significance of stamp
+831495 : what is the significance of pincode
+830409 : what is the significance of stamp
+829106 : what is the significance of pincode
+712869 : what is the significance of snowline
+571835 : what is the significance of transpiration
+566898 : what is the significance of mitosis
+462577 : what is the significance of mitosis
+456966 : what is the significance of precision
+[0m
+Between time 1.1:  0.4229590892791748
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.5809991359710693
+(ANS) No answer provided
+Between time 2:  0.2255849838256836
+Total time  1.5662221908569336
+[92m(JACC)Duplicate questions : 
+574826 : what are node of ranvier
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.31742238998413086
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.4187190532684326
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.5851848125457764
+(ANS) No answer provided
+Between time 2:  0.22595643997192383
+Total time  1.5474324226379395
+[92m(JACC)Duplicate questions : 
+424554 : president of india
+424315 : president of india
+423026 : president of india
+423025 : president of india
+423024 : president of india
+422543 : president of india
+416110 : president of india
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.291856050491333
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.4239957332611084
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.5810227394104004
+(ANS) No answer provided
+Between time 2:  0.22632408142089844
+Total time  1.523329734802246
+[92m(JACC)Duplicate questions : 
+1801432 : transfer function of foreign exchange is transferring of
+1151317 : transfer function of foreign exchange is transferring of
+786530 : transfer function of foreign exchange is transferring of
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.33249998092651367
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.4378671646118164
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.5810625553131104
+(ANS) No answer provided
+Between time 2:  0.22455215454101562
+Total time  1.5761218070983887
+[92m(JACC)Duplicate questions : 
+1901553 : benzoyl chloride is prepared from benzoic acid by
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.32491517066955566
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.4372425079345703
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.5859086513519287
+(ANS) No answer provided
+Between time 2:  0.227097749710083
+Total time  1.5753097534179688
+[92m(JACC)Duplicate questions : 
+566962 : what is the importance of soil with respect to plant
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.34253716468811035
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.12754201889038086
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.8959765434265137
+(ANS) No answer provided
+Between time 2:  0.22113680839538574
+Total time  1.5873336791992188
+[92m(JACC)Duplicate questions : 
+1755613 : calculate the mass ratio of carbon to oxygen in carbon monoxide
+[0m
+[36m(JACC)Potential Candidates: 
+1778764 : calculate the mass ratio of carbon to hydrogen in methane
+1777528 : in a molecule of carbon monoxide the mass ratio of carbon to oxygen is
+[0m
+Between time 1:  0.3400576114654541
+[95m(NER) Potential_candidates : 
+1778764 : calculate the mass ratio of carbon to hydrogen in methane
+1777528 : in a molecule of carbon monoxide the mass ratio of carbon to oxygen is
+[0m
+Between time 1.1:  0.12601852416992188
+[94m(KW) Potential_candidates : 
+1777528 : in a molecule of carbon monoxide the mass ratio of carbon to oxygen is
+[0m
+Between time 1.2:  0.8805065155029297
+(ANS) No answer provided
+Between time 2:  0.2174849510192871
+Total time  1.564225196838379
+[92m(JACC)Duplicate questions : 
+1755613 : calculate the mass ratio of carbon to oxygen in carbon monoxide
+[0m
+[36m(JACC)Potential Candidates: 
+1778764 : calculate the mass ratio of carbon to hydrogen in methane
+1777528 : in a molecule of carbon monoxide the mass ratio of carbon to oxygen is
+[0m
+Between time 1:  0.3499023914337158
+[95m(NER) Potential_candidates : 
+1778764 : calculate the mass ratio of carbon to hydrogen in methane
+1777528 : in a molecule of carbon monoxide the mass ratio of carbon to oxygen is
+[0m
+Between time 1.1:  0.12944936752319336
+[94m(KW) Potential_candidates : 
+1777528 : in a molecule of carbon monoxide the mass ratio of carbon to oxygen is
+[0m
+Between time 1.2:  1.0559659004211426
+(ANS) No answer provided
+Between time 2:  0.22667288780212402
+Total time  1.7621128559112549
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1:  0.3138387203216553
+[95m(NER) Potential_candidates : 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1.1:  0.12998676300048828
+[94m(KW) Potential_candidates : 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1.2:  1.4559686183929443
+(ANS) No answer provided
+Between time 2:  0.229827880859375
+Total time  2.129775285720825
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+Between time 1:  0.3439815044403076
+[95m(NER) Potential_candidates : 
+[0m
+Between time 1.1:  0.13003993034362793
+[94m(KW) Potential_candidates : 
+[0m
+Between time 1.2:  0.9559206962585449
+(ANS) No answer provided
+Between time 2:  0.22347545623779297
+Total time  1.6535685062408447
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1:  0.31388211250305176
+[95m(NER) Potential_candidates : 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1.1:  0.131364107131958
+[94m(KW) Potential_candidates : 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1.2:  0.5976483821868896
+(ANS) No answer provided
+Between time 2:  0.22977972030639648
+Total time  1.2728617191314697
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1:  0.3133230209350586
+[95m(NER) Potential_candidates : 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1.1:  0.4139430522918701
+[94m(KW) Potential_candidates : 
+1333114 : ferric chloride is applied to stop bleeding because
+[0m
+Between time 1.2:  0.5709648132324219
+(ANS) No answer provided
+Between time 2:  0.22854185104370117
+Total time  1.5269427299499512
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+2073346 : how many π bond are present in ferrocene
+2073271 : how many π are present in ferrocene
+[0m
+Between time 1:  0.32751035690307617
+[95m(NER) Potential_candidates : 
+2073346 : how many π bond are present in ferrocene
+2073271 : how many π are present in ferrocene
+[0m
+Between time 1.1:  0.42794013023376465
+[94m(KW) Potential_candidates : 
+2073346 : how many π bond are present in ferrocene
+2073271 : how many π are present in ferrocene
+[0m
+Between time 1.2:  0.5758476257324219
+(ANS) No answer provided
+Between time 2:  0.23121237754821777
+Total time  1.5626544952392578
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  0.30020904541015625
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.42875099182128906
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.616260290145874
+Force is defined as the product of mass and velocity that sets objects in motion
+['469627'] Force is defined as the product of mass and velocity that sets objects in motion 0.4 1
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  0.3265829086303711
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.46338582038879395
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.5804104804992676
+(ANS) No answer provided
+Between time 2:  0.23973679542541504
+Total time  1.610269546508789
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  0.2981991767883301
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.4392688274383545
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.5811312198638916
+Force sets objects in motion
+['469627'] Force sets objects in motion 0.4 1
+[nltk_data] Downloading package stopwords to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Unzipping corpora/stopwords.zip.
+[nltk_data] Downloading package punkt to /home/venkteshv/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-19 22:07:22.521423: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 22:07:22.696423: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 22:07:23.367492: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 22:07:23.368249: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 22:07:23.368262: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 22:07:24.558420: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 22:07:24.558471: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+
+
+----------------------------------------------------------------------------------------
+
+----------------------------------
+----------------------------------
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+Keyphrases will be saved in this folder: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/Keywords/EmbedRankSentenceBERT/EmJacc
+
+Output Keyphrases Folder already exists.
+text: None EmJacc
+here keyword extraction
+keywords [array(['gravitational force', '0', '19'], dtype='<U21')]
+File: 1/11text: None EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+File: 2/11text: None EmJacc
+here keyword extraction
+keywords [array(['teachers women', '139', '153'], dtype='<U25'), array(['condition indian women', '41', '63'], dtype='<U25'), array(['female suffrage', '344', '359'], dtype='<U25'), array(['political pressure groups', '304', '329'], dtype='<U25'), array(['socialist movements', '425', '444'], dtype='<U25'), array(['1880s', '9', '14'], dtype='<U25'), array(['universities', '79', '91'], dtype='<U25'), array(['training centers', '207', '223'], dtype='<U25'), array(['books', '160', '165'], dtype='<U25'), array(['health care', '367', '378'], dtype='<U25'), array(['associations', '249', '261'], dtype='<U25'), array(['early 20th century', '273', '291'], dtype='<U25'), array(['women', '241', '246'], dtype='<U25'), array(['demands', '477', '484'], dtype='<U25'), array(['education', '383', '392'], dtype='<U25')]
+File: 3/11text: None EmJacc
+here keyword extraction
+keywords [array(['ox axis median value', '376', '396'], dtype='<U34'), array(['perpendicular', '293', '306'], dtype='<U34'), array(['frequency distribution series data', '146', '180'], dtype='<U34'), array(['intersecting point', '258', '276'], dtype='<U34'), array(['point', '334', '339'], dtype='<U34'), array(['approach', '18', '26'], dtype='<U34'), array(['ogives', '242', '248'], dtype='<U34'), array(['cumulative frequencies', '104', '126'], dtype='<U34'), array(['cumulative frequencies', '56', '78'], dtype='<U34'), array(['ogives', '284', '290'], dtype='<U34')]
+File: 4/11text: None EmJacc
+here keyword extraction
+ERROR_MAKSIM
+File: 5/11text: None EmJacc
+here keyword extraction
+keywords [array(['r br r cl r', '4', '15'], dtype='<U21'), array(['r', '0', '1'], dtype='<U21')]
+File: 6/11text: None EmJacc
+here keyword extraction
+keywords [array(['force', '0', '5'], dtype='<U21'), array(['motion', '22', '28'], dtype='<U21'), array(['objects', '11', '18'], dtype='<U21')]
+File: 7/11text: None EmJacc
+here keyword extraction
+ERROR_MAKSIM
+File: 8/11text: None EmJacc
+here keyword extraction
+keywords [array(['water resources monsoon failures', '809', '841'], dtype='<U32'), array(['water resources demands', '588', '611'], dtype='<U32'), array(['cubic metres agriculture', '493', '517'], dtype='<U32'), array(['conservation development', '306', '330'], dtype='<U32'), array(['economy tamil nadu', '178', '196'], dtype='<U32'), array(['floods', '214', '220'], dtype='<U32'), array(['droughts', '225', '233'], dtype='<U32'), array(['water resources groundwater', '110', '137'], dtype='<U32'), array(['monsoon rains', '729', '742'], dtype='<U32'), array(['water resource management', '0', '25'], dtype='<U32'), array(['capita availability', '382', '401'], dtype='<U32'), array(['several recommendations', '278', '301'], dtype='<U32'), array(['acute water scarcity', '850', '870'], dtype='<U32'), array(['water resources', '358', '373'], dtype='<U32'), array(['state', '558', '563'], dtype='<U32')]
+File: 9/11text: None EmJacc
+here keyword extraction
+keywords [array(['sati carey', '73', '83'], dtype='<U22'), array(['serampore missionaries', '0', '22'], dtype='<U22'), array(['hindu shastras', '126', '140'], dtype='<U22'), array(['lord wellesley', '168', '182'], dtype='<U22'), array(['william carey', '30', '43'], dtype='<U22'), array(['sati', '207', '211'], dtype='<U22'), array(['study', '117', '122'], dtype='<U22'), array(['pandits', '98', '105'], dtype='<U22'), array(['agitation', '55', '64'], dtype='<U22'), array(['memorial', '156', '164'], dtype='<U22'), array(['practice', '195', '203'], dtype='<U22')]
+File: 10/11text: None EmJacc
+here keyword extraction
+keywords [array(['r br r cl r', '4', '15'], dtype='<U21'), array(['r', '0', '1'], dtype='<U21')]
+File: 11/11
+100% of the Extraction Concluded
+
+Convert to trec_eval format
+[WARNING] Documento 1 not fount in qrels
+[WARNING] Documento 1-query-ans not fount in qrels
+[WARNING] Documento 1209746-ans not fount in qrels
+[WARNING] Documento 1210174-ans not fount in qrels
+[WARNING] Documento 1213240-ans not fount in qrels
+[WARNING] Documento 1388342-ans not fount in qrels
+[WARNING] Documento 1840178-ans not fount in qrels
+[WARNING] Documento 1902216-ans not fount in qrels
+[WARNING] Documento 2073271-ans not fount in qrels
+[WARNING] Documento 2073346-ans not fount in qrels
+[WARNING] Documento 469627-ans not fount in qrels
+1 - CreateOutFile: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc_EmbedRankSentenceBERT.out
+2 - CreateQrelFile: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc.qrel
+
+
+----------------------------------------------------------------------------------------
+resultsFiles ['/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc_EmbedRankSentenceBERT.out']
+[94m(ANS) Potential candidates : 
+[0m
+Between time 2:  26.756392002105713
+Total time  28.075215101242065
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1:  0.313185453414917
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+Between time 1.1:  0.13687562942504883
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+Between time 1.2:  0.9399683475494385
+Force sets objects in motion
+['469627'] Force sets objects in motion 0.4 1
+[nltk_data] Downloading package stopwords to
+[nltk_data]     /home/venkteshv/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data] Downloading package punkt to /home/venkteshv/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-19 22:08:06.113909: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 22:08:06.274645: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 22:08:06.902430: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 22:08:06.902526: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 22:08:06.902535: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 22:08:08.345192: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 22:08:08.345247: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+
+
+----------------------------------------------------------------------------------------
+
+----------------------------------
+----------------------------------
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+Keyphrases will be saved in this folder: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/Keywords/EmbedRankSentenceBERT/EmJacc
+
+Output Keyphrases Folder already exists.
+text: None EmJacc
+here keyword extraction
+keywords [array(['gravitational force', '0', '19'], dtype='<U21')]
+File: 1/11text: None EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+File: 2/11text: None EmJacc
+here keyword extraction
+keywords [array(['teachers women', '139', '153'], dtype='<U25'), array(['condition indian women', '41', '63'], dtype='<U25'), array(['female suffrage', '344', '359'], dtype='<U25'), array(['political pressure groups', '304', '329'], dtype='<U25'), array(['socialist movements', '425', '444'], dtype='<U25'), array(['1880s', '9', '14'], dtype='<U25'), array(['universities', '79', '91'], dtype='<U25'), array(['training centers', '207', '223'], dtype='<U25'), array(['books', '160', '165'], dtype='<U25'), array(['health care', '367', '378'], dtype='<U25'), array(['associations', '249', '261'], dtype='<U25'), array(['early 20th century', '273', '291'], dtype='<U25'), array(['women', '241', '246'], dtype='<U25'), array(['demands', '477', '484'], dtype='<U25'), array(['education', '383', '392'], dtype='<U25')]
+File: 3/11text: None EmJacc
+here keyword extraction
+keywords [array(['ox axis median value', '376', '396'], dtype='<U34'), array(['perpendicular', '293', '306'], dtype='<U34'), array(['frequency distribution series data', '146', '180'], dtype='<U34'), array(['intersecting point', '258', '276'], dtype='<U34'), array(['point', '334', '339'], dtype='<U34'), array(['approach', '18', '26'], dtype='<U34'), array(['ogives', '242', '248'], dtype='<U34'), array(['cumulative frequencies', '104', '126'], dtype='<U34'), array(['cumulative frequencies', '56', '78'], dtype='<U34'), array(['ogives', '284', '290'], dtype='<U34')]
+File: 4/11text: None EmJacc
+here keyword extraction
+ERROR_MAKSIM
+File: 5/11text: None EmJacc
+here keyword extraction
+keywords [array(['r br r cl r', '4', '15'], dtype='<U21'), array(['r', '0', '1'], dtype='<U21')]
+File: 6/11text: None EmJacc
+here keyword extraction
+keywords [array(['force', '0', '5'], dtype='<U21'), array(['motion', '22', '28'], dtype='<U21'), array(['objects', '11', '18'], dtype='<U21')]
+File: 7/11text: None EmJacc
+here keyword extraction
+ERROR_MAKSIM
+File: 8/11text: None EmJacc
+here keyword extraction
+keywords [array(['water resources monsoon failures', '809', '841'], dtype='<U32'), array(['water resources demands', '588', '611'], dtype='<U32'), array(['cubic metres agriculture', '493', '517'], dtype='<U32'), array(['conservation development', '306', '330'], dtype='<U32'), array(['economy tamil nadu', '178', '196'], dtype='<U32'), array(['floods', '214', '220'], dtype='<U32'), array(['droughts', '225', '233'], dtype='<U32'), array(['water resources groundwater', '110', '137'], dtype='<U32'), array(['monsoon rains', '729', '742'], dtype='<U32'), array(['water resource management', '0', '25'], dtype='<U32'), array(['capita availability', '382', '401'], dtype='<U32'), array(['several recommendations', '278', '301'], dtype='<U32'), array(['acute water scarcity', '850', '870'], dtype='<U32'), array(['water resources', '358', '373'], dtype='<U32'), array(['state', '558', '563'], dtype='<U32')]
+File: 9/11text: None EmJacc
+here keyword extraction
+keywords [array(['sati carey', '73', '83'], dtype='<U22'), array(['serampore missionaries', '0', '22'], dtype='<U22'), array(['hindu shastras', '126', '140'], dtype='<U22'), array(['lord wellesley', '168', '182'], dtype='<U22'), array(['william carey', '30', '43'], dtype='<U22'), array(['sati', '207', '211'], dtype='<U22'), array(['study', '117', '122'], dtype='<U22'), array(['pandits', '98', '105'], dtype='<U22'), array(['agitation', '55', '64'], dtype='<U22'), array(['memorial', '156', '164'], dtype='<U22'), array(['practice', '195', '203'], dtype='<U22')]
+File: 10/11text: None EmJacc
+here keyword extraction
+keywords [array(['r br r cl r', '4', '15'], dtype='<U21'), array(['r', '0', '1'], dtype='<U21')]
+File: 11/11
+100% of the Extraction Concluded
+
+Convert to trec_eval format
+[WARNING] Documento 1 not fount in qrels
+[WARNING] Documento 1-query-ans not fount in qrels
+[WARNING] Documento 1209746-ans not fount in qrels
+[WARNING] Documento 1210174-ans not fount in qrels
+[WARNING] Documento 1213240-ans not fount in qrels
+[WARNING] Documento 1388342-ans not fount in qrels
+[WARNING] Documento 1840178-ans not fount in qrels
+[WARNING] Documento 1902216-ans not fount in qrels
+[WARNING] Documento 2073271-ans not fount in qrels
+[WARNING] Documento 2073346-ans not fount in qrels
+[WARNING] Documento 469627-ans not fount in qrels
+1 - CreateOutFile: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc_EmbedRankSentenceBERT.out
+2 - CreateQrelFile: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc.qrel
+
+
+----------------------------------------------------------------------------------------
+resultsFiles ['/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc_EmbedRankSentenceBERT.out']
+[94m(ANS) Potential candidates : 
+[0m
+Between time 2:  27.419578075408936
+Total time  28.809783458709717
+[nltk_data] Error loading stopwords: <urlopen error [Errno 101]
+[nltk_data]     Network is unreachable>
+[nltk_data] Downloading package punkt to /home/venkteshv/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-19 22:13:21.139761: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 22:13:21.297876: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 22:13:21.916729: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 22:13:21.916838: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 22:13:21.916848: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 22:13:23.422784: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 22:13:23.422851: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+
+
+----------------------------------------------------------------------------------------
+
+----------------------------------
+----------------------------------
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+Keyphrases will be saved in this folder: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/Keywords/EmbedRankSentenceBERT/EmJacc
+
+Output Keyphrases Folder already exists.
+text: None EmJacc
+here keyword extraction
+keywords [array(['gravitational force', '0', '19'], dtype='<U21')]
+File: 1/11text: None EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+File: 2/11text: None EmJacc
+here keyword extraction
+keywords [array(['teachers women', '139', '153'], dtype='<U25'), array(['condition indian women', '41', '63'], dtype='<U25'), array(['female suffrage', '344', '359'], dtype='<U25'), array(['political pressure groups', '304', '329'], dtype='<U25'), array(['socialist movements', '425', '444'], dtype='<U25'), array(['1880s', '9', '14'], dtype='<U25'), array(['universities', '79', '91'], dtype='<U25'), array(['training centers', '207', '223'], dtype='<U25'), array(['books', '160', '165'], dtype='<U25'), array(['health care', '367', '378'], dtype='<U25'), array(['associations', '249', '261'], dtype='<U25'), array(['early 20th century', '273', '291'], dtype='<U25'), array(['women', '241', '246'], dtype='<U25'), array(['demands', '477', '484'], dtype='<U25'), array(['education', '383', '392'], dtype='<U25')]
+File: 3/11text: None EmJacc
+here keyword extraction
+keywords [array(['ox axis median value', '376', '396'], dtype='<U34'), array(['perpendicular', '293', '306'], dtype='<U34'), array(['frequency distribution series data', '146', '180'], dtype='<U34'), array(['intersecting point', '258', '276'], dtype='<U34'), array(['point', '334', '339'], dtype='<U34'), array(['approach', '18', '26'], dtype='<U34'), array(['ogives', '242', '248'], dtype='<U34'), array(['cumulative frequencies', '104', '126'], dtype='<U34'), array(['cumulative frequencies', '56', '78'], dtype='<U34'), array(['ogives', '284', '290'], dtype='<U34')]
+File: 4/11text: None EmJacc
+here keyword extraction
+ERROR_MAKSIM
+File: 5/11text: None EmJacc
+here keyword extraction
+keywords [array(['r br r cl r', '4', '15'], dtype='<U21'), array(['r', '0', '1'], dtype='<U21')]
+File: 6/11text: None EmJacc
+here keyword extraction
+keywords [array(['force', '0', '5'], dtype='<U21'), array(['motion', '22', '28'], dtype='<U21'), array(['objects', '11', '18'], dtype='<U21')]
+File: 7/11text: None EmJacc
+here keyword extraction
+ERROR_MAKSIM
+File: 8/11text: None EmJacc
+here keyword extraction
+keywords [array(['water resources monsoon failures', '809', '841'], dtype='<U32'), array(['water resources demands', '588', '611'], dtype='<U32'), array(['cubic metres agriculture', '493', '517'], dtype='<U32'), array(['conservation development', '306', '330'], dtype='<U32'), array(['economy tamil nadu', '178', '196'], dtype='<U32'), array(['floods', '214', '220'], dtype='<U32'), array(['droughts', '225', '233'], dtype='<U32'), array(['water resources groundwater', '110', '137'], dtype='<U32'), array(['monsoon rains', '729', '742'], dtype='<U32'), array(['water resource management', '0', '25'], dtype='<U32'), array(['capita availability', '382', '401'], dtype='<U32'), array(['several recommendations', '278', '301'], dtype='<U32'), array(['acute water scarcity', '850', '870'], dtype='<U32'), array(['water resources', '358', '373'], dtype='<U32'), array(['state', '558', '563'], dtype='<U32')]
+File: 9/11text: None EmJacc
+here keyword extraction
+keywords [array(['sati carey', '73', '83'], dtype='<U22'), array(['serampore missionaries', '0', '22'], dtype='<U22'), array(['hindu shastras', '126', '140'], dtype='<U22'), array(['lord wellesley', '168', '182'], dtype='<U22'), array(['william carey', '30', '43'], dtype='<U22'), array(['sati', '207', '211'], dtype='<U22'), array(['study', '117', '122'], dtype='<U22'), array(['pandits', '98', '105'], dtype='<U22'), array(['agitation', '55', '64'], dtype='<U22'), array(['memorial', '156', '164'], dtype='<U22'), array(['practice', '195', '203'], dtype='<U22')]
+File: 10/11text: None EmJacc
+here keyword extraction
+keywords [array(['r br r cl r', '4', '15'], dtype='<U21'), array(['r', '0', '1'], dtype='<U21')]
+File: 11/11
+100% of the Extraction Concluded
+
+Convert to trec_eval format
+[WARNING] Documento 1 not fount in qrels
+[WARNING] Documento 1-query-ans not fount in qrels
+[WARNING] Documento 1209746-ans not fount in qrels
+[WARNING] Documento 1210174-ans not fount in qrels
+[WARNING] Documento 1213240-ans not fount in qrels
+[WARNING] Documento 1388342-ans not fount in qrels
+[WARNING] Documento 1840178-ans not fount in qrels
+[WARNING] Documento 1902216-ans not fount in qrels
+[WARNING] Documento 2073271-ans not fount in qrels
+[WARNING] Documento 2073346-ans not fount in qrels
+[WARNING] Documento 469627-ans not fount in qrels
+1 - CreateOutFile: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc_EmbedRankSentenceBERT.out
+2 - CreateQrelFile: /home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc.qrel
+
+
+----------------------------------------------------------------------------------------
+resultsFiles ['/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/data/conversor/output/EmJacc_EmbedRankSentenceBERT.out']
+[94m(ANS) Potential candidates : 
+[0m
+Between time 2:  421.05854749679565
+Total time  422.4039309024811

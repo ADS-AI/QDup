@@ -1,0 +1,992 @@
+2022-09-19 21:08:42.070454: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 21:08:42.268408: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 21:08:42.929008: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:08:42.929100: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:08:42.929112: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 21:08:44.006396: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 21:08:44.006458: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 9000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+2022-09-19 21:11:03.484275: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 21:11:03.683207: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 21:11:04.350984: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:11:04.351074: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:11:04.351085: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 21:11:05.354988: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 21:11:05.355063: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.3.63:9000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+2022-09-19 21:14:20.282910: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-19 21:14:20.473425: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-19 21:14:21.415580: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:14:21.415676: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-19 21:14:21.415688: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+2022-09-19 21:14:22.393719: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudnn.so.8'; dlerror: libcudnn.so.8: cannot open shared object file: No such file or directory
+2022-09-19 21:14:22.393780: W tensorflow/core/common_runtime/gpu/gpu_device.cc:1934] Cannot dlopen some GPU libraries. Please make sure the missing libraries mentioned above are installed properly if you would like to use GPU. Follow the guide at https://www.tensorflow.org/install/gpu for how to download and setup the required libraries for your platform.
+Skipping registering GPU devices...
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.3.63:9000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:19:13] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:19:18] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:19:22] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:44:58] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:00] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:02] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:03] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:05] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:07] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:08] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:10] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:11] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:13] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:15] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:16] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:45:17] "POST /concept/extract HTTP/1.1" 200 -
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: inflorescence is EmJacc
+here keyword extraction
+keywords [array(['inflorescence', '0', '13'], dtype='<U21')]
+	 ('inflorescence', 0.9999999403953552)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: the group which contains all polysaccharide is EmJacc
+here keyword extraction
+keywords [array(['polysaccharide', '29', '43'], dtype='<U21'), array(['group', '4', '9'], dtype='<U21')]
+	 ('polysaccharide', 1.0)
+	 ('group', 0.4410122334957123)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: identify the figure of speech used in the following sentence from the choice given below helium is a special child EmJacc
+here keyword extraction
+keywords [array(['helium', '89', '95'], dtype='<U21'), array(['special child', '101', '114'], dtype='<U21'), array(['speech', '23', '29'], dtype='<U21'), array(['choice', '70', '76'], dtype='<U21'), array(['sentence', '52', '60'], dtype='<U21'), array(['figure', '13', '19'], dtype='<U21')]
+	 ('helium', 1.0)
+	 ('special child', 0.7491075396537781)
+	 ('speech', 0.7145033478736877)
+	 ('choice', 0.43764054775238037)
+	 ('sentence', 0.42260515689849854)
+	 ('figure', 0.3054700195789337)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: sclerenchyma mainly provides EmJacc
+here keyword extraction
+keywords [array(['sclerenchyma', '0', '12'], dtype='<U21')]
+	 ('sclerenchyma', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: how are cirque formed EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: ice formed over lake ha EmJacc
+here keyword extraction
+keywords [array(['ice', '0', '3'], dtype='<U21'), array(['lake', '16', '20'], dtype='<U21')]
+	 ('ice', 0.9999999403953552)
+	 ('lake', 0.46828553080558777)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what is the physical significance of density EmJacc
+here keyword extraction
+keywords [array(['density', '37', '44'], dtype='<U21'), array(['physical significance', '12', '33'], dtype='<U21')]
+	 ('density', 0.9999999403953552)
+	 ('physical significance', 0.8263822793960571)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what are node of ranvier EmJacc
+here keyword extraction
+keywords [array(['ranvier', '17', '24'], dtype='<U21'), array(['node', '9', '13'], dtype='<U21')]
+	 ('ranvier', 1.0)
+	 ('node', 0.8512981534004211)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: president of india EmJacc
+here keyword extraction
+keywords [array(['india', '13', '18'], dtype='<U21'), array(['president', '0', '9'], dtype='<U21')]
+	 ('india', 1.0)
+	 ('president', 0.5200838446617126)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: transfer function of foreign exchange is transferring of EmJacc
+here keyword extraction
+keywords [array(['foreign exchange', '21', '37'], dtype='<U21'), array(['function', '9', '17'], dtype='<U21')]
+	 ('foreign exchange', 1.0)
+	 ('function', 0.3919627368450165)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: benzoyl chloride is prepared from benzoic acid by EmJacc
+here keyword extraction
+keywords [array(['benzoyl chloride', '0', '16'], dtype='<U21'), array(['benzoic acid', '34', '46'], dtype='<U21')]
+	 ('benzoyl chloride', 1.0)
+	 ('benzoic acid', 0.9577953219413757)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what is the importance of soil with respect to plant EmJacc
+here keyword extraction
+keywords [array(['soil', '26', '30'], dtype='<U21'), array(['importance', '12', '22'], dtype='<U21'), array(['respect', '36', '43'], dtype='<U21')]
+	 ('soil', 1.0)
+	 ('importance', 0.2529890537261963)
+	 ('respect', 0.12622234225273132)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:52:37] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:53:14] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:53:18] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:53:24] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:53:27] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 21:53:42] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:06:45] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:07:04] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:07:19] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:08:03] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:31:23] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:41:08] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:41:09] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:41:09] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:41:35] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:41:35] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:41:36] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:43:56] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:44:45] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:44:46] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:44:47] "POST /concept/extract HTTP/1.1" 200 -
+('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: ferric chloride stop bleeding because EmJacc
+here keyword extraction
+keywords [array(['ferric chloride', '0', '15'], dtype='<U21')]
+	 ('ferric chloride', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: ferric chloride can stop bleeding because EmJacc
+here keyword extraction
+keywords [array(['ferric chloride', '0', '15'], dtype='<U21')]
+	 ('ferric chloride', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: ferric chloride stop bleeding because EmJacc
+here keyword extraction
+keywords [array(['ferric chloride', '0', '15'], dtype='<U21')]
+	 ('ferric chloride', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: ferric chloride stop bleeding because EmJacc
+here keyword extraction
+keywords [array(['ferric chloride', '0', '15'], dtype='<U21')]
+	 ('ferric chloride', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: how many π bond are there in ferrocene EmJacc
+here keyword extraction
+keywords [array(['many π bond', '4', '15'], dtype='<U21'), array(['ferrocene', '29', '38'], dtype='<U21')]
+	 ('many π bond', 1.0)
+	 ('ferrocene', 0.738980233669281)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 10; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '469627-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: gravitational force  EmJacc
+here keyword extraction
+keywords [array(['gravitational force', '0', '19'], dtype='<U21')]
+	 ('gravitational force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: force is mass product with acceleration EmJacc
+here keyword extraction
+keywords [array(['acceleration', '27', '39'], dtype='<U21'), array(['force', '0', '5'], dtype='<U21'), array(['mass product', '9', '21'], dtype='<U21')]
+	 ('acceleration', 1.0)
+	 ('force', 0.9126315116882324)
+	 ('mass product', 0.8412142992019653)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '469627-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: gravitational force  EmJacc
+here keyword extraction
+keywords [array(['gravitational force', '0', '19'], dtype='<U21')]
+	 ('gravitational force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: kindly water too good EmJacc
+here keyword extraction
+keywords [array(['water', '7', '12'], dtype='<U21')]
+	 ('water', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: what is force EmJacc
+here keyword extraction
+keywords [array(['force', '8', '13'], dtype='<U21')]
+	 ('force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '469627-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: gravitational force  EmJacc
+here keyword extraction
+keywords [array(['gravitational force', '0', '19'], dtype='<U21')]
+	 ('gravitational force', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+text: Kinley water is too good for taste EmJacc
+here keyword extraction
+keywords [array(['kinley water', '0', '12'], dtype='<U21'), array(['taste', '29', '34'], dtype='<U21')]
+	 ('kinley water', 1.0)
+	 ('taste', 0.5910521745681763)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 11; Language of the Dataset = en
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:45:20] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:45:21] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:45:21] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:23] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:36] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:37] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:37] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:41] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:55] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:56] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:46:56] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:47:34] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:47:35] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:47:35] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:07] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:08] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:08] "POST /concept/extract HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:09] "POST /concept/extract HTTP/1.1" 200 -
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1777528-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: 3 4  EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: Kinley water is too good for taste EmJacc
+here keyword extraction
+keywords [array(['kinley water', '0', '12'], dtype='<U21'), array(['taste', '29', '34'], dtype='<U21')]
+	 ('kinley water', 1.0)
+	 ('taste', 0.5910521745681763)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1777528-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: 3 4  EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: Kinley water is too good for taste EmJacc
+here keyword extraction
+keywords [array(['kinley water', '0', '12'], dtype='<U21'), array(['taste', '29', '34'], dtype='<U21')]
+	 ('kinley water', 1.0)
+	 ('taste', 0.5910521745681763)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1777528-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: 3 4  EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: Kinley water is too good for taste EmJacc
+here keyword extraction
+keywords [array(['kinley water', '0', '12'], dtype='<U21'), array(['taste', '29', '34'], dtype='<U21')]
+	 ('kinley water', 1.0)
+	 ('taste', 0.5910521745681763)
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: calculate the mass ratio of carbon to oxygen in carbon monoxide EmJacc
+here keyword extraction
+keywords [array(['carbon monoxide', '48', '63'], dtype='<U21'), array(['oxygen', '38', '44'], dtype='<U21'), array(['carbon', '28', '34'], dtype='<U21'), array(['mass ratio', '14', '24'], dtype='<U21')]
+	 ('carbon monoxide', 1.0)
+	 ('oxygen', 0.8280363082885742)
+	 ('carbon', 0.8099994659423828)
+	 ('mass ratio', 0.48055317997932434)
+request***** ImmutableMultiDict([('document', <FileStorage: '1777528-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: 3 4  EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: 3 EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 12; Language of the Dataset = en
+text: what is the strongest oxidising agent EmJacc
+here keyword extraction
+keywords [array(['oxidising agent', '22', '37'], dtype='<U21')]
+	 ('oxidising agent', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1895316-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 13; Language of the Dataset = en
+text: HClO4  EmJacc
+here keyword extraction
+keywords [array(['o4', '6', '8'], dtype='<U21')]
+	 ('o4', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1895185-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 14; Language of the Dataset = en
+text: F2  EmJacc
+here keyword extraction
+keywords [array(['f2', '0', '2'], dtype='<U21')]
+	 ('f2', 1.0)
+request***** ImmutableMultiDict([('document', <FileStorage: '1-query-ans.txt' (None)>)])
+load kp_list done.
+
+
+-----------------Extract Keyphrases--------------------------
+
+datasetID = EmJacc; Number of Files = 14; Language of the Dataset = en
+text: 3 EmJacc
+here keyword extraction
+ERROR_MAKSIM
+request***** ImmutableMultiDict([('document', <FileStorage: '1.txt' (None)>)])
+load kp_list done./home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:13] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:37] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:37] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:37] "POST /concept/extract HTTP/1.1" 200 -
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:38] "POST /concept/extract HTTP/1.1" 200 -

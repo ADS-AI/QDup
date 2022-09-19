@@ -1,5 +1,4 @@
 import time
-t = time.time()
 from formatting import EM_LOGO
 import gradio as gr
 
@@ -24,7 +23,7 @@ from Kw_generation.kw_runner import kw_potential_candidates
 from Sentence_embeddings.compare_embeds import embed_search_v2
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 from return_questions import get_texts, get_texts_v2
-from Kw_generation.ans_kw_checker import get_ans_potential_candidates
+from Kw_generation.ans_kw_checker import get_ans_potential_candidates_v2
 
 print(
     "-------------------------------------------------------------------------------------------------------------"
@@ -34,11 +33,8 @@ print()
 
 print("Enter the question : ", end="")
 
-print("importing time: ", time.time() - t)
-
 def run_model(query_question, query_question_ans): 
     t1 = time.time()
-    t = time.time()
 
     #
     #   GLOBAL VARIABLES
@@ -72,8 +68,6 @@ def run_model(query_question, query_question_ans):
     high_jaccard, potential_candidates = jaccard.main_jaccard_search(
         potential_candidates, query_question, JACC_THRESHOLD, verbose=1
     )
-    print("Between time 1: ", time.time() - t)
-    t = time.time()
     #
     # Exact duplicates
     #
@@ -96,17 +90,13 @@ def run_model(query_question, query_question_ans):
     #
     # Getting extracted keywords
     #
-    print("Between time 1.1: ", time.time() - t)
-    t = time.time()
     potential_candidates = list(kw_potential_candidates(
         potential_candidates, query_question, KW_THRESHOLD, verbose=GLOB_VERBOSE
     ))
-    print("Between time 1.2: ", time.time() - t)
-    t = time.time()
 
     if len(query_question_ans) > 0:
         print(query_question_ans)
-        ans_also_same = get_ans_potential_candidates(
+        ans_also_same = get_ans_potential_candidates_v2(
             potential_candidates, query_question_ans, ANS_KW_THRESHOLD, verbose=GLOB_VERBOSE
         )
     else:
@@ -145,15 +135,8 @@ def run_model(query_question, query_question_ans):
     all_questions = []
     for j in potential_candidates:
         all_questions.append(j)
-    # for j in after_ner_potential_candidates:
-    #     all_questions.append(j)
     all_questions = list(set(all_questions).difference(set(duplicate_questions_ques_ids)))
     related_questions.extend(get_texts(all_questions))
-    # possible overlap of
-    # (potential_candidates with after_ner_potential_candidates)
-    # and
-    # (potential_candidates and duplicates)
-    print("Between time 2: ", time.time() - t)
     print("Total time ", time.time() - t1)
 
     return (duplicate_questions_ques, related_questions)
