@@ -990,3 +990,73 @@ INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:37] "POST /concept/extract HTTP/1
 /home/venkteshv/rushil/anaconda3/envs/project8/lib/python3.9/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
   var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
 INFO:werkzeug:127.0.0.1 - - [19/Sep/2022 22:48:38] "POST /concept/extract HTTP/1.1" 200 -
+2022-09-21 16:09:24.674167: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:09:24.842236: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:09:25.426289: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:09:25.426368: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:09:25.426379: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 9000 is in use by another program. Either identify and stop that program, or start the server with a different port.
+2022-09-21 16:17:51.467076: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:17:51.635106: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:17:52.222938: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:17:52.223033: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:17:52.223044: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+config {'name': 'EmbedRankSentenceBERT', 'class': 'KeywordExtractor', 'encoder': {'class': 'SentenceTransformer', 'kwargs': {'model_name_or_path': 'bert-large-nli-stsb-mean-tokens'}}, 'nlp': {'name': 'spacy', 'model_name': 'en_core_web_sm'}, 'extractor': {'class': 'PhraseExtractor', 'kwargs': {'grammar': 'GRAMMAR1', 'np_method': 'GRAMMAR', 'np_tags': 'NLTK', 'stopwords': 'NLTK'}}, 'embedding': {'class': 'NaiveEmbedding', 'kwargs': {}}, 'rank': {'class': 'EmbedRank', 'kwargs': {'emb_method': 'NAIVE', 'mmr_beta': 0.5, 'top_n': 15, 'alias_threshold': 0.8}}}
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9000
+ * Running on http://192.168.3.63:9000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2022 16:18:33] "POST /concept/extract HTTP/1.1" 200 -
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2022 16:23:25] "POST /concept/extract HTTP/1.1" 200 -
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2022 16:29:32] "POST /concept/extract HTTP/1.1" 200 -
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2022 16:29:37] "POST /concept/extract HTTP/1.1" 200 -
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:134: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (cosine_similarities - np.min(cosine_similarities)) / (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:152: RuntimeWarning: invalid value encountered in divide
+  cosine_sims_norm = (
+/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/Unsupervised-keyphrase-extraction/src/main/rank/rank.py:161: RuntimeWarning: Mean of empty slice
+  cosine_sims_norm - np.nanmean(cosine_sims_norm, axis=0)
+/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1878: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+INFO:werkzeug:127.0.0.1 - - [21/Sep/2022 16:29:53] "POST /concept/extract HTTP/1.1" 200 -

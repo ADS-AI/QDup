@@ -24,6 +24,7 @@ from Sentence_embeddings.compare_embeds import embed_search_v2
 from Syllabus_Tagging.tagrec import get_question_tag, get_same_tag_candids
 from return_questions import get_texts, get_texts_v2
 from Kw_generation.ans_kw_checker import get_ans_potential_candidates_v2
+from negation import negation_pairs
 
 print(
     "-------------------------------------------------------------------------------------------------------------"
@@ -137,6 +138,10 @@ def run_model(query_question, query_question_ans):
         all_questions.append(j)
     all_questions = list(set(all_questions).difference(set(duplicate_questions_ques_ids)))
     related_questions.extend(get_texts(all_questions))
+
+    neg_removed_duplicates, dropped_sentence = negation_pairs(query_question, duplicate_questions_ques)
+    related_questions.extend(dropped_sentence)
+
     print("Total time ", time.time() - t1)
 
-    return (duplicate_questions_ques, related_questions)
+    return (neg_removed_duplicates, related_questions)

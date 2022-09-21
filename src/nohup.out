@@ -1001,3 +1001,706 @@ resultsFiles ['/home/venkteshv/venky/Maksim/Question_duplicate_detection/src/Kw_
 [0m
 Between time 2:  421.05854749679565
 Total time  422.4039309024811
+
+********************************* Online Question Duplication Demo ******************************************
+
+Installing modules...
+-------------------------------------------------------------------------------------------------------------
+
+-====================          _ _                  _ _
+||                  ||        |   \                /   |
+||   ================         |    \              / /| |
+||  ||                        | |\  \            / / | |
+||  ||                        | | \  \          / /  | |
+||  ||                        | |  \  \        / /   | |
+||  ||                        | |   \  \      /	/    | |
+||  =================         | |    \  \    / /     | |
+||                  ||        | |     \  \  / /      | |
+||   ================         | |      \  \/ /       | |
+||  ||                        | |       \   /        | |
+||  ||                        | |        ---         | |
+||  ||                        | |                    | |
+||  ||                        | |                    | |
+||   ================         | |                    | |
+||                   ||       | |                    | |
+ -===================         |_|                    |_|
+
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-21 16:09:50.432038: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:09:50.595077: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:09:51.306227: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:09:51.306326: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:09:51.306336: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[libprotobuf ERROR external/com_google_protobuf/src/google/protobuf/text_format.cc:324] Error parsing text-format research_scann.ScannConfig: 25:20: Integer out of range (2)
+2022-09-21 16:10:01.383406: I scann/partitioning/partitioner_factory_base.cc:59] Size of sampled dataset for training partition: 2530
+2022-09-21 16:10:01.428211: I ./scann/partitioning/kmeans_tree_partitioner_utils.h:88] PartitionerFactory ran in 44.677894ms.
+-------------------------------------------------------------------------------------------------------------
+Modules installed successfully!
+
+Enter the question : Running on local URL:  http://127.0.0.1:7860/
+Running on public URL: https://12440.gradio.app
+
+This share link expires in 72 hours. For free permanent hosting, check out Spaces: https://huggingface.co/spaces
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+2060518 : what is not a gel
+1976794 : what is not a statement
+1907531 : what is not a pollutant
+1907410 : what is not a herbicide
+1897905 : what is not a biopolymer
+1897194 : what is not a carbohydrate
+1886375 : what is not a contradiction
+1886238 : what is not a statement
+1878417 : what is not a proposition
+1877635 : what is not a proposition
+1876459 : what is not a nucleophile
+1875689 : what is not a nucleophile
+1510778 : what is not a tranquilizer
+1389199 : what is not a biopolymer
+1360338 : what is not a narcotic
+2000030 : what is not a homonym
+2000025 : what is not a homonym
+1967381 : what is not a preposition
+1962409 : what is not a metal
+1961521 : what is not a herbivore
+1942622 : what is not a preposition
+1939367 : what is not a season
+1885467 : what is not a bird
+1884156 : what is not a verb
+1884141 : what is not a verb
+1867300 : what is not a spice
+1867299 : what is not a shrub
+1867280 : what is not a cereal
+1794706 : what is not a sequence
+1770229 : what is not a surd
+1767558 : what is not a set
+1762630 : what is not a set
+1753721 : what is force
+1751842 : what is not a set
+1751728 : what is not a granulocyte
+1751479 : what is not a compound
+1237619 : what is not a suffix
+1247604 : what is not a simile
+1233314 : what is not a suffix
+840326 : what is not a star
+839094 : what is not a name
+839093 : what is not a surname
+835727 : what is not a herbivore
+835509 : what is not a climber
+[0m
+[95m(NER) Potential_candidates : 
+2060518 : what is not a gel
+1976794 : what is not a statement
+1907531 : what is not a pollutant
+1907410 : what is not a herbicide
+1897905 : what is not a biopolymer
+1897194 : what is not a carbohydrate
+1886375 : what is not a contradiction
+1886238 : what is not a statement
+1878417 : what is not a proposition
+1877635 : what is not a proposition
+1876459 : what is not a nucleophile
+1875689 : what is not a nucleophile
+1510778 : what is not a tranquilizer
+1389199 : what is not a biopolymer
+1360338 : what is not a narcotic
+2000030 : what is not a homonym
+2000025 : what is not a homonym
+1967381 : what is not a preposition
+1962409 : what is not a metal
+1961521 : what is not a herbivore
+1942622 : what is not a preposition
+1939367 : what is not a season
+1885467 : what is not a bird
+1884156 : what is not a verb
+1884141 : what is not a verb
+1867300 : what is not a spice
+1867299 : what is not a shrub
+1867280 : what is not a cereal
+1794706 : what is not a sequence
+1770229 : what is not a surd
+1767558 : what is not a set
+1762630 : what is not a set
+1753721 : what is force
+1751842 : what is not a set
+1751728 : what is not a granulocyte
+1751479 : what is not a compound
+1237619 : what is not a suffix
+1247604 : what is not a simile
+1233314 : what is not a suffix
+840326 : what is not a star
+839094 : what is not a name
+839093 : what is not a surname
+835727 : what is not a herbivore
+835509 : what is not a climber
+[0m
+Traceback (most recent call last):
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/gradio/routes.py", line 255, in run_predict
+    output = await app.blocks.process_api(
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/gradio/blocks.py", line 630, in process_api
+    predictions, duration = await self.call_function(fn_index, processed_input)
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/gradio/blocks.py", line 545, in call_function
+    prediction = await anyio.to_thread.run_sync(
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/anyio/to_thread.py", line 31, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/anyio/_backends/_asyncio.py", line 937, in run_sync_in_worker_thread
+    return await future
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/site-packages/anyio/_backends/_asyncio.py", line 867, in run
+    result = context.run(func, *args)
+  File "ui.py", line 16, in master_of_masters
+    list1, list2 = run_model(Question, Answer)
+  File "/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/master.py", line 94, in run_model
+    potential_candidates = list(kw_potential_candidates(
+  File "/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/kw_runner.py", line 67, in kw_potential_candidates
+    kw_1 = " ".join(get_kw(save_txt_file))
+  File "/home/vikram/venky/duplicate-detection/Question_duplicate_detection/src/Kw_generation/kw_runner.py", line 46, in get_kw
+    kws = json.loads(response.text)['keywords']
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/json/__init__.py", line 357, in loads
+    return _default_decoder.decode(s)
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/vikram/miniconda3/envs/project8/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+2060518 : what is not a gel
+1976794 : what is not a statement
+1907531 : what is not a pollutant
+1907410 : what is not a herbicide
+1897905 : what is not a biopolymer
+1897194 : what is not a carbohydrate
+1886375 : what is not a contradiction
+1886238 : what is not a statement
+1878417 : what is not a proposition
+1877635 : what is not a proposition
+1876459 : what is not a nucleophile
+1875689 : what is not a nucleophile
+1510778 : what is not a tranquilizer
+1389199 : what is not a biopolymer
+1360338 : what is not a narcotic
+2000030 : what is not a homonym
+2000025 : what is not a homonym
+1967381 : what is not a preposition
+1962409 : what is not a metal
+1961521 : what is not a herbivore
+1942622 : what is not a preposition
+1939367 : what is not a season
+1885467 : what is not a bird
+1884156 : what is not a verb
+1884141 : what is not a verb
+1867300 : what is not a spice
+1867299 : what is not a shrub
+1867280 : what is not a cereal
+1794706 : what is not a sequence
+1770229 : what is not a surd
+1767558 : what is not a set
+1762630 : what is not a set
+1753721 : what is force
+1751842 : what is not a set
+1751728 : what is not a granulocyte
+1751479 : what is not a compound
+1237619 : what is not a suffix
+1247604 : what is not a simile
+1233314 : what is not a suffix
+840326 : what is not a star
+839094 : what is not a name
+839093 : what is not a surname
+835727 : what is not a herbivore
+835509 : what is not a climber
+[0m
+[95m(NER) Potential_candidates : 
+2060518 : what is not a gel
+1976794 : what is not a statement
+1907531 : what is not a pollutant
+1907410 : what is not a herbicide
+1897905 : what is not a biopolymer
+1897194 : what is not a carbohydrate
+1886375 : what is not a contradiction
+1886238 : what is not a statement
+1878417 : what is not a proposition
+1877635 : what is not a proposition
+1876459 : what is not a nucleophile
+1875689 : what is not a nucleophile
+1510778 : what is not a tranquilizer
+1389199 : what is not a biopolymer
+1360338 : what is not a narcotic
+2000030 : what is not a homonym
+2000025 : what is not a homonym
+1967381 : what is not a preposition
+1962409 : what is not a metal
+1961521 : what is not a herbivore
+1942622 : what is not a preposition
+1939367 : what is not a season
+1885467 : what is not a bird
+1884156 : what is not a verb
+1884141 : what is not a verb
+1867300 : what is not a spice
+1867299 : what is not a shrub
+1867280 : what is not a cereal
+1794706 : what is not a sequence
+1770229 : what is not a surd
+1767558 : what is not a set
+1762630 : what is not a set
+1753721 : what is force
+1751842 : what is not a set
+1751728 : what is not a granulocyte
+1751479 : what is not a compound
+1237619 : what is not a suffix
+1247604 : what is not a simile
+1233314 : what is not a suffix
+840326 : what is not a star
+839094 : what is not a name
+839093 : what is not a surname
+835727 : what is not a herbivore
+835509 : what is not a climber
+[0m
+[94m(KW) Potential_candidates : 
+1753721 : what is force
+[0m
+(ANS) No answer provided
+Total time  3.743387222290039
+
+********************************* Online Question Duplication Demo ******************************************
+
+Installing modules...
+-------------------------------------------------------------------------------------------------------------
+
+-====================          _ _                  _ _
+||                  ||        |   \                /   |
+||   ================         |    \              / /| |
+||  ||                        | |\  \            / / | |
+||  ||                        | | \  \          / /  | |
+||  ||                        | |  \  \        / /   | |
+||  ||                        | |   \  \      /	/    | |
+||  =================         | |    \  \    / /     | |
+||                  ||        | |     \  \  / /      | |
+||   ================         | |      \  \/ /       | |
+||  ||                        | |       \   /        | |
+||  ||                        | |        ---         | |
+||  ||                        | |                    | |
+||  ||                        | |                    | |
+||   ================         | |                    | |
+||                   ||       | |                    | |
+ -===================         |_|                    |_|
+
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-21 16:20:12.337376: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:20:12.498212: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:20:13.360994: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:20:13.361105: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:20:13.361115: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[libprotobuf ERROR external/com_google_protobuf/src/google/protobuf/text_format.cc:324] Error parsing text-format research_scann.ScannConfig: 25:20: Integer out of range (2)
+2022-09-21 16:20:23.406939: I scann/partitioning/partitioner_factory_base.cc:59] Size of sampled dataset for training partition: 2530
+2022-09-21 16:20:23.450702: I ./scann/partitioning/kmeans_tree_partitioner_utils.h:88] PartitionerFactory ran in 43.66762ms.
+-------------------------------------------------------------------------------------------------------------
+Modules installed successfully!
+
+Enter the question : Running on local URL:  http://127.0.0.1:7861/
+Running on public URL: https://23053.gradio.app
+
+This share link expires in 72 hours. For free permanent hosting, check out Spaces: https://huggingface.co/spaces
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+2025619 : what is not true
+1911735 : what is not true
+1897482 : what is not true
+1888085 : what is not tetrahedral
+1887795 : what is not paramagnetic
+1830076 : what is not possible
+1825108 : what is not true
+1822460 : what is not true
+1514761 : what is not true
+1396468 : what is not tetrahedral
+1333140 : what is not heterogeneous
+1553221 : what is not true
+1108391 : what is muscular force
+1842683 : what is not biodegradable
+1753936 : what is impulsive force
+1753721 : what is force
+1188446 : what is not poriferan
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+466066 : what is not snake
+[0m
+[95m(NER) Potential_candidates : 
+2025619 : what is not true
+1911735 : what is not true
+1897482 : what is not true
+1888085 : what is not tetrahedral
+1887795 : what is not paramagnetic
+1830076 : what is not possible
+1825108 : what is not true
+1822460 : what is not true
+1514761 : what is not true
+1396468 : what is not tetrahedral
+1333140 : what is not heterogeneous
+1553221 : what is not true
+1108391 : what is muscular force
+1842683 : what is not biodegradable
+1753936 : what is impulsive force
+1753721 : what is force
+1188446 : what is not poriferan
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+466066 : what is not snake
+[0m
+[94m(KW) Potential_candidates : 
+1753721 : what is force
+[0m
+(ANS) No answer provided
+Total time  3.004646062850952
+
+********************************* Online Question Duplication Demo ******************************************
+
+Installing modules...
+-------------------------------------------------------------------------------------------------------------
+
+-====================          _ _                  _ _
+||                  ||        |   \                /   |
+||   ================         |    \              / /| |
+||  ||                        | |\  \            / / | |
+||  ||                        | | \  \          / /  | |
+||  ||                        | |  \  \        / /   | |
+||  ||                        | |   \  \      /	/    | |
+||  =================         | |    \  \    / /     | |
+||                  ||        | |     \  \  / /      | |
+||   ================         | |      \  \/ /       | |
+||  ||                        | |       \   /        | |
+||  ||                        | |        ---         | |
+||  ||                        | |                    | |
+||  ||                        | |                    | |
+||   ================         | |                    | |
+||                   ||       | |                    | |
+ -===================         |_|                    |_|
+
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-21 16:26:17.587627: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:26:17.750585: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:26:18.450956: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:26:18.451076: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:26:18.451087: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[libprotobuf ERROR external/com_google_protobuf/src/google/protobuf/text_format.cc:324] Error parsing text-format research_scann.ScannConfig: 25:20: Integer out of range (2)
+2022-09-21 16:26:28.541822: I scann/partitioning/partitioner_factory_base.cc:59] Size of sampled dataset for training partition: 2530
+2022-09-21 16:26:28.589362: I ./scann/partitioning/kmeans_tree_partitioner_utils.h:88] PartitionerFactory ran in 47.38018ms.
+-------------------------------------------------------------------------------------------------------------
+Modules installed successfully!
+
+Enter the question : Running on local URL:  http://127.0.0.1:7862/
+
+********************************* Online Question Duplication Demo ******************************************
+
+Installing modules...
+-------------------------------------------------------------------------------------------------------------
+
+-====================          _ _                  _ _
+||                  ||        |   \                /   |
+||   ================         |    \              / /| |
+||  ||                        | |\  \            / / | |
+||  ||                        | | \  \          / /  | |
+||  ||                        | |  \  \        / /   | |
+||  ||                        | |   \  \      /	/    | |
+||  =================         | |    \  \    / /     | |
+||                  ||        | |     \  \  / /      | |
+||   ================         | |      \  \/ /       | |
+||  ||                        | |       \   /        | |
+||  ||                        | |        ---         | |
+||  ||                        | |                    | |
+||  ||                        | |                    | |
+||   ================         | |                    | |
+||                   ||       | |                    | |
+ -===================         |_|                    |_|
+
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-21 16:26:37.183095: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:26:37.348194: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:26:38.065786: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:26:38.065896: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:26:38.065906: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+Running on public URL: https://28678.gradio.app
+
+This share link expires in 72 hours. For free permanent hosting, check out Spaces: https://huggingface.co/spaces
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[libprotobuf ERROR external/com_google_protobuf/src/google/protobuf/text_format.cc:324] Error parsing text-format research_scann.ScannConfig: 25:20: Integer out of range (2)
+2022-09-21 16:26:48.472150: I scann/partitioning/partitioner_factory_base.cc:59] Size of sampled dataset for training partition: 2530
+2022-09-21 16:26:48.516660: I ./scann/partitioning/kmeans_tree_partitioner_utils.h:88] PartitionerFactory ran in 44.383294ms.
+-------------------------------------------------------------------------------------------------------------
+Modules installed successfully!
+
+Enter the question : Running on local URL:  http://127.0.0.1:7863/
+Running on public URL: https://16568.gradio.app
+
+This share link expires in 72 hours. For free permanent hosting, check out Spaces: https://huggingface.co/spaces
+
+********************************* Online Question Duplication Demo ******************************************
+
+Installing modules...
+-------------------------------------------------------------------------------------------------------------
+
+-====================          _ _                  _ _
+||                  ||        |   \                /   |
+||   ================         |    \              / /| |
+||  ||                        | |\  \            / / | |
+||  ||                        | | \  \          / /  | |
+||  ||                        | |  \  \        / /   | |
+||  ||                        | |   \  \      /	/    | |
+||  =================         | |    \  \    / /     | |
+||                  ||        | |     \  \  / /      | |
+||   ================         | |      \  \/ /       | |
+||  ||                        | |       \   /        | |
+||  ||                        | |        ---         | |
+||  ||                        | |                    | |
+||  ||                        | |                    | |
+||   ================         | |                    | |
+||                   ||       | |                    | |
+ -===================         |_|                    |_|
+
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[nltk_data] Downloading package punkt to /home/vikram/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+2022-09-21 16:27:50.135209: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-09-21 16:27:50.300270: E tensorflow/stream_executor/cuda/cuda_blas.cc:2981] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2022-09-21 16:27:51.225820: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer.so.7'; dlerror: libnvinfer.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:27:51.225929: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libnvinfer_plugin.so.7'; dlerror: libnvinfer_plugin.so.7: cannot open shared object file: No such file or directory
+2022-09-21 16:27:51.225939: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Cannot dlopen some TensorRT libraries. If you would like to use Nvidia GPU with TensorRT, please make sure the missing libraries mentioned above are installed properly.
+[nltk_data] Downloading package omw-1.4 to /home/vikram/nltk_data...
+[nltk_data]   Package omw-1.4 is already up-to-date!
+[nltk_data] Downloading package wordnet to /home/vikram/nltk_data...
+[nltk_data]   Package wordnet is already up-to-date!
+[libprotobuf ERROR external/com_google_protobuf/src/google/protobuf/text_format.cc:324] Error parsing text-format research_scann.ScannConfig: 25:20: Integer out of range (2)
+2022-09-21 16:28:01.199508: I scann/partitioning/partitioner_factory_base.cc:59] Size of sampled dataset for training partition: 2530
+2022-09-21 16:28:01.243981: I ./scann/partitioning/kmeans_tree_partitioner_utils.h:88] PartitionerFactory ran in 44.348879ms.
+-------------------------------------------------------------------------------------------------------------
+Modules installed successfully!
+
+Enter the question : Running on local URL:  http://127.0.0.1:7864/
+Running on public URL: https://25966.gradio.app
+
+This share link expires in 72 hours. For free permanent hosting, check out Spaces: https://huggingface.co/spaces
+[92m(JACC)Duplicate questions : 
+1753721 : what is force
+[0m
+[36m(JACC)Potential Candidates: 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+[95m(NER) Potential_candidates : 
+1108391 : what is muscular force
+1753936 : what is impulsive force
+1747362 : what is the coriolis force
+957180 : what is elastic force
+957177 : what is muscular force
+957154 : what is mechanical force
+957152 : what is magnetic force
+957151 : what is force of friction
+821345 : what is elastic force
+821341 : what is mechanical force
+821340 : what is magnetic force
+821338 : what is muscular force
+821335 : what is force of friction
+469627 : what is the weakest force
+[0m
+[94m(KW) Potential_candidates : 
+469627 : what is the weakest force
+[0m
+(ANS) No answer provided
+Total time  2.9768388271331787
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+2060518 : what is not a gel
+1976794 : what is not a statement
+1907531 : what is not a pollutant
+1907410 : what is not a herbicide
+1897905 : what is not a biopolymer
+1897194 : what is not a carbohydrate
+1886375 : what is not a contradiction
+1886238 : what is not a statement
+1878417 : what is not a proposition
+1877635 : what is not a proposition
+1876459 : what is not a nucleophile
+1875689 : what is not a nucleophile
+1510778 : what is not a tranquilizer
+1389199 : what is not a biopolymer
+1360338 : what is not a narcotic
+2000030 : what is not a homonym
+2000025 : what is not a homonym
+1967381 : what is not a preposition
+1962409 : what is not a metal
+1961521 : what is not a herbivore
+1942622 : what is not a preposition
+1939367 : what is not a season
+1885467 : what is not a bird
+1884156 : what is not a verb
+1884141 : what is not a verb
+1867300 : what is not a spice
+1867299 : what is not a shrub
+1867280 : what is not a cereal
+1794706 : what is not a sequence
+1770229 : what is not a surd
+1767558 : what is not a set
+1762630 : what is not a set
+1753721 : what is force
+1751842 : what is not a set
+1751728 : what is not a granulocyte
+1751479 : what is not a compound
+1237619 : what is not a suffix
+1247604 : what is not a simile
+1233314 : what is not a suffix
+840326 : what is not a star
+839094 : what is not a name
+839093 : what is not a surname
+835727 : what is not a herbivore
+835509 : what is not a climber
+[0m
+[95m(NER) Potential_candidates : 
+2060518 : what is not a gel
+1976794 : what is not a statement
+1907531 : what is not a pollutant
+1907410 : what is not a herbicide
+1897905 : what is not a biopolymer
+1897194 : what is not a carbohydrate
+1886375 : what is not a contradiction
+1886238 : what is not a statement
+1878417 : what is not a proposition
+1877635 : what is not a proposition
+1876459 : what is not a nucleophile
+1875689 : what is not a nucleophile
+1510778 : what is not a tranquilizer
+1389199 : what is not a biopolymer
+1360338 : what is not a narcotic
+2000030 : what is not a homonym
+2000025 : what is not a homonym
+1967381 : what is not a preposition
+1962409 : what is not a metal
+1961521 : what is not a herbivore
+1942622 : what is not a preposition
+1939367 : what is not a season
+1885467 : what is not a bird
+1884156 : what is not a verb
+1884141 : what is not a verb
+1867300 : what is not a spice
+1867299 : what is not a shrub
+1867280 : what is not a cereal
+1794706 : what is not a sequence
+1770229 : what is not a surd
+1767558 : what is not a set
+1762630 : what is not a set
+1753721 : what is force
+1751842 : what is not a set
+1751728 : what is not a granulocyte
+1751479 : what is not a compound
+1237619 : what is not a suffix
+1247604 : what is not a simile
+1233314 : what is not a suffix
+840326 : what is not a star
+839094 : what is not a name
+839093 : what is not a surname
+835727 : what is not a herbivore
+835509 : what is not a climber
+[0m
+[94m(KW) Potential_candidates : 
+1753721 : what is force
+[0m
+(ANS) No answer provided
+Total time  1.633908748626709
+[92m(JACC)Duplicate questions : 
+[0m
+[36m(JACC)Potential Candidates: 
+[0m
+[95m(NER) Potential_candidates : 
+[0m
+[94m(KW) Potential_candidates : 
+[0m
+(ANS) No answer provided
+Total time  1.2901980876922607
